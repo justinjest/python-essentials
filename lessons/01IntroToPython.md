@@ -182,7 +182,7 @@ else:
 
 **Loops** allow us to repeat code multiple times, either for a specific range or while a condition is `True`
 
-#### For Loop
+#### `For` Loop
 
 The `for` loop is commonly used to iterate over a sequence (like a list or range of numbers).
 
@@ -198,7 +198,7 @@ for i in range(3):
     print("Loop iteration:", i)
 ```
 
-#### While Loop
+#### `While` Loop
 
 A `while` loop runs as long as a condition remains `True`. Be careful to ensure the condition will eventually be `False` to avoid infinite loops.
 
