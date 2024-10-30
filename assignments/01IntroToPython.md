@@ -1,4 +1,5 @@
-# Assignment: Python Basics - Data Conversion, User Input, Error Handling, and Functions**
+## Lesson 1 Assignment: Intro to Python
+### Data Conversion, User Input, Error Handling, and Functions
 
 **Objective:** In this assignment, you will practice Python programming concepts such as data type conversion, user input handling, error handling, and creating functions. Complete the tasks below, modifying the provided code where needed and adding your own implementations.
 
