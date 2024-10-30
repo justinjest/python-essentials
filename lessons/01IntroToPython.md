@@ -428,5 +428,12 @@ def multiply(a, b):
 
 multiply(3, 5)
 ```
+
+### Basic Debugging Video
+
+Let's wrap up Lesson 1's content with a short video on debugging. 
+
+**View the video here:** [LINK TBD]
+
 ---
 This content was created by Janet Zulu, Reid Russom, and CTD volunteers and partially based on material from [Full Stack Python](https://www.fullstackpython.com/) and the [Python tutorial](https://docs.python.org/3/tutorial/index.html). Initially accessed October 30, 2024, licensed Python Software Foundation License Version 2. To submit feedback, please fill out the [CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
