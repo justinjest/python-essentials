@@ -151,6 +151,56 @@ print(5 > 3)  # True
 print(True and False)  # False
 ```
 
+### 1.1 Check for Understanding
+
+**Question:** What type of data is stored in the variable `age` in the following code?
+
+```python
+age = 28
+```
+
+  * A) String
+  * B) Integer
+  * C) Float
+  * D) Boolean
+
+**Answer**: B) Integer
+
+**Question:** WWhich of the following data types would you use to store the value `"Hello, World!"`?
+
+  * A) Integer
+  * B) Float
+  * C) String
+  * D) Boolean
+
+**Answer**: C) String
+
+**Question**: What will be the output of the following code?
+
+```python
+num_str = "42"
+num_int = int(num_str)
+print(num_int)
+```
+  * A) `"42"`
+  * B) `42`
+  * C) `<class 'str'>`
+  * D) An error message
+
+**Answer**: B) `42`
+
+**Question**: What will the following code output?
+
+``python
+print(10 % 3)
+``
+  * A) `3`
+  * B) `1`
+  * C) `10`
+  * D) `0`
+
+**Answer:** B) `1`
+
 ## 1.2 Control Flow
 
 Control flow structures allow us to direct the execution of code based on conditions or repeat code until a condition is met. The two main control flow structures in Python are **conditional statements** and **loops**.
@@ -252,6 +302,40 @@ Our video on loops and conditionals breaks down some common situations in which 
 
 **View the video here:** [LINK TBD]
 
+### 1.2 Check for Understanding
+
+**Question:** What will the following code output if `age = 16`?
+
+```python
+if age >= 18:
+    print("You're an adult!")
+elif age >= 13:
+    print("You're a teenager.")
+else:
+    print("You're a child.")
+```
+
+  * A) "You're an adult!"
+  * B) "You're a teenager."
+  * C) "You're a child."
+  * D) No output
+
+**Answer**: B) "You're a teenager."
+
+**Question**: What will the following code output?
+
+```python
+for i in range(3):
+    print(i)
+```
+
+  * A) `1 2 3`
+  * B) `0 1 2`
+  * C) `0 1 2 3`
+  * D) `3`
+
+**Answer**: B) `0 1 2`
+
 ## 1.3 Functions
 
 **Functions** are reusable blocks of code that perform specific tasks. They help keep your code organized, modular, and easy to understand.
@@ -312,6 +396,39 @@ def greet(name="stranger"):
 greet()            # Output: Hello, stranger!
 greet("Luis")   # Output: Hello, Luis!
 ```
+
+### Video 1.3: Error Handling
+
+[Video Description TBD]
+
+**View the video here:** [LINK TBD]
+
+### 1.3 Check for Understanding
+
+**Question**: What is the purpose of the `return` statement in a function?
+
+  * A) To stop the function
+  * B) To send a value back to the caller
+  * C) To print a message
+  * D) To define a variable
+
+**Answer**: B) To send a value back to the caller.
+
+**Question**: What will be the output of the following code?
+
+```python
+def greet(name):
+    print("Hello, " + name + "!")
+    
+greet("Luis")
+```
+
+  * A) `"Hello, stranger!"`
+  * B) `"Hello, Luis!"`
+  * C) `"Hello, name!"`
+  * D) `"Luis"`
+
+**Answer**: B) `"Hello, Luis!"`
 
 ## 1.4 Error Handling
 
@@ -382,6 +499,24 @@ except ValueError as e:
 
 **View the video here:** [LINK TBD]
 
+### 1.4 Check for Understanding
+
+**Question**: If the following code tries to divide by zero, which message will it print?
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+```
+
+  * A) It will print nothing
+  * B) `10`
+  * C) `Error: Divsion by zero is not allowed.`
+  * D) `None`
+
+**Answer:** C) `Error: Division by zero is not allowed.`
+
 ### In-Depth Read: Errors and Exceptions
 
 For a more in-depth look at Errors and Exceptions, along with plenty of examples, check out the [Python Tutorial's article on this subject](https://docs.python.org/3/tutorial/errors.html). 
@@ -447,5 +582,16 @@ Let's wrap up Lesson 1's content with a short video on debugging.
 
 **View the video here:** [LINK TBD]
 
+### Check for Understanding
+
+**Question**: What is the primary purpose of using `print` statements in debugging?
+
+  * A) To find and correct errors in variable values and program flow
+  * B) To slow down the program
+  * C) To remove errors automatically
+  * D) To show only the final output
+
+**Answer**: A) To find and correct errors in variable values and program flow
+
 ---
-This content was created by Janet Zulu, Reid Russom, and CTD volunteers and partially based on material from [Full Stack Python](https://www.fullstackpython.com/) and the [Python tutorial](https://docs.python.org/3/tutorial/index.html). Initially accessed October 30, 2024, licensed Python Software Foundation License Version 2. To submit feedback, please fill out the [CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
+This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form (https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
