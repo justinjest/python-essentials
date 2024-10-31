@@ -14,7 +14,7 @@ If you have questions at any point, ask a question in the `discussion` Slack cha
 
 Congrats, you've made it to Lesson 2! This week, we'll deepen our knowledge of core Python concepts, including dictionaries and lists. We'll also learn how to import **modules**, powerful tools that help your Python projects reach their full potential.
 
-Students will explore various data structures, such as lists, tuples, dictionaries, and sets. They will learn how to read and write data to files and use external modules.
+**Learning objective**: Students will explore various data structures, such as lists, tuples, dictionaries, and sets. They will learn how to read and write data to files and use external modules.
 
 Topics: 
  - Lists, Tuples, Dictionaries, and Sets: Creating, accessing, and modifying data structures.
