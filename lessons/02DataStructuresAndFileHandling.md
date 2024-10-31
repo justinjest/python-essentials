@@ -395,4 +395,4 @@ except ZeroDivisionError:
 **Answer**: B) input() displays a prompt and captures user input as a string by default.
 
 ---
-This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form (https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
+This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
