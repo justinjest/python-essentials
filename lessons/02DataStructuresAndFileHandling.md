@@ -352,7 +352,7 @@ except ValueError:
 
 ### Example: Simple Calculator Using Keyboard Input
 
-Here’s a basic example that combines multiple `input()` calls to create a calculator:
+Here’s a basic example that combines multiple `input()` calls to create a calculator. Pay attention to this code, because you'll be creating a calculator in this week's assignment!
 
 ```python
 # Simple calculator
