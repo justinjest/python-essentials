@@ -1,6 +1,18 @@
 # Lesson 1 — Introduction to Python
 
-Welcome to **Python Essentials** with Code the Dream! Our first lesson covers the basics of programming in Python. To complete this lesson, read through the following content and complete the Lesson 1 assignment. There are also five videos linked throughout this lesson — these videos were created by CTD mentors and will help you understand the concepts in the lesson. If you need help, ask a question in the discussion channel or reach out to your mentor!
+Welcome to **Python Essentials** with Code the Dream! 
+
+## How to Follow This Content
+
+  * Start by reading the lesson's **learning objective** in the `Learning Overview` section. Each weekly assignment will measure your skill related to the learning objective.
+  * Lessons are split into **subsections**, labeled like this: `1.1`, `1,2`, etc.
+  * Each subsection has a short **supplemental video** that will help you understand the content in that subsection.
+  * At the end of each subsection, you'll find a multiple-choice **"Check for Understanding"** question. Complete the question and review the material if your answer is not correct!
+  * After reading through the lesson content and correctly answering the "Check for Understanding" questions, complete the **Weekly Assignment**.
+
+If you have questions at any point, ask a question in the `discussion` Slack channel or reach out to your mentor!
+
+## Lesson Overview
 
 **Learning objective:** Students will learn the basics of Python programming, including variables, data types, operators, control flow statements, and functions. They will also practice debugging their code.
 
