@@ -1,5 +1,17 @@
 # Lesson 2 — Data Structures and File Handling
 
+## Reminder: How to Follow This Content
+
+  * Start by reading the lesson's **learning objective** in the `Learning Overview` section. Each weekly assignment will measure your skill related to the learning objective.
+  * Lessons are split into **subsections**, labeled like this: `1.1`, `1,2`, etc.
+  * Each subsection has a short **supplemental video** that will help you understand the content in that subsection.
+  * At the end of each subsection, you'll find a multiple-choice **"Check for Understanding"** question. Complete the question and review the material if your answer is not correct!
+  * After reading through the lesson content and correctly answering the "Check for Understanding" questions, complete the **Weekly Assignment**.
+
+If you have questions at any point, ask a question in the `discussion` Slack channel or reach out to your mentor!
+
+## Lesson Overivew
+
 Congrats, you've made it to Lesson 2! This week, we'll deepen our knowledge of core Python concepts, including dictionaries and lists. We'll also learn how to import **modules**, powerful tools that help your Python projects reach their full potential.
 
 Students will explore various data structures, such as lists, tuples, dictionaries, and sets. They will learn how to read and write data to files and use external modules.
