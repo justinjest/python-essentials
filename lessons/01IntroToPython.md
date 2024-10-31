@@ -105,7 +105,7 @@ result = int(2.8) + 3  # 5 (integer, because we explicitly converted the float t
 
 ### Video 1.1: Data Types and Conversion
 
-Learn how to work with data types in Python in our first video, which covers essential type conversions with int(), `float()`, `str()`, and `bool()`, practical examples of when to use them, and tips to avoid common pitfalls.
+Learn how to work with data types in Python in our first video, which covers essential type conversions with `int()`, `float()`, `str()`, and `bool()`, practical examples of when to use them, and tips to avoid common pitfalls.
 
 **Watch the video here.** [LINK TBD]
 
@@ -397,7 +397,7 @@ greet()            # Output: Hello, stranger!
 greet("Luis")   # Output: Hello, Luis!
 ```
 
-### Video 1.3: Error Handling
+### Video 1.3: Functions
 
 [Video Description TBD]
 
