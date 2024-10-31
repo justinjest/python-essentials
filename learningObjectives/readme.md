@@ -25,6 +25,8 @@ Topics:
 
 ### Lesson 02 — Data Structures and File Handling
 
+Students will explore various data structures, such as lists, tuples, dictionaries, and sets. They will learn how to read and write data to files and use external modules.
+
 Topics: 
  - Lists, Tuples, Dictionaries, and Sets: Creating, accessing, and modifying data structures.
  - File Handling: Reading from and writing to text and CSV files.
