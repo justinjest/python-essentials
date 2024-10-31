@@ -166,7 +166,7 @@ age = 28
 
 **Answer**: B) Integer
 
-**Question:** WWhich of the following data types would you use to store the value `"Hello, World!"`?
+**Question:** Which of the following data types would you use to store the value `"Hello, World!"`?
 
   * A) Integer
   * B) Float
