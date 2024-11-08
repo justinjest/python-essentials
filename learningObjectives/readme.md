@@ -35,7 +35,7 @@ Topics:
 
 ### Lesson 03 — Introduction to Data Engineering
 
-Students will deepen their understanding of data structures and apply them to real-world problems.
+Students will learn to load, preview, and inspect datasets in Pandas by reading data from common formats and summarizing data structure to facilitate efficient data analysis.
 
 Topics:
 - Introduction to Pandas: Creating and manipulating DataFrames.
