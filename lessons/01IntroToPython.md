@@ -163,8 +163,14 @@ age = 28
   * B) Integer
   * C) Float
   * D) Boolean
+  
+<details>
+
+<summary>Answer</summary>
 
 **Answer**: B) Integer
+
+</details>
 
 **Question:** Which of the following data types would you use to store the value `"Hello, World!"`?
 
@@ -173,7 +179,13 @@ age = 28
   * C) String
   * D) Boolean
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: C) String
+
+</details>
 
 **Question**: What will be the output of the following code?
 
@@ -187,7 +199,13 @@ print(num_int)
   * C) `<class 'str'>`
   * D) An error message
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: B) `42`
+
+</details>
 
 **Question**: What will the following code output?
 
@@ -199,7 +217,13 @@ print(10 % 3)
   * C) `10`
   * D) `0`
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer:** B) `1`
+
+</details>
 
 ## 1.2 Control Flow
 
@@ -320,7 +344,13 @@ else:
   * C) "You're a child."
   * D) No output
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: B) "You're a teenager."
+
+</details>
 
 **Question**: What will the following code output?
 
@@ -334,7 +364,13 @@ for i in range(3):
   * C) `0 1 2 3`
   * D) `3`
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: B) `0 1 2`
+
+</details>
 
 ## 1.3 Functions
 
@@ -412,7 +448,13 @@ greet("Luis")   # Output: Hello, Luis!
   * C) To print a message
   * D) To define a variable
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: B) To send a value back to the caller.
+
+</details>
 
 **Question**: What will be the output of the following code?
 
@@ -428,7 +470,13 @@ greet("Luis")
   * C) `"Hello, name!"`
   * D) `"Luis"`
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: B) `"Hello, Luis!"`
+
+</details>
 
 ## 1.4 Error Handling
 
@@ -514,8 +562,11 @@ except ZeroDivisionError:
   * B) `10`
   * C) `Error: Divsion by zero is not allowed.`
   * D) `None`
+<details>
+<summary>Answer</summary>
 
 **Answer:** C) `Error: Division by zero is not allowed.`
+</details>
 
 ### In-Depth Read: Errors and Exceptions
 
@@ -590,8 +641,10 @@ Let's wrap up Lesson 1's content with a short video on debugging.
   * B) To slow down the program
   * C) To remove errors automatically
   * D) To show only the final output
+<details>
+<summary>Answer</summary>
 
 **Answer**: A) To find and correct errors in variable values and program flow
-
+</details>
 ---
 This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
