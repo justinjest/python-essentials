@@ -163,18 +163,20 @@ age = 28
   * B) Integer
   * C) Float
   * D) Boolean
-
+<details>
+<summary>Answer</summary>
 **Answer**: B) Integer
-
+</details>
 **Question:** Which of the following data types would you use to store the value `"Hello, World!"`?
 
   * A) Integer
   * B) Float
   * C) String
   * D) Boolean
-
+<details>
+<summary>Answer</summary>
 **Answer**: C) String
-
+</details>
 **Question**: What will be the output of the following code?
 
 ```python
@@ -186,9 +188,10 @@ print(num_int)
   * B) `42`
   * C) `<class 'str'>`
   * D) An error message
-
+<details>
+<summary>Answer</summary>
 **Answer**: B) `42`
-
+</details>
 **Question**: What will the following code output?
 
 ``python
@@ -198,9 +201,10 @@ print(10 % 3)
   * B) `1`
   * C) `10`
   * D) `0`
-
+<details>
+<summary>Answer</summary>
 **Answer:** B) `1`
-
+</details>
 ## 1.2 Control Flow
 
 Control flow structures allow us to direct the execution of code based on conditions or repeat code until a condition is met. The two main control flow structures in Python are **conditional statements** and **loops**.
@@ -319,9 +323,10 @@ else:
   * B) "You're a teenager."
   * C) "You're a child."
   * D) No output
-
+<details>
+<summary>Answer</summary>
 **Answer**: B) "You're a teenager."
-
+</details>
 **Question**: What will the following code output?
 
 ```python
@@ -333,9 +338,10 @@ for i in range(3):
   * B) `0 1 2`
   * C) `0 1 2 3`
   * D) `3`
-
+<details>
+<summary>Answer</summary>
 **Answer**: B) `0 1 2`
-
+</details>
 ## 1.3 Functions
 
 **Functions** are reusable blocks of code that perform specific tasks. They help keep your code organized, modular, and easy to understand.
@@ -411,9 +417,10 @@ greet("Luis")   # Output: Hello, Luis!
   * B) To send a value back to the caller
   * C) To print a message
   * D) To define a variable
-
+<details>
+<summary>Answer</summary>
 **Answer**: B) To send a value back to the caller.
-
+</details>
 **Question**: What will be the output of the following code?
 
 ```python
@@ -427,9 +434,10 @@ greet("Luis")
   * B) `"Hello, Luis!"`
   * C) `"Hello, name!"`
   * D) `"Luis"`
-
+<details>
+<summary>Answer</summary>
 **Answer**: B) `"Hello, Luis!"`
-
+</details>
 ## 1.4 Error Handling
 
 Error handling in Python is managed using the `try`, `except`, `else`, and `finally` blocks. This structure allows developers to gracefully handle errors that may occur during runtime, ensuring that the program can either recover from an issue or fail gracefully with useful feedback.
@@ -514,9 +522,10 @@ except ZeroDivisionError:
   * B) `10`
   * C) `Error: Divsion by zero is not allowed.`
   * D) `None`
-
+<details>
+<summary>Answer</summary>
 **Answer:** C) `Error: Division by zero is not allowed.`
-
+</details>
 ### In-Depth Read: Errors and Exceptions
 
 For a more in-depth look at Errors and Exceptions, along with plenty of examples, check out the [Python Tutorial's article on this subject](https://docs.python.org/3/tutorial/errors.html). 
@@ -590,8 +599,9 @@ Let's wrap up Lesson 1's content with a short video on debugging.
   * B) To slow down the program
   * C) To remove errors automatically
   * D) To show only the final output
-
+<details>
+<summary>Answer</summary>
 **Answer**: A) To find and correct errors in variable values and program flow
-
+</details>
 ---
 This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).

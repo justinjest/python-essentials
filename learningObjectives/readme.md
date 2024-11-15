@@ -141,7 +141,7 @@ Topics:
 - Data Visualization: Creating visualizations to present findings.
 - Presentation: Presenting the final project, including code, analysis, and visualizations.
 
-### Week 15 — Capstone Project Completion and Presentations
+### Lesson 15 — Capstone Project Completion and Presentations
 
 Students will finalize their capstone projects, present their findings, and receive feedback from their peers and instructors.
 
