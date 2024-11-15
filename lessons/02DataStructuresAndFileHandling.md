@@ -131,6 +131,7 @@ Ok, let's review! Here's a table demonstrating the key differences between the f
   * D) Tuples are ordered and changeable.
 
 <details>
+
 <summary>Answer</summary>
 
 **Answer**: C) Dictionaries store data in key-value pairs and do not allow duplicate keys.
