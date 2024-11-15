@@ -154,11 +154,17 @@ View the video here: [LINK TBD]
   * B) `df.loc[df['column'] < 10]`
   * C) `df['column'] > 10`
   * D) `df.loc(column > 10)`
+  
+<details>
+
+<summary>Answer</summary>
 
 **Answers**:
 
 1. C) DataFrame
 2. A) `df.loc[df['column'] > 10]`
+
+</details>
 
 Great work! With these basics, you can now start using Pandas for various data manipulation and analysis tasks.
 
@@ -280,10 +286,17 @@ View the video here: [LINK TBD]
   * C) sep
   * D) Both b and c
 
+<details>
+
+<summary>Answer</summary>
+
 **Answers**:
+
 
 1. B) `pd.read_jason()`
 2. D) Both B and C
+
+</details>
 
 With these functions, you’re equipped to load data from different formats into Pandas, ready for analysis!
 
@@ -399,11 +412,17 @@ View the video here: [LINK TBD]
      * B) `tail()`
      * C) `summary()`
      * D) `info()`
-  
+
+<details>
+
+<summary>Answer</summary> 
+
 **Answers**:
 
 1. B) 5
 2. D) `info()`
+
+</details>
 
 These methods will help you quickly inspect and understand your data before diving into further analysis!
 
