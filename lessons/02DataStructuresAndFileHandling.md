@@ -130,7 +130,13 @@ Ok, let's review! Here's a table demonstrating the key differences between the f
   * C) Dictionaries store data in key-value pairs and do not allow duplicate keys.
   * D) Tuples are ordered and changeable.
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: C) Dictionaries store data in key-value pairs and do not allow duplicate keys.
+
+</details>
 
 ## 2.2 File Handling
 
@@ -207,7 +213,13 @@ In this video, we'll demonstrate reading and writing to a real CSV file. After t
   * C) Overwrites the file with new data, creating it if it doesn’t exist.
   * D) Opens the file for reading and writing without overwriting.
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: C) Overwrites the file with new data, creating it if it doesn’t exist.
+
+</details>
 
 ## 2.3 Introduction to Modules
 
@@ -315,7 +327,13 @@ Modules and libraries in Python offer flexibility and organization, making your 
   * C) `import math.sqrt`
   * D) `import math as sqrt`
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: B) `from math import sqrt`
+
+</details>
 
 ## 2.4 Keyboard Input
 
@@ -392,7 +410,13 @@ except ZeroDivisionError:
   * C) `input()` captures user input but only works with numbers.
   * D) `input()` is used to output text to the console.
 
+<details>
+
+<summary>Answer</summary>
+
 **Answer**: B) input() displays a prompt and captures user input as a string by default.
+
+</details>
 
 ---
 This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
