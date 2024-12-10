@@ -132,7 +132,7 @@ Learn how to work with data types in Python in our first video, which covers ess
 * `%` (modulus, remainder): `7 % 3` → `1`
 * `**` (exponentiation): `2 ** 3` → 8
 
-1. **Comparison Operators**: Compare two values and return a Boolean (`True` or `False`)
+2. **Comparison Operators**: Compare two values and return a Boolean (`True` or `False`)
 
 * `==` (equal to): `5 == 5` → `True`
 * `!=` (not equal to): `5 != 4` → `True`
@@ -141,7 +141,7 @@ Learn how to work with data types in Python in our first video, which covers ess
 * `<=` (less than or equal to): `5 <= 5` → `True`
 * `>=` (greater than or equal to): `7 >= 3` → `True`
 
-1. **Logical Operators**: Used to combine conditional statements
+3. **Logical Operators**: Used to combine conditional statements
 
 * `and`: `True and False` → `False`
 * `or`: `True or False` → `True`
