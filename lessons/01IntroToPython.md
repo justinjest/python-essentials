@@ -498,6 +498,7 @@ greet("Luis")
 Error handling in Python is managed using the `try`, `except`, `else`, and `finally` blocks. This structure allows developers to gracefully handle errors that may occur during runtime, ensuring that the program can either recover from an issue or fail gracefully with useful feedback.
 
 ### `try` and `except`
+
 The `try` block contains code that might raise an error. If an error occurs, the `except` block is executed, and Python will not terminate the program abruptly. You can catch specific exceptions or handle all exceptions generally.
 
 ```python
@@ -515,6 +516,7 @@ except Exception as e:
 ```
 
 ### `else`
+
 The `else` block is optional and runs if no exception was raised in the try block.
 
 ```python
@@ -527,6 +529,7 @@ else:
 ```
 
 ### `finally`
+
 The `finally` block runs regardless of whether an exception occurred or not. It’s often used for cleanup actions like closing files or database connections.
 
 ```python
@@ -577,6 +580,7 @@ except ZeroDivisionError:
 * B) `10`
 * C) `Error: Divsion by zero is not allowed.`
 * D) `None`
+
 <details>
 <summary>Answer</summary>
 
@@ -592,6 +596,7 @@ For a more in-depth look at Errors and Exceptions, along with plenty of examples
 **Debugging** is the process of finding and fixing errors in your code. Two popular methods for basic debugging in Python are using **print statements** and **logging**.
 
 ### Debugging with Print Statements
+
 Print statements are a simple way to check the values of variables and understand the flow of your program. This technique helps you see what’s happening at specific points in your code.
 
 ```python
@@ -604,6 +609,7 @@ multiply(3, 5)  # Output: Result is: 15
 ```
 
 Tips for effective print debugging:
+
 * Use descriptive messages (e.g., `"Starting loop at i=" + str(i)`).
 * Print variable values and descriptions of the program state.
 * Remember to remove or comment out `print` statements when you’re done!
@@ -613,12 +619,14 @@ Tips for effective print debugging:
 The **logging** module provides more control over output and is useful for larger projects or tracking complex issues. Unlike **print**, logging allows you to set levels to distinguish between informational messages, warnings, errors, and more.
 
 Logging Levels
+
 * **DEBUG**: Detailed information, typically useful only for debugging.
 * **INFO**: Confirmation that things are working as expected.
 * **WARNING**: An indication that something unexpected happened, or indicative of future problems.
 * **ERROR**: A serious problem that prevented some part of the code from running.
 
 To use logging:
+
 1. Import the `logging` module.
 2. Set up basic configuration with `logging.basicConfig()`.
 3. Use logging statements like `logging.debug()`, `logging.info()`, `logging.warning()`, and `logging.error()`.
@@ -656,6 +664,7 @@ Let's wrap up Lesson 1's content with a short video on debugging.
 * B) To slow down the program
 * C) To remove errors automatically
 * D) To show only the final output
+
 <details>
 <summary>Answer</summary>
 
