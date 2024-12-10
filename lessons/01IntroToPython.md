@@ -1,14 +1,14 @@
 # Lesson 1 — Introduction to Python
 
-Welcome to **Python Essentials** with Code the Dream! 
+Welcome to **Python Essentials** with Code the Dream!
 
 ## How to Follow This Content
 
-  * Start by reading the lesson's **learning objective** in the `Learning Overview` section. Each weekly assignment will measure your skill related to the learning objective.
-  * Lessons are split into **subsections**, labeled like this: `1.1`, `1,2`, etc.
-  * Each subsection has a short **supplemental video** that will help you understand the content in that subsection.
-  * At the end of each subsection, you'll find a multiple-choice **"Check for Understanding"** question. Complete the question and review the material if your answer is not correct!
-  * After reading through the lesson content and correctly answering the "Check for Understanding" questions, complete the **Weekly Assignment**.
+* Start by reading the lesson's **learning objective** in the `Learning Overview` section. Each weekly assignment will measure your skill related to the learning objective.
+* Lessons are split into **subsections**, labeled like this: `1.1`, `1,2`, etc.
+* Each subsection has a short **supplemental video** that will help you understand the content in that subsection.
+* At the end of each subsection, you'll find a multiple-choice **"Check for Understanding"** question. Complete the question and review the material if your answer is not correct!
+* After reading through the lesson content and correctly answering the "Check for Understanding" questions, complete the **Weekly Assignment**.
 
 If you have questions at any point, ask a question in the `discussion` Slack channel or reach out to your mentor!
 
@@ -18,11 +18,11 @@ If you have questions at any point, ask a question in the `discussion` Slack cha
 
 Topics:
 
- * Python Basics: Variables, data types, data conversion, operators.
- * Control Flow: Conditional statements (if, elif, else), loops (for, while).
- * Functions: Defining and calling functions, parameters, and return values.
- * Error Handling: Introduction to try, except for basic debugging.
- * Basic Debugging: Using print statements or logging for debugging.
+* Python Basics: Variables, data types, data conversion, operators.
+* Control Flow: Conditional statements (if, elif, else), loops (for, while).
+* Functions: Defining and calling functions, parameters, and return values.
+* Error Handling: Introduction to try, except for basic debugging.
+* Basic Debugging: Using print statements or logging for debugging.
 
 ## 1.1 Python Basics
 
@@ -30,10 +30,12 @@ Topics:
 
 A **variable** is like a labeled box where you store data. In Python, variables don’t need explicit declaration before assignment, and the type of data they hold can change dynamically.
 
-In the example below, 
+In the example below,
+
 * `name` is assigned a **string** `"Jazmine"`
 * `age` is assigned an **integer** `28`
 * `height` is assigned a **float** `5.8`
+
 ```python
 name = "Jazmine"   # A variable storing a string
 age = 28           # A variable storing an integer
@@ -87,6 +89,13 @@ is_non_zero = bool(5)  # True (non-zero numbers are considered True)
 Data conversion is helpful when you need to perform operations between incompatible types or display values in specific formats. For instance, combining a number with text requires converting the number to a string.
 
 ```python
+# Without type conversion
+age = 30
+message = "I am " + age + " years old."  # "TypeError: can only concatenate str (not "int") to str"
+```
+
+```python
+# With type conversion
 age = 30
 message = "I am " + str(age) + " years old."  # "I am 30 years old."
 ```
@@ -119,10 +128,11 @@ Learn how to work with data types in Python in our first video, which covers ess
 * `-` (subtraction): `5 - 3` → `2`
 * `*` (multiplication): `4 * 2` → `8`
 * `/` (division): `9 / 3` → `3.0`
+* `//` (integer division): `9 // 3` → `3`
 * `%` (modulus, remainder): `7 % 3` → `1`
 * `**` (exponentiation): `2 ** 3` → 8
 
-2. **Comparison Operators**: Compare two values and return a Boolean (`True` or `False`)
+1. **Comparison Operators**: Compare two values and return a Boolean (`True` or `False`)
 
 * `==` (equal to): `5 == 5` → `True`
 * `!=` (not equal to): `5 != 4` → `True`
@@ -131,13 +141,13 @@ Learn how to work with data types in Python in our first video, which covers ess
 * `<=` (less than or equal to): `5 <= 5` → `True`
 * `>=` (greater than or equal to): `7 >= 3` → `True`
 
-3. **Logical Operators**: Used to combine conditional statements
+1. **Logical Operators**: Used to combine conditional statements
 
 * `and`: `True and False` → `False`
 * `or`: `True or False` → `True`
 * `not`: `not True` → `False`
 
-Operators Examples: 
+Operators Examples:
 
 ```python
 # Arithmetic
@@ -159,10 +169,10 @@ print(True and False)  # False
 age = 28
 ```
 
-  * A) String
-  * B) Integer
-  * C) Float
-  * D) Boolean
+* A) String
+* B) Integer
+* C) Float
+* D) Boolean
   
 <details>
 
@@ -174,10 +184,10 @@ age = 28
 
 **Question:** Which of the following data types would you use to store the value `"Hello, World!"`?
 
-  * A) Integer
-  * B) Float
-  * C) String
-  * D) Boolean
+* A) Integer
+* B) Float
+* C) String
+* D) Boolean
 
 <details>
 
@@ -194,10 +204,11 @@ num_str = "42"
 num_int = int(num_str)
 print(num_int)
 ```
-  * A) `"42"`
-  * B) `42`
-  * C) `<class 'str'>`
-  * D) An error message
+
+* A) `"42"`
+* B) `42`
+* C) `<class 'str'>`
+* D) An error message
 
 <details>
 
@@ -212,10 +223,11 @@ print(num_int)
 ``python
 print(10 % 3)
 ``
-  * A) `3`
-  * B) `1`
-  * C) `10`
-  * D) `0`
+
+* A) `3`
+* B) `1`
+* C) `10`
+* D) `0`
 
 <details>
 
@@ -310,7 +322,7 @@ for num in range(10):
 
 #### Skipping Iterations
 
-The `continue` statement allows you to skip the rest of the code in the current iteration and move to the next one.
+The `continue` statement allows you to skip the rest of the code in the current iteration and move to the next iteration.
 
 ```python
 for num in range(5):
@@ -339,10 +351,10 @@ else:
     print("You're a child.")
 ```
 
-  * A) "You're an adult!"
-  * B) "You're a teenager."
-  * C) "You're a child."
-  * D) No output
+* A) "You're an adult!"
+* B) "You're a teenager."
+* C) "You're a child."
+* D) No output
 
 <details>
 
@@ -359,10 +371,10 @@ for i in range(3):
     print(i)
 ```
 
-  * A) `1 2 3`
-  * B) `0 1 2`
-  * C) `0 1 2 3`
-  * D) `3`
+* A) `1 2 3`
+* B) `0 1 2`
+* C) `0 1 2 3`
+* D) `3`
 
 <details>
 
@@ -377,6 +389,7 @@ for i in range(3):
 **Functions** are reusable blocks of code that perform specific tasks. They help keep your code organized, modular, and easy to understand.
 
 ### Defining and Calling Functions
+
 A function is defined using the `def` keyword, followed by a function name, parentheses `()`, and a colon. The code inside the function is indented.
 
 ```python
@@ -400,14 +413,16 @@ def greet(name):
     
 greet("Jazmine")  # Output: Hello, Jazmine!
 ```
-You can also define multiple parameters. 
+
+You can also define multiple parameters.
 
 ```python
 def add(a, b):
-    return a + b
+    print(a + b)
 
-result = add(3, 5)  # result is 8
+add(3, 5)  # Output: 8
 ```
+
 ### Return Values
 
 A function can return a value to the caller using the `return` keyword. This makes the function's output available for use outside the function.
@@ -443,10 +458,10 @@ greet("Luis")   # Output: Hello, Luis!
 
 **Question**: What is the purpose of the `return` statement in a function?
 
-  * A) To stop the function
-  * B) To send a value back to the caller
-  * C) To print a message
-  * D) To define a variable
+* A) To stop the function
+* B) To send a value back to the caller
+* C) To print a message
+* D) To define a variable
 
 <details>
 
@@ -465,10 +480,10 @@ def greet(name):
 greet("Luis")
 ```
 
-  * A) `"Hello, stranger!"`
-  * B) `"Hello, Luis!"`
-  * C) `"Hello, name!"`
-  * D) `"Luis"`
+* A) `"Hello, stranger!"`
+* B) `"Hello, Luis!"`
+* C) `"Hello, name!"`
+* D) `"Luis"`
 
 <details>
 
@@ -558,10 +573,10 @@ except ZeroDivisionError:
     print("Error: Division by zero is not allowed.")
 ```
 
-  * A) It will print nothing
-  * B) `10`
-  * C) `Error: Divsion by zero is not allowed.`
-  * D) `None`
+* A) It will print nothing
+* B) `10`
+* C) `Error: Divsion by zero is not allowed.`
+* D) `None`
 <details>
 <summary>Answer</summary>
 
@@ -570,7 +585,7 @@ except ZeroDivisionError:
 
 ### In-Depth Read: Errors and Exceptions
 
-For a more in-depth look at Errors and Exceptions, along with plenty of examples, check out the [Python Tutorial's article on this subject](https://docs.python.org/3/tutorial/errors.html). 
+For a more in-depth look at Errors and Exceptions, along with plenty of examples, check out the [Python Tutorial's article on this subject](https://docs.python.org/3/tutorial/errors.html).
 
 ## 1.5 Basic Debugging
 
@@ -588,7 +603,7 @@ def multiply(a, b):
 multiply(3, 5)  # Output: Result is: 15
 ```
 
-Tips for effective print debugging: 
+Tips for effective print debugging:
 * Use descriptive messages (e.g., `"Starting loop at i=" + str(i)`).
 * Print variable values and descriptions of the program state.
 * Remember to remove or comment out `print` statements when you’re done!
@@ -603,7 +618,7 @@ Logging Levels
 * **WARNING**: An indication that something unexpected happened, or indicative of future problems.
 * **ERROR**: A serious problem that prevented some part of the code from running.
 
-To use logging: 
+To use logging:
 1. Import the `logging` module.
 2. Set up basic configuration with `logging.basicConfig()`.
 3. Use logging statements like `logging.debug()`, `logging.info()`, `logging.warning()`, and `logging.error()`.
@@ -629,7 +644,7 @@ multiply(3, 5)
 
 ### Basic Debugging Video
 
-Let's wrap up Lesson 1's content with a short video on debugging. 
+Let's wrap up Lesson 1's content with a short video on debugging.
 
 **View the video here:** [LINK TBD]
 
@@ -637,10 +652,10 @@ Let's wrap up Lesson 1's content with a short video on debugging.
 
 **Question**: What is the primary purpose of using `print` statements in debugging?
 
-  * A) To find and correct errors in variable values and program flow
-  * B) To slow down the program
-  * C) To remove errors automatically
-  * D) To show only the final output
+* A) To find and correct errors in variable values and program flow
+* B) To slow down the program
+* C) To remove errors automatically
+* D) To show only the final output
 <details>
 <summary>Answer</summary>
 
