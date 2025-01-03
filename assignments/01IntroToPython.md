@@ -1,7 +1,7 @@
 ## Lesson 1 Assignment: Intro to Python
 ### Data Conversion, User Input, Error Handling, and Functions
 
-**Objective:** In this assignment, you will practice Python programming concepts such as data type conversion, user input handling, error handling, and creating functions. Complete the tasks below, modifying the provided code where needed and adding your own implementations.
+**Objective:** In this assignment, you will practice Python programming concepts such as data type conversion, user input handling, error handling, and creating functions. Complete the tasks below. Start by creating either a .py file somewhere convenient on your local machine.  We suggest creating a PythonClass folder on your Desktop and creating your file in that folder. You can use your command terminal to create this or create it through an IDE like Visual Studio Code.  If you would prefer to create a Jupyter Notebook to keep your classwork organized, refer to this [resource on how to get started with Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).  Once your file is created, copy and past the tasks below, commnet out instructions, and work on writing or modifying the provided code where needed and adding your own implementations.
 
 ### **Task 1: Data Type Conversion**
 1. **String to Integer Conversion**
