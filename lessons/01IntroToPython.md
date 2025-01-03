@@ -161,6 +161,10 @@ print(5 > 3)  # True
 print(True and False)  # False
 ```
 
+### Block structure in Python
+
+In many programming languages the format and structure makes code more easily readable.  Structure is even more critical in Python.  Read [this article from Geeks for Geeks](https://www.geeksforgeeks.org/indentation-in-python/) to gain an understanding of the importance of indentation, format, and structure when writing code blocks in Python. 
+
 ### 1.1 Check for Understanding
 
 **Question:** What type of data is stored in the variable `age` in the following code?
