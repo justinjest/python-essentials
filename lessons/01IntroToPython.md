@@ -24,6 +24,18 @@ Topics:
 * Error Handling: Introduction to try, except for basic debugging.
 * Basic Debugging: Using print statements or logging for debugging.
 
+1. **Install Python:**
+   - You can download Python from the official website: [python.org](https://www.python.org/downloads/).
+   - Follow the installation instructions for your operating system.
+   - Make sure to check the option to **Add Python to PATH** during installation.
+
+2. **Install pip:**
+   - Pip is Python’s package installer and is included automatically with Python (version 3.4 and above).
+   - To verify if pip is installed, open a terminal or command prompt and type:
+
+   ```bash
+   pip --version
+
 ## 1.1 Python Basics
 
 ### Variables in Python
