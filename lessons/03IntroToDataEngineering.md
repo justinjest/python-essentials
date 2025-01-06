@@ -188,7 +188,7 @@ df = pd.read_csv('data.csv')
 print(df.head())
 ```
 
-Here, `df.head()` will display the first five rows of the DataFrame. You can also customize `pd.read_csv()` with various parameters:
+Here, `df.head()` will display the first five rows of the DataFrame by default. You can also customize `pd.read_csv()` with various parameters:
 
 ```python
 # Loading a CSV file with custom parameters
@@ -293,7 +293,7 @@ View the video here: [LINK TBD]
 **Answers**:
 
 
-1. B) `pd.read_jason()`
+1. B) `pd.read_json()`
 2. D) Both B and C
 
 </details>
@@ -388,7 +388,7 @@ From this output, you can see the column names, data types, number of non-null e
 | Format     | Description           | 
 |------------|-------------------|
 | `head()`        | Displays the first few rows of the DataFrame  | 
-| `tail()`       | Displays the last few rows of the DataFrame  | 
+| `tail()`       | Displays the last five rows of the DataFrame  | 
 | `info()` | Summarizes the DataFrame, including data types, null counts, and memory usage  | 
 
 ### 3.3 Video
