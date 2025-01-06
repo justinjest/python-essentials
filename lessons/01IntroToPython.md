@@ -80,7 +80,7 @@ num_float = float(num_int)  # 42.0 (float)
 num_str_again = str(num_int)  # "42" (string)
 
 # Convert to a Boolean
-is_empty = bool("")  # False (an empty string is considered False)
+is_empty = not bool("")  # True 
 is_non_zero = bool(5)  # True (non-zero numbers are considered True)
 ```
 
