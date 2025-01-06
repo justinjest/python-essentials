@@ -19,6 +19,8 @@ Indexing and slicing allow you to extract specific rows or columns from a DataFr
 ### **Key Methods:**
 - `.loc[]`: Select rows and columns by labels.
 - `.iloc[]`: Select rows and columns by integer position.
+- `.at[]`: Access a specific cell by label.
+- `.iat[]`: Access a specific cell by position.
 
 ### **Why Use Data Selection?**
 Data selection helps you:
@@ -52,6 +54,9 @@ print(df.loc[0:2, ['Name', 'Age']])
 # Select rows by position
 print(df.iloc[:2])  # First two rows
 ```
+## **Explanation:**##
+`.loc[]` is used for label-based indexing. Here, df.loc[0:2, ['Name', 'Age']] selects rows 0 to 2 and the 'Name' and 'Age' columns.
+`.iloc[]` is used for position-based indexing. df.iloc[:2] selects the first two rows.
 
 ---
 
@@ -85,8 +90,37 @@ print(grouped)
 mean_values = df.groupby('Category')['Values'].mean()
 print(mean_values)
 ```
+## Explanation: 
+## **Explanation:**
+- **`df.groupby('Category').sum()`** groups the data by the 'Category' column and calculates the sum of 'Values' within each category.
+- **`df.groupby('Category')['Values'].mean()`** calculates the mean of 'Values' for each category.
 
 ---
+
+### **Advanced Aggregation**
+
+You can apply multiple aggregation functions at once by using `agg()`. This allows you to calculate various summary statistics for each group.
+
+#### Example: Applying Multiple Aggregations
+
+```python
+import pandas as pd
+
+# Sample DataFrame
+data = {'Category': ['A', 'B', 'A', 'B', 'C'],
+        'Values': [10, 20, 30, 40, 50]}
+df = pd.DataFrame(data)
+
+# Group by 'Category' and apply multiple aggregation functions
+result = df.groupby('Category').agg({'Values': ['sum', 'mean', 'count']})
+print(result)
+```
+
+## **Explanation:** ##
+
+`sum()` calculates the total sum of values for each category.
+`mean()` calculates the average value for each category.
+`count()` counts the number of non-null entries for each category
 
 ## **4.3 Merging and Joining**
 
@@ -112,6 +146,40 @@ df2 = pd.DataFrame({'ID': [1, 2, 4], 'Score': [85, 92, 88]})
 merged_df = pd.merge(df1, df2, on='ID', how='inner')
 print(merged_df)  # Inner join
 ```
+Merging on Multiple Columns
+Sometimes you need to merge two DataFrames based on multiple columns. This is useful when you have composite keys or want to match on more than one condition.
+
+## Merging on Multiple Columns
+
+import pandas as pd
+
+# Sample DataFrames
+```
+df1 = pd.DataFrame({
+    'ID': [1, 2, 3],
+    'Date': ['2021-01-01', '2021-01-02', '2021-01-03'],
+    'Name': ['Alice', 'Bob', 'Charlie']
+})
+
+df2 = pd.DataFrame({
+    'ID': [1, 2, 3],
+    'Date': ['2021-01-01', '2021-01-02', '2021-01-03'],
+    'Score': [85, 92, 88]
+})
+
+# Merge on both 'ID' and 'Date'
+merged_df = pd.merge(df1, df2, on=['ID', 'Date'], how='inner')
+print(merged_df)
+```
+In this example:
+
+Merging on both 'ID' and 'Date': This allows you to ensure that the rows are only merged when both conditions match, i.e., the same ID and the same Date.
+how='inner': This ensures that only the rows with matching values in both DataFrames are included in the result.
+
+
+
+## **Explanation:** 
+The merge() function combines two DataFrames based on a common column. Here, it's merging df1 and df2 on the 'ID' column using an inner join, meaning only rows with matching 'ID' values from both DataFrames will appear in the result.
 
 ### **Example: Using `join()`**
 ```python
@@ -122,6 +190,9 @@ df2 = pd.DataFrame({'Score': [85, 92, 88]}, index=[1, 2, 4])
 joined_df = df1.join(df2, how='outer')
 print(joined_df)
 ```
+## **Explanation:** ##
+The join() function is used to combine DataFrames based on their index. In this case, it performs an outer join, meaning all rows from both DataFrames will be included, and missing values will be filled with NaN.
+
 
 ---
 
