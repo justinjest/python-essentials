@@ -286,7 +286,7 @@ Python’s **standard library** is packed with built-in modules for handling eve
 
 You can install and use **external libraries** with the `pip` package manager. External libraries are modules that add more functionality not included in the standard library, such as `requests` for HTTP requests or `numpy` for numerical operations.
 
-#### Installing and Importing Extrenal Libraries
+#### Installing and Importing External Libraries
 
 To install a library, use:
 
