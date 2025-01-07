@@ -210,10 +210,16 @@ The join() function is used to combine DataFrames based on their index. In this 
    - C) `groupby()`
    - D) `concat()`
 
+
+<details>
+
+<summary>Answer</summary>
+
 **Answer Key:**
 1. A  
 2. A  
 
+</details>
 ---
 
 ## **Summary**
