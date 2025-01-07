@@ -135,29 +135,26 @@ Learn how to work with data types in Python in our first video, which covers ess
 **Operators** are special symbols that perform operations on variables and values. Some of the most commonly used operators are:
 
 1. **Arithmetic Operators**: For mathematical calculations
-
-* `+` (addition): `3 + 2` → `5`
-* `-` (subtraction): `5 - 3` → `2`
-* `*` (multiplication): `4 * 2` → `8`
-* `/` (division): `9 / 3` → `3.0`
-* `//` (integer division): `9 // 3` → `3`
-* `%` (modulus, remainder): `7 % 3` → `1`
-* `**` (exponentiation): `2 ** 3` → 8
+   * `+` (addition): `3 + 2` → `5`
+   * `-` (subtraction): `5 - 3` → `2`
+   * `*` (multiplication): `4 * 2` → `8`
+   * `/` (division): `9 / 3` → `3.0`
+   * `//` (integer division): `9 // 3` → `3`
+   * `%` (modulus, remainder): `7 % 3` → `1`
+   * `**` (exponentiation): `2 ** 3` → 8
 
 2. **Comparison Operators**: Compare two values and return a Boolean (`True` or `False`)
-
-* `==` (equal to): `5 == 5` → `True`
-* `!=` (not equal to): `5 != 4` → `True`
-* `<` (less than): `3 < 4` → `True`
-* `>` (greater than): `10 > 5` → `True`
-* `<=` (less than or equal to): `5 <= 5` → `True`
-* `>=` (greater than or equal to): `7 >= 3` → `True`
+   * `==` (equal to): `5 == 5` → `True`
+   * `!=` (not equal to): `5 != 4` → `True`
+   * `<` (less than): `3 < 4` → `True`
+   * `>` (greater than): `10 > 5` → `True`
+   * `<=` (less than or equal to): `5 <= 5` → `True`
+   * `>=` (greater than or equal to): `7 >= 3` → `True`
 
 3. **Logical Operators**: Used to combine conditional statements
-
-* `and`: `True and False` → `False`
-* `or`: `True or False` → `True`
-* `not`: `not True` → `False`
+   * `and`: `True and False` → `False`
+   * `or`: `True or False` → `True`
+   * `not`: `not True` → `False`
 
 Operators Examples:
 
