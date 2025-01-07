@@ -174,6 +174,56 @@ print(True and False)  # False
 ```
 
 ### Block structure in Python
+## Overview
+
+In Python, indentation plays a crucial role in the syntax of the language. Unlike many other programming languages, which use braces {} or other markers to denote code blocks, Python uses indentation to group statements and define the scope of loops, functions, classes, and conditional statements.
+
+**Why Indentation Matters in Python**
+
+* **Defining Code Blocks:** Indentation tells Python where a block of code begins and ends.
+* **Enforcing Readability:** The clean and readable structure makes Python code easier to follow.
+
+**Key Concepts:**
+
+* **Indentation in Control Structures:** 
+    * All code under control structures (such as `if`, `else`, `for`, `while`, and function definitions) must be indented.
+
+* **Consistent Indentation:**
+    * Consistency is key. Python does not allow mixing tabs and spaces. Use either spaces or tabs but never both. 
+    * The Python community’s standard is to use 4 spaces per indentation level.
+
+**Block Structure Example:**
+
+```python
+def check_number(num):
+    if num > 0:
+        print("Positive number")
+    elif num < 0:
+        print("Negative number")
+    else:
+        print("Zero")
+```
+In the above example:
+
+The function check_number defines the first level of indentation.
+The if, elif, and else blocks define additional indentation levels for the code that falls under each condition.
+Indentation Error Example:
+
+
+```python
+def check_number(num):if num > 0:  # This will raise an error because it's not indented properly
+    print("Positive number") 
+```
+In the above case, Python will raise an error stating: IndentationError: expected an indented block.
+
+Using Indentation with Loops:
+
+```python
+for i in range(3):
+    print("Loop iteration:", i)  # This line is inside the for loop
+```
+Any line that is indented under the for statement is part of the loop.
+
 
 In many programming languages the format and structure makes code more easily readable.  Structure is even more critical in Python.  Read [this article from Geeks for Geeks](https://www.geeksforgeeks.org/indentation-in-python/) to gain an understanding of the importance of indentation, format, and structure when writing code blocks in Python. 
 
@@ -252,6 +302,7 @@ print(10 % 3)
 **Answer:** B) `1`
 
 </details>
+
 
 ## 1.2 Control Flow
 
