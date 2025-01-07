@@ -12,6 +12,17 @@ Welcome to **Python Essentials** with Code the Dream!
 
 If you have questions at any point, ask a question in the `discussion` Slack channel or reach out to your mentor!
 
+**Start by creating a .py file somewhere convenient on your local machine.** 
+
+You can create this file manually or through an IDE like Visual Studio Code. 
+
+* **To set up VS Code:** 
+    * Download and install it from here: [https://code.visualstudio.com/] 
+
+**Alternatively, you can use a Jupyter Notebook (with the .ipynb extension) or any notebook platform, such as Google Colab, to keep your classwork organized.**
+
+* **If you're new to Jupyter Notebooks, here's a resource on how to get started with Jupyter Notebooks in VS Code:** [(https://code.visualstudio.com/docs/datascience/jupyter-notebooks)]
+* **Google Colab can also be used for running Jupyter Notebooks in the cloud. [https://colab.research.google.com/]** 
 ## Lesson Overview
 
 **Learning objective:** Students will learn the basics of Python programming, including variables, data types, operators, control flow statements, and functions. They will also practice debugging their code.
