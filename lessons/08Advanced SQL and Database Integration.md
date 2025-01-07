@@ -2,7 +2,7 @@
 # **Lesson 08 — Advanced SQL and Database Integration**
 
 ## **Lesson Overview**
-**Learning objective:** Students will deepen their understanding of SQL by learning advanced techniques such as subqueries, complex `JOIN`s, aggregation with functions, and using `HAVING` for conditional filtering.
+**Learning objective:** Students will deepen their understanding of SQL by learning advanced techniques such as subqueries, complex `JOIN`s, aggregation with functions, and using `HAVING` for conditional filtering. This lesson also introduces performance optimization techniques, transactions, parameterized queries, window functions, and more.
 
 ---
 
@@ -138,7 +138,89 @@ HAVING AVG(e.salary) > 70000;
 
 ---
 
-## **Implementation Tips**
+## **8.5 Performance Optimization: Indexing**
+
+### **Overview**
+SQL queries can sometimes be slow if they involve large tables. Indexes can be created on columns that are frequently used in `WHERE`, `JOIN`, or `ORDER BY` clauses to speed up query performance.
+
+### **SQL Example:**
+```sql
+CREATE INDEX idx_department ON Employees(department_id);
+```
+
+This creates an index on the `department_id` column to speed up queries that filter by department.
+
+---
+
+## **8.6 Transactions and Rollbacks**
+
+### **Overview**
+Transactions ensure that multiple database operations are completed successfully before committing them. If an error occurs, you can roll back the changes to keep the database in a consistent state.
+
+### **Example:**
+```python
+# Start a transaction
+conn = sqlite3.connect("company.db")
+cursor = conn.cursor()
+
+try:
+    cursor.execute("INSERT INTO Employees (name, department_id) VALUES ('John Doe', 2)")
+    cursor.execute("INSERT INTO Employees (name, department_id) VALUES ('Jane Smith', 3)")
+    conn.commit()  # Commit transaction
+except Exception as e:
+    conn.rollback()  # Rollback transaction if there's an error
+    print("Error:", e)
+
+conn.close()
+```
+
+---
+
+## **8.7 Parameterized Queries to Prevent SQL Injection**
+
+### **Overview**
+SQL injection can be prevented by using parameterized queries, ensuring that user input is treated safely.
+
+### **Example:**
+```python
+cursor.execute("SELECT * FROM Employees WHERE department_id = ?", (department_id,))
+```
+
+This ensures that `department_id` is treated as a parameter and not part of the SQL statement itself.
+
+---
+
+## **8.8 Window Functions**
+
+### **Overview**
+SQL window functions allow for advanced analysis over a specified range of rows. For example, calculating the rank of employees within a department based on salary.
+
+### **SQL Example:**
+```sql
+SELECT name, salary, department_id,
+       RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rank
+FROM Employees;
+```
+
+---
+
+## **8.9 Date and Time Functions**
+
+### **Overview**
+SQL provides functions for manipulating and querying date and time data, which are useful when working with time-based analysis.
+
+### **SQL Example:**
+```sql
+SELECT name, date_of_birth, 
+       JULIANDAY('now') - JULIANDAY(date_of_birth) AS age_in_days
+FROM Employees;
+```
+
+---
+
+## **8.10 Implementing All Techniques in Python**
+
+### **Implementation Tips**
 
 1. **Test Queries Separately:**
    - Write and test each query independently in your script or database interface before integrating into Python.
@@ -185,6 +267,10 @@ In this lesson, you’ve learned:
 2. How to use complex `JOIN`s to integrate data from multiple tables.
 3. How to use aggregation functions to summarize data across groups.
 4. How to apply `HAVING` for conditional filtering on aggregated data.
+5. How to optimize performance with indexes.
+6. How to use transactions and rollbacks to ensure data consistency.
+7. How to prevent SQL injection with parameterized queries.
+8. How to use window functions for advanced analytics.
+9. How to handle date and time data for time-based analysis.
 
 For further exploration, refer to the [SQLite Documentation](https://www.sqlite.org/docs.html) and Python's `sqlite3` library documentation.
-```
