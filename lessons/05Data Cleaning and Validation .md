@@ -166,7 +166,14 @@ B) `df['column'].convert(int)`
 C) `df['column'].astype(int)`
 D) `df['column'].to_int()`
 
-**Answer:** C
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: C
+
+</details>
+
 
 Which method is used to remove duplicate rows in Pandas?
 
@@ -175,7 +182,13 @@ B) `drop_duplicates()`
 C) `find_duplicates()`
 D) `remove_redundant()`
 
-**Answer:** B
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: B
+
+</details>
 
 **Summary**
 
