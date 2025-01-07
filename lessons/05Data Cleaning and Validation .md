@@ -159,6 +159,11 @@ D) `replace_na()`
 
 **Answer:** B
 
+<details>
+<summary>Answer</summary>
+Answer: B
+</details>
+
 How do you convert a column of strings to integers?
 
 A) `pd.to_int(column)`
