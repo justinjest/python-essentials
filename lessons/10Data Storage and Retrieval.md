@@ -2,26 +2,27 @@
 # **Lesson 10 — Data Storage and Retrieval**
 
 ## **Lesson Overview**
-**Learning objective:** Students will learn to store and retrieve data efficiently using JSON, CSV, and databases. They will also explore how to manipulate and analyze stored data using Python libraries and compare storage optimization strategies for different project scales.
+**Learning objective:** In this lesson, students will learn how to efficiently store and retrieve data using various formats like JSON, CSV, and databases. The lesson will also cover how to manipulate and analyze the stored data using Python libraries such as Pandas and SQL. Additionally, students will gain insight into choosing the best storage solution based on different project scales and complexities.
 
 ### **Topics:**
 1. Storing Scraped Data: JSON, CSV, and Databases
 2. Retrieving and Analyzing Data: SQL and Pandas
 3. Optimizing Data Storage: Relational vs. Non-relational Databases
+4. Exploring Data Retrieval Techniques: SQL Queries and DataFrame Operations
 
 ---
 
 ## **10.1 Storing Scraped Data**
 
 ### **Overview**
-Storing scraped data ensures it can be reused or analyzed later. Common storage formats include:
-- **JSON:** A lightweight format for structured data.
-- **CSV:** A tabular format, easily readable in spreadsheets.
-- **Databases:** Ideal for complex, structured data.
+After scraping data from the web, it’s essential to store it in a format that allows easy access and manipulation. The three most common formats are:
+- **JSON:** A lightweight, human-readable format for structured data.
+- **CSV:** A tabular format that is compatible with spreadsheets and easy to manipulate.
+- **Databases:** Best suited for large, structured data that needs to be queried efficiently.
 
 ### **Storing Data in JSON**
-1. Use Python's `json` module to save data in a structured format.
-2. Store scraped elements like page titles, headers, and links.
+1. Use Python's `json` module to serialize Python objects into a JSON file.
+2. Store scraped elements such as page titles, headers, and links.
 
 #### **Example Code: Storing Data in JSON**
 ```python
@@ -44,8 +45,8 @@ print("Data saved to scraped_data.json.")
 ---
 
 ### **Storing Data in CSV**
-1. Use Python's `csv` module to write data in rows and columns.
-2. Add more details like image sources or descriptions.
+1. Use Python's `csv` module to write tabular data in a CSV format.
+2. Store data in rows and columns, which is convenient for spreadsheet manipulation and analysis.
 
 #### **Example Code: Storing Data in CSV**
 ```python
@@ -69,8 +70,8 @@ print("Data saved to scraped_data.csv.")
 ---
 
 ### **Storing Data in Databases**
-1. Use SQLite to create a database table.
-2. Insert scraped data using SQL commands.
+1. Use SQLite to create a database table that can hold structured data.
+2. Insert scraped data using SQL commands for easy retrieval and analysis.
 
 #### **Example Code: Storing Data in a Database**
 ```python
@@ -104,11 +105,16 @@ conn.close()
 ## **10.2 Retrieving and Analyzing Data**
 
 ### **Overview**
-Retrieve and manipulate stored data using Python libraries like `Pandas` and SQL queries. Analyze the data for insights such as counts or patterns.
+Once the data is stored, it’s important to retrieve it efficiently and analyze it to extract valuable insights. SQL and Pandas are two powerful tools that allow us to perform complex queries and data manipulations.
+
+### **Retrieving Data from SQL**
+1. Use SQL queries to fetch data from databases.
+2. Store query results in a Pandas DataFrame for further analysis.
 
 #### **Example Code: Retrieving Data into a Pandas DataFrame**
 ```python
 import pandas as pd
+import sqlite3
 
 # Connect to the database and load data into a DataFrame
 conn = sqlite3.connect("scraped_data.db")
@@ -130,27 +136,71 @@ conn.close()
 ## **10.3 Optimizing Data Storage**
 
 ### **Overview**
-Choosing the right storage type depends on the scale and complexity of the project.
+Choosing the right data storage type depends on the complexity, scale, and structure of the data. Understanding the advantages and limitations of relational and non-relational databases will help you select the best solution for your project.
 
 ### **Comparison: Relational vs. Non-relational Databases**
+
 | Feature               | Relational (e.g., SQLite) | Non-relational (e.g., MongoDB) |
 |-----------------------|--------------------------|--------------------------------|
 | Data Structure        | Tables with rows/columns | Flexible document structure    |
-| Query Language        | SQL                     | NoSQL or JSON-based queries    |
-| Scalability           | Limited for large data  | High scalability               |
-| Best Use Case         | Structured, small-scale | Unstructured, large-scale      |
+| Query Language        | SQL                      | NoSQL or JSON-based queries    |
+| Scalability           | Limited for large data   | High scalability               |
+| Best Use Case         | Structured, small-scale  | Unstructured, large-scale      |
 
 ### **Key Points:**
-- **Relational Databases:** Ideal for small-scale projects like scraping Wikipedia, where data is structured and relationships are simple.
-- **Non-relational Databases:** Better suited for large-scale projects with high-volume, semi-structured, or unstructured data.
+- **Relational Databases** (SQLite, MySQL): Suitable for smaller projects with structured data that requires complex querying.
+- **Non-relational Databases** (MongoDB, CouchDB): Best for large-scale projects with high-volume, semi-structured, or unstructured data, where flexibility is more important than strict relational structure.
+
+---
+
+## **10.4 Exploring Data Retrieval Techniques: SQL Queries and DataFrame Operations**
+
+### **Overview**
+Now that data is stored and accessible, it’s essential to retrieve it using efficient queries. You’ll also want to process and manipulate the data using powerful tools like Pandas.
+
+### **Key Techniques:**
+1. Use `SELECT` statements to retrieve specific columns and filter results.
+2. Perform complex operations such as joins, aggregations, and sorting using both SQL and Pandas.
+
+#### **Example Code: SQL Query with JOIN and Aggregation**
+```python
+# Example SQL query that joins tables and aggregates data
+query = """
+SELECT department_id, 
+       MIN(salary) AS min_salary, 
+       MAX(salary) AS max_salary, 
+       COUNT(employee_id) AS num_employees
+FROM Employees
+GROUP BY department_id
+HAVING COUNT(employee_id) > 5;
+"""
+
+# Execute and fetch results into a DataFrame
+df = pd.read_sql_query(query, conn)
+print(df)
+```
+
+#### **Pandas Aggregation Example:**
+```python
+# Example of Pandas aggregation
+department_stats = df.groupby('department_id').agg(
+    min_salary=('salary', 'min'),
+    max_salary=('salary', 'max'),
+    num_employees=('employee_id', 'count')
+)
+print(department_stats)
+```
 
 ---
 
 ## **Summary**
 
 In this lesson, you learned:
-1. How to store data in JSON, CSV, and databases.
+1. How to store scraped data using JSON, CSV, and databases.
 2. How to retrieve and analyze stored data using SQL and Pandas.
-3. The differences between relational and non-relational databases and their appropriate use cases.
+3. The differences between relational and non-relational databases and when to use each type.
+4. Techniques for efficiently retrieving and analyzing data stored in databases.
 
 For further reading, explore the [Python JSON Documentation](https://docs.python.org/3/library/json.html), [SQLite Documentation](https://www.sqlite.org/docs.html), and [Pandas Documentation](https://pandas.pydata.org/docs/).
+
+
