@@ -11,6 +11,9 @@
 4. Handling Outliers
 5. Standardizing Data
 6. Validating Data Ranges
+7. Handling Categorical Data
+8. Handling Inconsistent Data
+9. Feature Engineering
 
 ---
 
@@ -48,6 +51,10 @@ print("DataFrame with missing data handled:")
 print(df_filled)
 ```
 
+### **Explanation:**
+- `dropna()` removes any row that contains a `None` (missing) value.
+- `fillna()` is used to replace missing values. In this case, the `Age` column's missing values are replaced with the mean, and the `Salary` column's missing values are filled with 0.
+
 ---
 
 ## **6.2 Data Transformation**
@@ -81,6 +88,10 @@ print("Transformed DataFrame:")
 print(df)
 ```
 
+### **Explanation:**
+- `astype(int)` converts the `Age` column, originally stored as strings, into integers.
+- `pd.to_datetime()` converts the `Join_Date` column into Python’s datetime objects for easier date manipulation and comparison.
+
 ---
 
 ## **6.3 Removing Duplicates**
@@ -107,6 +118,10 @@ print("DataFrame with duplicates removed:")
 print(df_no_duplicates)
 ```
 
+### **Explanation:**
+- `drop_duplicates()` removes rows where the entire record is a duplicate of another.
+- `drop_duplicates(subset='Name')` removes rows where the `Name` column is duplicated, keeping only the first occurrence of each name.
+
 ---
 
 ## **6.4 Handling Outliers**
@@ -125,6 +140,9 @@ df['Age'] = df['Age'].apply(lambda x: df['Age'].median() if x > 100 or x < 0 els
 print("DataFrame after handling outliers:")
 print(df)
 ```
+
+### **Explanation:**
+- Outliers in the `Age` column that are greater than 100 or less than 0 are replaced by the median value of the `Age` column.
 
 ---
 
@@ -149,6 +167,10 @@ print("Standardized DataFrame:")
 print(df)
 ```
 
+### **Explanation:**
+- The `Name` column is standardized by converting all entries to lowercase and stripping any extra whitespace.
+- The `City` column is standardized by replacing `ny` with `New York` and `la` with `Los Angeles`.
+
 ---
 
 ## **6.6 Validating Data Ranges**
@@ -171,6 +193,115 @@ print("DataFrame after validating age ranges:")
 print(df)
 ```
 
+### **Explanation:**
+- Any age outside the range of 18 to 65 is replaced with `None` (NaN).
+- Missing values in the `Age` column are filled with the median value of the column.
+
+---
+
+## **6.7 Handling Categorical Data**
+
+### **Overview**
+Handling categorical data involves encoding non-numeric values, which is especially useful for machine learning models that require numerical input.
+
+### **Key Techniques:**
+- **Label Encoding**: Converting each category into a number.
+- **One-Hot Encoding**: Creating binary columns for each category.
+
+### **Why Handle Categorical Data?**
+- Many machine learning algorithms require numerical data.
+- Proper encoding helps preserve the relationships between categories.
+
+### **Code Example:**
+```python
+# Sample DataFrame with categorical data
+data = {'Color': ['Red', 'Blue', 'Green', 'Blue', 'Red']}
+df = pd.DataFrame(data)
+
+# Label encoding: Convert categories to numbers
+df['Color_Label'] = df['Color'].map({'Red': 1, 'Blue': 2, 'Green': 3})
+
+# One-Hot Encoding: Create binary columns for each category
+df_encoded = pd.get_dummies(df['Color'], prefix='Color')
+
+print("DataFrame with Categorical Data Handled:")
+print(df_encoded)
+```
+
+### **Explanation:**
+- **Label Encoding** maps the `Color` column's categories to integer values.
+- **One-Hot Encoding** creates binary columns for each unique value in the `Color` column.
+
+---
+
+## **6.8 Handling Inconsistent Data**
+
+### **Overview**
+Inconsistent data can result from typos, different formats, or various naming conventions. Handling inconsistencies ensures uniformity in the dataset.
+
+### **Key Techniques:**
+- **Fuzzy Matching**: Identifying and standardizing similar but non-exact values.
+- **Regex (Regular Expressions)**: Using patterns to extract or replace inconsistent data.
+
+### **Why Handle Inconsistent Data?**
+- Improves the quality of data for analysis.
+- Helps identify patterns across otherwise unmatchable data points.
+
+### **Code Example:**
+```python
+import re
+
+# Sample DataFrame with inconsistent data
+data = {'City': ['New York', 'new york', 'San Francisco', 'San fran']}
+df = pd.DataFrame(data)
+
+# Standardize text data (convert to lowercase and strip spaces)
+df['City'] = df['City'].str.lower().str.strip()
+
+# Use Regex to replace shorthand names
+df['City'] = df['City'].replace({'san fran': 'san francisco'})
+
+print("DataFrame with Inconsistent Data Handled:")
+print(df)
+```
+
+### **Explanation:**
+- **String standardization**: Converts all entries in the `City` column to lowercase and removes extra spaces.
+- **Regex**: Matches and replaces shorthand for cities with their full names.
+
+---
+
+## **6.9 Feature Engineering**
+
+### **Overview**
+Feature engineering involves creating new features from existing ones to enhance the dataset and provide more insights.
+
+### **Key Techniques:**
+- **Binning**: Categorizing continuous data into discrete bins.
+- **Polynomial Features**: Generating interaction terms or polynomial features for regression models.
+
+### **Why Feature Engineering?**
+- New features can reveal hidden patterns and relationships.
+- Improves model performance in machine learning.
+
+### **Code Example:**
+```python
+# Sample DataFrame with numerical data
+data = {'Age': [24, 35, 30, 45, 60]}
+df = pd.DataFrame(data)
+
+# Binning Age into age groups
+bins = [0, 30, 60, 100]
+labels = ['Young', 'Middle-Aged', 'Old']
+df['Age_Group'] = pd.cut(df['Age'], bins=bins, labels=labels)
+
+print("DataFrame after Feature Engineering:")
+print(df)
+```
+
+### **Explanation:**
+- **Binning**: Converts `Age` into categories like 'Young', 'Middle-Aged', and 'Old' based on defined intervals.
+
 ---
 
 ## **Summary**
@@ -182,7 +313,8 @@ In this lesson, you learned how to:
 4. Identify and manage outliers.
 5. Standardize text data for consistency.
 6. Validate data ranges to ensure accuracy.
+7. Handle categorical data with encoding methods.
+8. Address inconsistent data with fuzzy matching and regex.
+9. Apply feature engineering for better insights and analysis.
 
 These techniques are essential for maintaining clean, reliable datasets, ready for analysis. Explore the [Pandas Documentation](https://pandas.pydata.org/docs/) to deepen your understanding.
-```
-
