@@ -729,7 +729,7 @@ multiply(3, 5)
 
 Let's wrap up Lesson 1's content with a short video on debugging.
 
-**View the video here:** [LINK TBD]
+**[View the video here!](https://youtu.be/_6RWIz65ssE)**
 
 ### Check for Understanding
 
