@@ -411,7 +411,7 @@ for num in range(5):
 
 Our video on loops and conditionals breaks down some common situations in which you might use loops, how to control loop behavior with `break` and `continue`, and **loop nesting**.
 
-**View the video here:** [LINK TBD]
+**[View the video here!](https://youtu.be/iqSjXRmqo_M)**
 
 ### 1.2 Check for Understanding
 
