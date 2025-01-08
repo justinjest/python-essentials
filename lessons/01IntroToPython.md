@@ -653,7 +653,7 @@ except ZeroDivisionError:
 
 * A) It will print nothing
 * B) `10`
-* C) `Error: Divsion by zero is not allowed.`
+* C) `Error: Division by zero is not allowed.`
 * D) `None`
 
 <details>
