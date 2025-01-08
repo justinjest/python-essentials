@@ -677,7 +677,7 @@ Print statements are a simple way to check the values of variables and understan
 ```python
 def multiply(a, b):
     result = a * b
-    print("Result is:", result)  # Print to check the result
+    print("Result is: ", result)  # Print to check the result
     return result
 
 multiply(3, 5)  # Output: Result is: 15
