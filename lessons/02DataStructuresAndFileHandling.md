@@ -122,7 +122,7 @@ Ok, let's review! Here's a table demonstrating the key differences between the f
 | **Dictionary** | No      | Yes (Keys: No)      | Keys: No, Values: Yes | Yes           |
 | **Set**        | No      | Yes                 | No                | No              |
 
-### 2.1 Video: Lists, Tuples, Dictonaries, and Sets
+### 2.1 Video: Lists, Tuples, Dictionaries, and Sets
 
 [Video Description TBD]
 
