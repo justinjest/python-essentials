@@ -22,6 +22,10 @@ In this assignment, you will explore the basic functionalities of the Pandas lib
 3. **Modify an existing column:**
    - Increment the `Age` column by 1 for each entry.
    - Print the modified DataFrame to verify the changes.
+   - 
+4. **Save the DataFrame as a CSV file:**
+   - Save the DataFrame to a file named employees.csv using ```to_csv()```.
+     
 
 ### **Task 2: Loading Data from CSV, JSON, and Dictionaries**
 1. **Read data from a CSV file:**
@@ -29,14 +33,21 @@ In this assignment, you will explore the basic functionalities of the Pandas lib
    - Load the CSV file into a new DataFrame and print it.
 
 2. **Read data from a JSON file:**
-   - Create a JSON file containing sample data:
-     - `Name`: 'Eve', 'Frank'
-     - `Age`: 28, 40
-     - `City`: 'Miami', 'Seattle'
-   - Load the JSON file into a new DataFrame and print it.
+   - Create a JSON file (additional_employees.json) with the following data:
+     
+```
 
-3. **Revisit the original dictionary DataFrame:**
-   - Print the DataFrame created from the original dictionary to verify its structure.
+  {"Name": "Eve", "Age": 28, "City": "Miami", "Salary": 60000},
+  {"Name": "Frank", "Age": 40, "City": "Seattle", "Salary": 95000}
+
+```
+   - Load this JSON file into a new DataFrame using pd.read_json().
+   - Print the DataFrame to verify it loaded correctly
+
+
+3. **Combine DataFrames:**
+   - Append the data from the JSOn file to the DataFrame Loaded from the CSV file.
+   - Print the combined Dataframe
 
 ### **Task 3: Data Inspection - Using Head, Tail, and Info Methods**
 1. **Use the `head()` method:**
