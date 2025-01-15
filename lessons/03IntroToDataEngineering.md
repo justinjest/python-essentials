@@ -164,6 +164,45 @@ df = df.dropna()
 df = df.fillna(0)
 ```
 
+### Saving DataFrames to CSV Files
+
+Pandas makes it easy to save DataFrames as CSV files, which is useful for sharing, storing, or exporting data for later use. You can use the to_csv() method to save your DataFrame to a CSV file
+```python
+DataFrame.to_csv(filepath, sep=',', index=True, header=True, encoding=None)
+```
+```filepath```: The name or path of the CSV file to save (e.g., ```"output.csv"```)   
+```sep```: The delimiter to use (default is a comma ```,```).   
+```index```: Whether to include the index as a column in the file (default is ```True```).   
+```header```: Whether to include column names as the first row (default is ```True```).
+
+
+### Save a DataFrame to a CSV File
+```python
+import pandas as pd
+
+# Create a sample DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [26, 31, 36],
+    'City': ['New York', 'Los Angeles', 'Chicago'],
+    'Salary': [70000, 80000, 90000]
+}
+df = pd.DataFrame(data)
+
+# Save the DataFrame to a CSV file
+df.to_csv("employees.csv", index=False)
+
+print("DataFrame saved to employees.csv")
+```
+Output File (employees.csv):
+
+```sql
+Name,Age,City,Salary
+Alice,26,New York,70000
+Bob,31,Los Angeles,80000
+Charlie,36,Chicago,90000
+
+```
 ### 3.1 Video: Installing and Using Pandas
 
 In this video, one of our mentors will demonstrate installing and using Pandas in Python. This is an important step! If you're still feeling confused, contact a 1:1 mentor to walk through Pandas.
