@@ -37,7 +37,7 @@ import pandas as pd
 
 ### Key Data Structures
 
-1. **Series**: A one-dimensional array, similar to a list or array, but with added features like an index.
+1. **Series**: A one-dimensional array-like structure, similar to a list or array, but with added features such as **customizable indexes**. Each element in a Series is associated with a label (the index), allowing for more intuitive data manipulation and access.
 2. **Data Frame:** A two-dimensional table where each column can hold different types of data. This is the most commonly used data structure in Pandas.
 
 #### Example: Creating a Series
@@ -63,6 +63,21 @@ The output should be:
 Name: numbers, dtype: int64
 ```
 
+
+#### Key Features of a Series:
+1. **Customizable Indexes**:
+   - Unlike standard lists or arrays, a Series can have user-defined labels for its indexes, making it easier to differentiate and access data.
+   - For example:
+     ```python
+     import pandas as pd
+     data = pd.Series([10, 20, 30], index=["a", "b", "c"])
+     print(data)
+     # Output:
+     # a    10
+     # b    20
+     # c    30
+     ```
+     
 #### Example: Creating a DataFrame
 DataFrames are like tables in a database or spreadsheet. To create a DataFrame from a dictionary, run the following code in Python: 
 
@@ -84,6 +99,20 @@ The output should be:
 0    Alice   24       New York
 1      Bob   27  San Francisco
 2  Charlie   22        Chicago
+```
+
+
+#### Example: Differentiating a Series from a List
+```python
+# List Example
+my_list = [10, 20, 30]
+print(my_list[1])  # Access by position
+# Output: 20
+
+# Series Example
+my_series = pd.Series([10, 20, 30], index=["a", "b", "c"])
+print(my_series["b"])  # Access by index label
+# Output: 20
 ```
 
 ### Common Operations in Pandas
@@ -149,6 +178,13 @@ View the video here: [LINK TBD]
   * C) DataFrame
   * D) Series
 
+<details>
+
+<summary>Answer</summary>
+1. C) DataFrame
+</details>
+
+
 2. How can you select rows in a DataFrame where a specific column value is greater than 10?
   * A) `df.loc[df['column'] > 10]`
   * B) `df.loc[df['column'] < 10]`
@@ -158,10 +194,6 @@ View the video here: [LINK TBD]
 <details>
 
 <summary>Answer</summary>
-
-**Answers**:
-
-1. C) DataFrame
 2. A) `df.loc[df['column'] > 10]`
 
 </details>
@@ -226,6 +258,81 @@ The JSON structure should be either a list of dictionaries (each representing a 
 
 For complex JSON structures, you may need to specify additional parameters, or preprocess the JSON data before loading.
 
+
+
+### Using the `sep` Parameter in Pandas
+
+
+In **Pandas**, the `sep` parameter is commonly used when reading or writing CSV (or similar) files. It specifies the **delimiter** (separator) used in the file to distinguish between columns.
+
+
+
+### Common Methods with `sep`
+
+1. **`pd.read_csv()`**: Reads a file and uses the `sep` parameter to define how columns are separated.
+
+2. **`DataFrame.to_csv()`**: Exports a DataFrame and uses `sep` to specify the delimiter in the output file.
+
+
+
+### Example 1: Reading a CSV File with a Custom Separator
+
+Some CSV files may use delimiters other than a comma, such as tabs (`\t`) or pipes (`|`).
+
+```python
+import pandas as pd
+
+# Read a CSV file with pipe as the separator
+data = pd.read_csv("data.csv", sep="|")
+print(data.head())
+```
+
+If the file contains:
+
+```sql
+Name|Age|City
+Alice|30|New York
+Bob|25|Los Angeles
+```
+
+The output will be:
+
+```markdown
+    Name  Age         City
+0  Alice   30     New York
+1    Bob   25  Los Angeles
+```
+
+### Example 2: Writing a CSV File with a Custom Separator
+
+You can export a DataFrame using a custom delimiter instead of the default comma.
+
+```python
+# Create a sample DataFrame
+df = pd.DataFrame({
+    "Name": ["Alice", "Bob"],
+    "Age": [30, 25],
+    "City": ["New York", "Los Angeles"]
+})
+
+# Save the DataFrame to a CSV file with a tab as the separator
+df.to_csv("output.tsv", sep="\t", index=False)
+```
+
+The output file `output.tsv` will look like this:
+
+```sql
+Name	Age	City
+Alice	30	New York
+Bob	25	Los Angeles
+```
+
+#### Why Use `sep`?
+
+* **Flexibility:** Handle files with different delimiters (e.g., tabs, pipes, semicolons).
+* **Compatibility:** Work with non-standard or region-specific CSV formats.
+
+
 #### Loading Data from a Dictionary
 
 Pandas also allows you to create DataFrames from Python dictionaries directly, which is useful when you already have data in a Python program.
@@ -278,6 +385,11 @@ View the video here: [LINK TBD]
   * B) pd.read_json()
   * C) pd.DataFrame()
   * D) pd.read_dict()
+<details>
+
+<summary>Answer</summary>
+1. B) `pd.read_json()`
+</details>
 
 2. If your CSV file uses semicolons (;) instead of commas, which parameter can you use to specify this in pd.read_csv()?
 
@@ -290,10 +402,6 @@ View the video here: [LINK TBD]
 
 <summary>Answer</summary>
 
-**Answers**:
-
-
-1. B) `pd.read_json()`
 2. D) Both B and C
 
 </details>
@@ -360,6 +468,7 @@ The `info()` method provides a summary of the DataFrame, including:
   * The number of non-null (non-missing) values in each column
   * Memory usage of the DataFrame
 
+
 #### Example: Using `info()`
 
 ```python
@@ -405,6 +514,11 @@ View the video here: [LINK TBD]
      * B) 5
      * C) 7
      * D) 10
+ <details>
+
+<summary>Answer</summary> 
+1. B) 5
+</details>
   
 2. Which method provides information about column data types and memory usage?
 
@@ -417,9 +531,6 @@ View the video here: [LINK TBD]
 
 <summary>Answer</summary> 
 
-**Answers**:
-
-1. B) 5
 2. D) `info()`
 
 </details>
