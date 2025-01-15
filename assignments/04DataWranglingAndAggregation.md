@@ -7,11 +7,27 @@ The purpose of this assignment is to deepen your understanding of data wrangling
 ### **Tasks:**
 
 ### **Task 1: Data Selection**
-1. **Create two DataFrames `df1` and `df2` using the provided sample data:**
+1. **Create two DataFrames `df1` and `df2` using the provided sample data(feel free to change the values):**
    - `df1` contains names, ages, and salaries of five employees.
    - `df2` contains names, ages, and salaries of five other employees.
    - Display both DataFrames.
+   
+```
+data1 = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+    'Age': [25, 30, 35, 40, 30],
+    'Salary': [50000, 60000, 70000, 80000, 55000]
+}
+```
 
+```
+data2 = {
+    'Name': ['Frank', 'Grace', 'Helen', 'Ian', 'Jack'],
+    'Age': [28, 33, 35, 29, 40],
+    'Salary': [52000, 58000, 72000, 61000, 85000]
+}
+
+```
 2. **Perform the following selection operations on `df1`:**
    - Select the 'Name' column.
    - Select both 'Name' and 'Salary' columns.
