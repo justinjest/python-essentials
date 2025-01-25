@@ -19,6 +19,10 @@ You can create this file manually or through an IDE like Visual Studio Code.
 * **To set up VS Code:** 
     * Download and install it from here: [https://code.visualstudio.com/] 
 
+### VS 
+
+
+
 **Alternatively, you can use a Jupyter Notebook (with the .ipynb extension) or any notebook platform, such as Google Colab, to keep your classwork organized.**
 
 * **If you're new to Jupyter Notebooks, here's a resource on how to get started with Jupyter Notebooks in VS Code:** [(https://code.visualstudio.com/docs/datascience/jupyter-notebooks)]
@@ -37,7 +41,7 @@ Topics:
 
 1. **Install Python:**
    - You can download Python from the official website: [python.org](https://www.python.org/downloads/).
-   - Follow the installation instructions for your operating system.
+   - Follow the installation instructions for your operating system. Note: If you are using Windows, it is common to use the Windows Subsystem for Linux for development.  WSL is not recommended for this class. Later lessons use matplotlib for graphs.  It is difficult to do the configuration needed to get graphs to show in the WSL environment.  Windows users should install in Windows native.
    - Make sure to check the option to **Add Python to PATH** during installation.
 
 2. **Install pip:**
@@ -46,7 +50,30 @@ Topics:
 
    ```bash
    pip --version
+   ```
+3. **Create a Project Folder**
+    - You need to put your code in a project folder, and this requires a little setup.  Your work for future lessons will require some packages to be added to Python.  These should be installed into a virtual environment -- a collection of packages specifically for your project.  The JavaScript and Rails package managers set up a virtual environment automatically, but it requires several additional steps for Python. Windows users should use a Git Bash session for these steps. Create the folder, cd to that folder, and then do the following:
+    - Install the virtualenv package: `pip install virtualenv`
+    - Enter the following commands (Mac users may need to use python3 as the command):
+    ```bash
+    python -m venv .venv
+    source .venv/Scripts/activate
+    code .
+    ```
+4. **Set Up VSCode for Python**
+    - Some developers may choose an alternate editor, such as PyCharm, but VSCode works well, and the instructions below describe what you need to do.
+    - Be sure to install the Python extension for VSCode.
+    - Windows developers: You should add the following lines to your `~/.bashrc` file (creating the file if it does not exist):
+    ```bash
+    $ cat ~/.bashrc
+    if [ -f ./.venv/Scripts/activate ]; then
+        source ./.venv/Scripts/activate
+    fi
+    ```
+    - In the VSCode command palette (Ctrl-Shift-P) go to `Python: Select Interpreter` and choose the one that has `.venv` in it.
+    - When you open a VSCode terminal, you should see a `(.venv)` as part of the prompt.  This is how you know that the virtual environment is active.  You want it to be active before installing packages such as pandas or numpy.
 
+        
 ## 1.1 Python Basics
 
 ### Variables in Python
