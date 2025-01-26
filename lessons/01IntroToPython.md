@@ -54,10 +54,16 @@ Topics:
 3. **Create a Project Folder**
     - You need to put your code in a project folder, and this requires a little setup.  Your work for future lessons will require some packages to be added to Python.  These should be installed into a virtual environment -- a collection of packages specifically for your project.  The JavaScript and Rails package managers set up a virtual environment automatically, but it requires several additional steps for Python. Windows users should use a Git Bash session for these steps. Create the folder, cd to that folder, and then do the following:
     - Install the virtualenv package: `pip install virtualenv`
-    - Enter the following commands (Mac users may need to use python3 as the command):
+    - Windows users enter the following commands:
     ```bash
     python -m venv .venv
     source .venv/Scripts/activate
+    code .
+    ```
+    - Mac users enter the following commands:
+        ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
     code .
     ```
 4. **Set Up VSCode for Python**
@@ -65,7 +71,6 @@ Topics:
     - Be sure to install the Python extension for VSCode.
     - Windows developers: You should add the following lines to your `~/.bashrc` file (creating the file if it does not exist):
     ```bash
-    $ cat ~/.bashrc
     if [ -f ./.venv/Scripts/activate ]; then
         source ./.venv/Scripts/activate
     fi
