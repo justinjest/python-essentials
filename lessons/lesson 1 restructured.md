@@ -11,6 +11,19 @@ Welcome to **Python Essentials** with Code the Dream!
 * After reading through the lesson content and correctly answering the "Check for Understanding" questions, complete the **Weekly Assignment**.
 
 If you have questions at any point, ask a question in the `discussion` Slack channel or reach out to your mentor!
+
+## Lesson Overview
+
+**Learning objective:** Students will learn the basics of Python programming, including variables, data types, operators, control flow statements, and functions. They will also practice debugging their code.
+
+Topics:
+
+* Python Basics: Variables, data types, data conversion, operators.
+* Control Flow: Conditional statements (if, elif, else), loops (for, while).
+* Functions: Defining and calling functions, parameters, and return values.
+* Error Handling: Introduction to try, except for basic debugging.
+* Basic Debugging: Using print statements or logging for debugging.
+
 ## 1.1 Setting up uour environment 
 
 **Start by creating a .py file somewhere convenient on your local machine.** 
@@ -24,17 +37,6 @@ You can create this file manually or through an IDE like Visual Studio Code.
 
 * **If you're new to Jupyter Notebooks, here's a resource on how to get started with Jupyter Notebooks in VS Code:** [(https://code.visualstudio.com/docs/datascience/jupyter-notebooks)]
 * **Google Colab can also be used for running Jupyter Notebooks in the cloud. [https://colab.research.google.com/]** 
-## Lesson Overview
-
-**Learning objective:** Students will learn the basics of Python programming, including variables, data types, operators, control flow statements, and functions. They will also practice debugging their code.
-
-Topics:
-
-* Python Basics: Variables, data types, data conversion, operators.
-* Control Flow: Conditional statements (if, elif, else), loops (for, while).
-* Functions: Defining and calling functions, parameters, and return values.
-* Error Handling: Introduction to try, except for basic debugging.
-* Basic Debugging: Using print statements or logging for debugging.
 
 ### Install Python
 
@@ -212,7 +214,7 @@ result = 3 + 2.5  # 5.5 (float, because Python converts the integer to float)
 result = int(2.8) + 3  # 5 (integer, because we explicitly converted the float to int)
 ```
 
-### Video 1.1: Data Types and Conversion
+### Video 1.2: Data Types and Conversion
 
 Learn how to work with data types in Python in our first video, which covers essential type conversions with `int()`, `float()`, `str()`, and `bool()`, practical examples of when to use them, and tips to avoid common pitfalls.
 
@@ -257,6 +259,529 @@ print(5 > 3)  # True
 # Logical
 print(True and False)  # False
 ```
+### Check for Understanding
+
+**Question:** What type of data is stored in the variable `age` in the following code?
+
+```python
+age = 28
+```
+
+* A) String
+* B) Integer
+* C) Float
+* D) Boolean
+  
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: B) Integer
+
+</details>
+
+**Question:** Which of the following data types would you use to store the value `"Hello, World!"`?
+
+* A) Integer
+* B) Float
+* C) String
+* D) Boolean
+
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: C) String
+
+</details>
+
+**Question**: What will be the output of the following code?
+
+```python
+num_str = "42"
+num_int = int(num_str)
+print(num_int)
+```
+
+* A) `"42"`
+* B) `42`
+* C) `<class 'str'>`
+* D) An error message
+
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: B) `42`
+
+</details>
+
+**Question**: What will the following code output?
+
+``python
+print(10 % 3)
+``
+
+* A) `3`
+* B) `1`
+* C) `10`
+* D) `0`
+
+<details>
+
+<summary>Answer</summary>
+
+**Answer:** B) `1`
+
+</details>
 
 ## 1.4 Block Structure and Indentations 
 
+In Python, indentation plays a crucial role in the syntax of the language. Unlike many other programming languages, which use braces {} or other markers to denote code blocks, Python uses indentation to group statements and define the scope of loops, functions, classes, and conditional statements.
+
+**Why Indentation Matters in Python**
+
+* **Defining Code Blocks:** Indentation tells Python where a block of code begins and ends.
+* **Enforcing Readability:** The clean and readable structure makes Python code easier to follow.
+
+**Key Concepts:**
+
+* **Indentation in Control Structures:** 
+    * All code under control structures (such as `if`, `else`, `for`, `while`, and function definitions) must be indented.
+
+* **Consistent Indentation:**
+    * Consistency is key. Python does not allow mixing tabs and spaces. Use either spaces or tabs but never both. 
+    * The Python community’s standard is to use 4 spaces per indentation level.
+
+**Block Structure Example:**
+
+```python
+def check_number(num):
+    if num > 0:
+        print("Positive number")
+    elif num < 0:
+        print("Negative number")
+    else:
+        print("Zero")
+```
+In the above example:
+
+The function check_number defines the first level of indentation.
+The if, elif, and else blocks define additional indentation levels for the code that falls under each condition.
+Indentation Error Example:
+
+
+```python
+def check_number(num):if num > 0:  # This will raise an error because it's not indented properly
+    print("Positive number") 
+```
+In the above case, Python will raise an error stating: IndentationError: expected an indented block.
+
+Using Indentation with Loops:
+
+```python
+for i in range(3):
+    print("Loop iteration:", i)  # This line is inside the for loop
+```
+Any line that is indented under the for statement is part of the loop.
+
+
+In many programming languages the format and structure makes code more easily readable.  Structure is even more critical in Python.  Read [this article from Geeks for Geeks](https://www.geeksforgeeks.org/indentation-in-python/) to gain an understanding of the importance of indentation, format, and structure when writing code blocks in Python. 
+
+## 1.5 Control Flow
+
+Control flow structures allow us to direct the execution of code based on conditions or repeat code until a condition is met. The two main control flow structures in Python are **conditional statements** and **loops**.
+
+### Conditional Statements
+
+Conditional statements enable code to execute only when specific conditions are met. Python uses `if`, `elif`, and `else` statements to handle different conditions.
+
+* `if`: Checks the initial condition. If `True`, it runs the code block.
+* `else`: Runs if none of the previous conditions were `True`.
+* `elif`: Stands for 'else if'; checks additional conditions if the previous ones were `False`.
+
+```python
+age = 20
+
+if age >= 18:
+    print("You're an adult!")
+elif age >= 13:
+    print("You're a teenager.")
+else:
+    print("You're a child.")
+```
+
+#### Nested Conditionals
+
+You can also nest conditionals inside each other for more complex decision-making.
+
+```python
+score = 85
+
+if score >= 90:
+    print("A")
+else:
+    if score >= 80:
+        print("B")
+    else:
+        print("C")
+```
+
+### Loops
+
+**Loops** allow us to repeat code multiple times, either for a specific range or while a condition is `True`
+
+#### `For` Loop
+
+The `for` loop is commonly used to iterate over a sequence (like a list or range of numbers).
+
+```python
+# Looping through a list
+fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+
+# Using range to loop a specific number of times
+for i in range(3):
+    print("Loop iteration:", i)
+```
+
+#### `While` Loop
+
+A `while` loop runs as long as a condition remains `True`. Be careful to ensure the condition will eventually be `False` to avoid infinite loops.
+
+```python
+count = 0
+
+while count < 3:
+    print("Count is:", count)
+    count += 1
+```
+
+#### Breaking Out of Loops
+
+The `break` statement can be used to exit a loop early.
+
+```python
+for num in range(10):
+    if num == 5:
+        break
+    print(num)
+# Output: 0, 1, 2, 3, 4
+```
+
+#### Skipping Iterations
+
+The `continue` statement allows you to skip the rest of the code in the current iteration and move to the next iteration.
+
+```python
+for num in range(5):
+    if num == 2:
+        continue
+    print(num)
+# Output: 0, 1, 3, 4
+```
+
+### Check for Understanding
+
+**Question:** What will the following code output if `age = 16`?
+
+```python
+if age >= 18:
+    print("You're an adult!")
+elif age >= 13:
+    print("You're a teenager.")
+else:
+    print("You're a child.")
+```
+
+* A) "You're an adult!"
+* B) "You're a teenager."
+* C) "You're a child."
+* D) No output
+
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: B) "You're a teenager."
+
+</details>
+
+**Question**: What will the following code output?
+
+```python
+for i in range(3):
+    print(i)
+```
+
+* A) `1 2 3`
+* B) `0 1 2`
+* C) `0 1 2 3`
+* D) `3`
+
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: B) `0 1 2`
+
+</details>
+
+## 1.6 Functions
+
+**Functions** are reusable blocks of code that perform specific tasks. They help keep your code organized, modular, and easy to understand.
+
+### Defining and Calling Functions
+
+A function is defined using the `def` keyword, followed by a function name, parentheses `()`, and a colon. The code inside the function is indented.
+
+```python
+def greet():
+    print("Hello, world!")
+```
+
+To call a function, simply use its name followed by parentheses.
+
+```python
+greet()  # Output: Hello, world!
+```
+
+### Parameters and Arguments
+
+Functions can take **parameters** (variables defined within the parentheses in the function definition) to make them more versatile. When calling the function, you pass **arguments** (the actual values).
+
+```python
+def greet(name):
+    print("Hello, " + name + "!")
+    
+greet("Jazmine")  # Output: Hello, Jazmine!
+```
+
+You can also define multiple parameters.
+
+```python
+def add(a, b):
+    print(a + b)
+
+add(3, 5)  # Output: 8
+```
+
+### Return Values
+
+A function can return a value to the caller using the `return` keyword. This makes the function's output available for use outside the function.
+
+```python
+def square(number):
+    return number * number
+
+result = square(4)  # result is 16
+```
+
+If a function doesn’t explicitly return a value, it implicitly returns `None`
+
+### Default Parameters
+
+You can set **default values** for parameters, making them optional when the function is called.
+
+```python
+def greet(name="stranger"):
+    print("Hello, " + name + "!")
+
+greet()            # Output: Hello, stranger!
+greet("Luis")   # Output: Hello, Luis!
+```
+
+### Using *args and **kwargs
+
+Functions can be made more flexible by allowing them to handle an arbitrary number of arguments.
+
+**What are *args?**
+
+*args allows a function to accept any number of positional arguments, which are collected into a tuple.
+
+**Example:**
+
+```python
+def add_numbers(*args):
+    return sum(args)
+
+print(add_numbers(1, 2, 3, 4))  # Output: 10
+```
+
+**Key Points:**
+
+* Use *args when the exact number of arguments isn't known beforehand.
+* The collected arguments are treated as a tuple.
+
+**What are **kwargs?**
+
+**kwargs allows a function to accept any number of keyword arguments, which are collected into a dictionary.
+
+**Example:**
+
+```python
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Janet", role="Developer", age=25)
+```
+
+**Key Points:**
+
+* Use **kwargs when you expect dynamic named parameters.
+* The collected arguments are treated as a dictionary.
+
+**Combining *args and **kwargs**
+
+You can use both together to handle a mix of positional and keyword arguments.
+
+**Example:**
+
+```python
+def mixed_function(*args, **kwargs):
+    print("Positional arguments:", args)
+    print("Keyword arguments:", kwargs)
+
+mixed_function(1, 2, 3, name="Janet", role="Developer")
+```
+
+**Output:**
+
+```
+Positional arguments: (1, 2, 3)
+Keyword arguments: {'name': 'Janet', 'role': 'Developer'}
+```
+
+### Video 1.6: Functions
+
+[Video Description TBD]
+
+**View the video here:** [LINK TBD]
+
+### Check for Understanding
+
+**Question**: What is the purpose of the `return` statement in a function?
+
+* A) To stop the function
+* B) To send a value back to the caller
+* C) To print a message
+* D) To define a variable
+
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: B) To send a value back to the caller.
+
+</details>
+
+**Question**: What will be the output of the following code?
+
+```python
+def greet(name):
+    print("Hello, " + name + "!")
+    
+greet("Luis")
+```
+
+* A) `"Hello, stranger!"`
+* B) `"Hello, Luis!"`
+* C) `"Hello, name!"`
+* D) `"Luis"`
+
+<details>
+
+<summary>Answer</summary>
+
+**Answer**: B) `"Hello, Luis!"`
+
+</details>
+
+## 1.7 Basic Debugging
+
+**Debugging** is the process of finding and fixing errors in your code. Two popular methods for basic debugging in Python are using **print statements** and **logging**.
+
+### Debugging with Print Statements
+
+Print statements are a simple way to check the values of variables and understand the flow of your program. This technique helps you see what’s happening at specific points in your code.
+
+```python
+def multiply(a, b):
+    result = a * b
+    print("Result is: ", result)  # Print to check the result
+    return result
+
+multiply(3, 5)  # Output: Result is: 15
+```
+
+Tips for effective print debugging:
+
+* Use descriptive messages (e.g., `"Starting loop at i=" + str(i)`).
+* Print variable values and descriptions of the program state.
+* Remember to remove or comment out `print` statements when you’re done!
+
+### Debugging with Logging
+
+The **logging** module provides more control over output and is useful for larger projects or tracking complex issues. Unlike **print**, logging allows you to set levels to distinguish between informational messages, warnings, errors, and more.
+
+Logging Levels
+
+* **DEBUG**: Detailed information, typically useful only for debugging.
+* **INFO**: Confirmation that things are working as expected.
+* **WARNING**: An indication that something unexpected happened, or indicative of future problems.
+* **ERROR**: A serious problem that prevented some part of the code from running.
+
+To use logging:
+
+1. Import the `logging` module.
+2. Set up basic configuration with `logging.basicConfig()`.
+3. Use logging statements like `logging.debug()`, `logging.info()`, `logging.warning()`, and `logging.error()`.
+
+Here's an example of using logging for debugging. Notice how each of the three steps are incorporated.
+
+```python
+# Step 1
+import logging
+
+# Step 2
+logging.basicConfig(level=logging.DEBUG)
+
+# Step 3
+def multiply(a, b):
+    logging.debug(f"Multiplying {a} and {b}")
+    result = a * b
+    logging.info(f"Result is: {result}")
+    return result
+
+multiply(3, 5)
+```
+
+### Basic Debugging Video
+
+Let's wrap up Lesson 1's content with a short video on debugging.
+
+**[View the video here!](https://youtu.be/_6RWIz65ssE)**
+
+### Check for Understanding
+
+**Question**: What is the primary purpose of using `print` statements in debugging?
+
+* A) To find and correct errors in variable values and program flow
+* B) To slow down the program
+* C) To remove errors automatically
+* D) To show only the final output
+
+<details>
+<summary>Answer</summary>
+
+**Answer**: A) To find and correct errors in variable values and program flow
+</details>
+---
+
+
+
+This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the 
+[CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form)
