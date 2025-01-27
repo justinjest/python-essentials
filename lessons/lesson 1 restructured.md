@@ -18,11 +18,25 @@ If you have questions at any point, ask a question in the `discussion` Slack cha
 
 Topics:
 
-* Python Basics: Variables, data types, data conversion, operators.
-* Control Flow: Conditional statements (if, elif, else), loops (for, while).
-* Functions: Defining and calling functions, parameters, and return values.
-* Error Handling: Introduction to try, except for basic debugging.
-* Basic Debugging: Using print statements or logging for debugging.
+- **Setting Up Your Python Environment**:  
+  Installing Python, pip, and IDEs (VS Code, Jupyter Notebook, or Google Colab). Verifying installations and creating `.py` files.
+
+- **Python Basics**:  
+  Variables, data types (integers, floats, strings, booleans), data conversion (explicit and implicit), and operators (arithmetic, comparison, logical).
+
+- **Block Structure and Indentation**:  
+  Understanding Python’s indentation-based syntax for defining blocks like functions, loops, and conditionals.
+
+- **Control Flow**:  
+  Conditional statements (`if`, `elif`, `else`), loops (`for`, `while`), and controlling loops with `break` and `continue`.
+
+- **Functions**:  
+  Defining and calling functions, parameters, return values, and handling dynamic arguments with `*args` and `**kwargs`.
+
+- **Debugging**:  
+  - **Error Handling**: Introduction to `try`, `except` for handling runtime errors.  
+  - **Basic Debugging**: Using print statements and the `logging` module to debug code effectively.
+
 
 ## 1.1 Setting up uour environment 
 
@@ -780,6 +794,100 @@ Let's wrap up Lesson 1's content with a short video on debugging.
 **Answer**: A) To find and correct errors in variable values and program flow
 </details>
 ---
+
+## 1.4 Error Handling
+
+Error handling in Python is managed using the `try`, `except`, `else`, and `finally` blocks. This structure allows developers to gracefully handle errors that may occur during runtime, ensuring that the program can either recover from an issue or fail gracefully with useful feedback.
+
+### `try` and `except`
+
+The `try` block contains code that might raise an error. If an error occurs, the `except` block is executed, and Python will not terminate the program abruptly. You can catch specific exceptions or handle all exceptions generally.
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+```
+
+```python
+try:
+    num = int(input("Enter a number: "))
+except Exception as e:
+    print(f"An error occurred: {e}")
+```
+
+### `else`
+
+The `else` block is optional and runs if no exception was raised in the try block.
+
+```python
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+else:
+    print(f"Success! The result is {result}.")
+```
+
+### `finally`
+
+The `finally` block runs regardless of whether an exception occurred or not. It’s often used for cleanup actions like closing files or database connections.
+
+```python
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("Error: File not found.")
+finally:
+    file.close()
+    print("File closed.")
+```
+
+### Raising exceptions
+
+Python allows you to raise exceptions using the raise keyword, either with built-in exceptions or custom ones.
+
+```python
+def check_age(age):
+    if age < 18:
+        raise ValueError("Age must be 18 or older.")
+    return True
+
+try:
+    check_age(16)
+except ValueError as e:
+    print(e)
+```
+
+### Error Handling
+
+[Video Description TBD]
+
+**View the video here:** [LINK TBD]
+
+Check for Understanding
+
+**Question**: If the following code tries to divide by zero, which message will it print?
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+```
+
+* A) It will print nothing
+* B) `10`
+* C) `Error: Division by zero is not allowed.`
+* D) `None`
+
+<details>
+<summary>Answer</summary>
+
+**Answer:** C) `Error: Division by zero is not allowed.`
+</details>
 
 
 
