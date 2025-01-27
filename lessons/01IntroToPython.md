@@ -12,6 +12,34 @@ Welcome to **Python Essentials** with Code the Dream!
 
 If you have questions at any point, ask a question in the `discussion` Slack channel or reach out to your mentor!
 
+## Lesson Overview
+
+**Learning objective:** Students will learn the basics of Python programming, including variables, data types, operators, control flow statements, and functions. They will also practice debugging their code.
+
+Topics:
+
+- **Setting Up Your Python Environment**:  
+  Installing Python, pip, and IDEs (VS Code, Jupyter Notebook, or Google Colab). Verifying installations and creating `.py` files.
+
+- **Python Basics**:  
+  Variables, data types (integers, floats, strings, booleans), data conversion (explicit and implicit), and operators (arithmetic, comparison, logical).
+
+- **Block Structure and Indentation**:  
+  Understanding Python’s indentation-based syntax for defining blocks like functions, loops, and conditionals.
+
+- **Control Flow**:  
+  Conditional statements (`if`, `elif`, `else`), loops (`for`, `while`), and controlling loops with `break` and `continue`.
+
+- **Functions**:  
+  Defining and calling functions, parameters, return values, and handling dynamic arguments with `*args` and `**kwargs`.
+
+- **Debugging**:  
+  - **Error Handling**: Introduction to `try`, `except` for handling runtime errors.  
+  - **Basic Debugging**: Using print statements and the `logging` module to debug code effectively.
+
+
+## 1.1 Setting up uour environment 
+
 **Start by creating a .py file somewhere convenient on your local machine.** 
 
 You can create this file manually or through an IDE like Visual Studio Code. 
@@ -23,48 +51,113 @@ You can create this file manually or through an IDE like Visual Studio Code.
 
 * **If you're new to Jupyter Notebooks, here's a resource on how to get started with Jupyter Notebooks in VS Code:** [(https://code.visualstudio.com/docs/datascience/jupyter-notebooks)]
 * **Google Colab can also be used for running Jupyter Notebooks in the cloud. [https://colab.research.google.com/]** 
-## Lesson Overview
 
-**Learning objective:** Students will learn the basics of Python programming, including variables, data types, operators, control flow statements, and functions. They will also practice debugging their code.
+### Install Python
 
-Topics:
+You can download Python from the official website: [python.org](https://www.python.org/downloads/).
 
-* Python Basics: Variables, data types, data conversion, operators.
-* Control Flow: Conditional statements (if, elif, else), loops (for, while).
-* Functions: Defining and calling functions, parameters, and return values.
-* Error Handling: Introduction to try, except for basic debugging.
-* Basic Debugging: Using print statements or logging for debugging.
+Follow the installation instructions for your operating system:
 
-1. **Install Python:**
-   - You can download Python from the official website: [python.org](https://www.python.org/downloads/).
-   - Follow the installation instructions for your operating system.
-   - Make sure to check the option to **Add Python to PATH** during installation.
+1. **For Windows**:
+   - Download the latest version of Python for Windows from the Python official website.
+   - Run the installer and make sure to **check the box to "Add Python to PATH"** during the installation process. This ensures that Python and `pip` (Python's package manager) will be available in your command prompt or terminal.
+   - Choose the **"Install Now"** option to install Python with default settings, or use **"Customize Installation"** for more control over installation options.
 
-2. **Install pip:**
-   - Pip is Python’s package installer and is included automatically with Python (version 3.4 and above).
-   - To verify if pip is installed, open a terminal or command prompt and type:
+2. **For macOS**:
+   - macOS typically comes with Python pre-installed. To ensure you are using Python 3, download the latest version of Python from [python.org](https://www.python.org/downloads/).
+   - Follow the installation instructions. You can also use **Homebrew** to install Python by running the following command in the terminal:
+     ```bash
+     brew install python
+     ```
 
+3. **For Linux**:
+   - Most Linux distributions come with Python pre-installed. To install or upgrade Python 3, you can use the package manager:
+     - For **Debian/Ubuntu** systems:
+       ```bash
+       sudo apt update
+       sudo apt install python3
+       ```
+     - For **Fedora**:
+       ```bash
+       sudo dnf install python3
+       ```
+     - For **Arch Linux**:
+       ```bash
+       sudo pacman -S python
+       ```
+
+4. **Verifying Python Installation**:
+   After installation, you can verify that Python was installed correctly by opening a terminal or command prompt and running:
+   
    ```bash
-   pip --version
-
-## 1.1 Python Basics
-
-### Variables in Python
-
-A **variable** is like a labeled box where you store data. In Python, variables don’t need explicit declaration before assignment, and the type of data they hold can change dynamically.
-
-In the example below,
-
-* `name` is assigned a **string** `"Jazmine"`
-* `age` is assigned an **integer** `28`
-* `height` is assigned a **float** `5.8`
-
-```python
-name = "Jazmine"   # A variable storing a string
-age = 28           # A variable storing an integer
-height = 5.8       # A variable storing a float (decimal)
+   python --version
+Or for Python 3 (in case of multiple Python versions):
+```
+python3 --version
+```
+This should display the installed version of Python. For example, you might see:
+```
+Python 3.9.7
 ```
 
+
+### Install pip
+
+**Pip** is Python’s package installer, and it is included automatically with Python versions 3.4 and above. It allows you to easily install and manage Python libraries and packages from the Python Package Index (PyPI).
+
+#### Verify if pip is installed:
+To check if **pip** is installed, open a terminal or command prompt and type:
+
+```bash
+pip --version
+```
+
+If you're using **Python 3**, you might need to use `pip3` instead:
+
+```bash
+pip3 --version
+```
+
+This should display the installed version of pip. If pip is not installed or you encounter an error, you may need to reinstall Python and ensure that the box for **Add Python to PATH** is checked.
+
+#### Upgrading pip:
+If you already have pip installed but want to make sure it’s up to date, run the following command:
+
+```bash
+python -m pip install --upgrade pip
+```
+
+Or, for Python 3:
+
+```bash
+python3 -m pip install --upgrade pip
+```
+
+#### Using pip:
+Once pip is installed, you can install Python packages by using the following command:
+
+```bash
+pip install package_name
+```
+
+Or, for Python 3:
+
+```bash
+pip3 install package_name
+```
+
+For example, to install the `requests` library (which allows you to make HTTP requests), you would use:
+
+```bash
+pip install requests
+```
+
+Or, for Python 3:
+
+```bash
+pip3 install requests
+```
+## 1.2 Python Basics 
 ### Data Types in Python
 
 **Data types** tell Python what kind of data is stored in a variable. Common data types include:
@@ -135,13 +228,13 @@ result = 3 + 2.5  # 5.5 (float, because Python converts the integer to float)
 result = int(2.8) + 3  # 5 (integer, because we explicitly converted the float to int)
 ```
 
-### Video 1.1: Data Types and Conversion
+### Video 1.2: Data Types and Conversion
 
 Learn how to work with data types in Python in our first video, which covers essential type conversions with `int()`, `float()`, `str()`, and `bool()`, practical examples of when to use them, and tips to avoid common pitfalls.
 
 **Watch the video here.** [LINK TBD]
 
-### Operators in Python
+## 1.3 Operators in Python
 
 **Operators** are special symbols that perform operations on variables and values. Some of the most commonly used operators are:
 
@@ -180,62 +273,7 @@ print(5 > 3)  # True
 # Logical
 print(True and False)  # False
 ```
-
-### Block structure in Python
-## Overview
-
-In Python, indentation plays a crucial role in the syntax of the language. Unlike many other programming languages, which use braces {} or other markers to denote code blocks, Python uses indentation to group statements and define the scope of loops, functions, classes, and conditional statements.
-
-**Why Indentation Matters in Python**
-
-* **Defining Code Blocks:** Indentation tells Python where a block of code begins and ends.
-* **Enforcing Readability:** The clean and readable structure makes Python code easier to follow.
-
-**Key Concepts:**
-
-* **Indentation in Control Structures:** 
-    * All code under control structures (such as `if`, `else`, `for`, `while`, and function definitions) must be indented.
-
-* **Consistent Indentation:**
-    * Consistency is key. Python does not allow mixing tabs and spaces. Use either spaces or tabs but never both. 
-    * The Python community’s standard is to use 4 spaces per indentation level.
-
-**Block Structure Example:**
-
-```python
-def check_number(num):
-    if num > 0:
-        print("Positive number")
-    elif num < 0:
-        print("Negative number")
-    else:
-        print("Zero")
-```
-In the above example:
-
-The function check_number defines the first level of indentation.
-The if, elif, and else blocks define additional indentation levels for the code that falls under each condition.
-Indentation Error Example:
-
-
-```python
-def check_number(num):if num > 0:  # This will raise an error because it's not indented properly
-    print("Positive number") 
-```
-In the above case, Python will raise an error stating: IndentationError: expected an indented block.
-
-Using Indentation with Loops:
-
-```python
-for i in range(3):
-    print("Loop iteration:", i)  # This line is inside the for loop
-```
-Any line that is indented under the for statement is part of the loop.
-
-
-In many programming languages the format and structure makes code more easily readable.  Structure is even more critical in Python.  Read [this article from Geeks for Geeks](https://www.geeksforgeeks.org/indentation-in-python/) to gain an understanding of the importance of indentation, format, and structure when writing code blocks in Python. 
-
-### 1.1 Check for Understanding
+### Check for Understanding
 
 **Question:** What type of data is stored in the variable `age` in the following code?
 
@@ -311,8 +349,60 @@ print(10 % 3)
 
 </details>
 
+## 1.4 Block Structure and Indentations 
 
-## 1.2 Control Flow
+In Python, indentation plays a crucial role in the syntax of the language. Unlike many other programming languages, which use braces {} or other markers to denote code blocks, Python uses indentation to group statements and define the scope of loops, functions, classes, and conditional statements.
+
+**Why Indentation Matters in Python**
+
+* **Defining Code Blocks:** Indentation tells Python where a block of code begins and ends.
+* **Enforcing Readability:** The clean and readable structure makes Python code easier to follow.
+
+**Key Concepts:**
+
+* **Indentation in Control Structures:** 
+    * All code under control structures (such as `if`, `else`, `for`, `while`, and function definitions) must be indented.
+
+* **Consistent Indentation:**
+    * Consistency is key. Python does not allow mixing tabs and spaces. Use either spaces or tabs but never both. 
+    * The Python community’s standard is to use 4 spaces per indentation level.
+
+**Block Structure Example:**
+
+```python
+def check_number(num):
+    if num > 0:
+        print("Positive number")
+    elif num < 0:
+        print("Negative number")
+    else:
+        print("Zero")
+```
+In the above example:
+
+The function check_number defines the first level of indentation.
+The if, elif, and else blocks define additional indentation levels for the code that falls under each condition.
+Indentation Error Example:
+
+
+```python
+def check_number(num):if num > 0:  # This will raise an error because it's not indented properly
+    print("Positive number") 
+```
+In the above case, Python will raise an error stating: IndentationError: expected an indented block.
+
+Using Indentation with Loops:
+
+```python
+for i in range(3):
+    print("Loop iteration:", i)  # This line is inside the for loop
+```
+Any line that is indented under the for statement is part of the loop.
+
+
+In many programming languages the format and structure makes code more easily readable.  Structure is even more critical in Python.  Read [this article from Geeks for Geeks](https://www.geeksforgeeks.org/indentation-in-python/) to gain an understanding of the importance of indentation, format, and structure when writing code blocks in Python. 
+
+## 1.5 Control Flow
 
 Control flow structures allow us to direct the execution of code based on conditions or repeat code until a condition is met. The two main control flow structures in Python are **conditional statements** and **loops**.
 
@@ -407,13 +497,7 @@ for num in range(5):
 # Output: 0, 1, 3, 4
 ```
 
-### Video 1.2: Loops and Conditionals
-
-Our video on loops and conditionals breaks down some common situations in which you might use loops, how to control loop behavior with `break` and `continue`, and **loop nesting**.
-
-**[View the video here!](https://youtu.be/iqSjXRmqo_M)**
-
-### 1.2 Check for Understanding
+### Check for Understanding
 
 **Question:** What will the following code output if `age = 16`?
 
@@ -459,7 +543,7 @@ for i in range(3):
 
 </details>
 
-## 1.3 Functions
+## 1.6 Functions
 
 **Functions** are reusable blocks of code that perform specific tasks. They help keep your code organized, modular, and easy to understand.
 
@@ -523,13 +607,75 @@ greet()            # Output: Hello, stranger!
 greet("Luis")   # Output: Hello, Luis!
 ```
 
-### Video 1.3: Functions
+### Using *args and **kwargs
+
+Functions can be made more flexible by allowing them to handle an arbitrary number of arguments.
+
+**What are *args?**
+
+*args allows a function to accept any number of positional arguments, which are collected into a tuple.
+
+**Example:**
+
+```python
+def add_numbers(*args):
+    return sum(args)
+
+print(add_numbers(1, 2, 3, 4))  # Output: 10
+```
+
+**Key Points:**
+
+* Use *args when the exact number of arguments isn't known beforehand.
+* The collected arguments are treated as a tuple.
+
+**What are **kwargs?**
+
+**kwargs allows a function to accept any number of keyword arguments, which are collected into a dictionary.
+
+**Example:**
+
+```python
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Janet", role="Developer", age=25)
+```
+
+**Key Points:**
+
+* Use **kwargs when you expect dynamic named parameters.
+* The collected arguments are treated as a dictionary.
+
+**Combining *args and **kwargs**
+
+You can use both together to handle a mix of positional and keyword arguments.
+
+**Example:**
+
+```python
+def mixed_function(*args, **kwargs):
+    print("Positional arguments:", args)
+    print("Keyword arguments:", kwargs)
+
+mixed_function(1, 2, 3, name="Janet", role="Developer")
+```
+
+**Output:**
+
+```
+Positional arguments: (1, 2, 3)
+Keyword arguments: {'name': 'Janet', 'role': 'Developer'}
+```
+
+### Video 1.6: Functions
 
 [Video Description TBD]
 
 **View the video here:** [LINK TBD]
 
-### 1.3 Check for Understanding
+### Check for Understanding
 
 **Question**: What is the purpose of the `return` statement in a function?
 
@@ -568,105 +714,7 @@ greet("Luis")
 
 </details>
 
-## 1.4 Error Handling
-
-Error handling in Python is managed using the `try`, `except`, `else`, and `finally` blocks. This structure allows developers to gracefully handle errors that may occur during runtime, ensuring that the program can either recover from an issue or fail gracefully with useful feedback.
-
-### `try` and `except`
-
-The `try` block contains code that might raise an error. If an error occurs, the `except` block is executed, and Python will not terminate the program abruptly. You can catch specific exceptions or handle all exceptions generally.
-
-```python
-try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("Error: Division by zero is not allowed.")
-```
-
-```python
-try:
-    num = int(input("Enter a number: "))
-except Exception as e:
-    print(f"An error occurred: {e}")
-```
-
-### `else`
-
-The `else` block is optional and runs if no exception was raised in the try block.
-
-```python
-try:
-    result = 10 / 2
-except ZeroDivisionError:
-    print("Error: Division by zero is not allowed.")
-else:
-    print(f"Success! The result is {result}.")
-```
-
-### `finally`
-
-The `finally` block runs regardless of whether an exception occurred or not. It’s often used for cleanup actions like closing files or database connections.
-
-```python
-try:
-    file = open("example.txt", "r")
-    content = file.read()
-except FileNotFoundError:
-    print("Error: File not found.")
-finally:
-    file.close()
-    print("File closed.")
-```
-
-### Raising exceptions
-
-Python allows you to raise exceptions using the raise keyword, either with built-in exceptions or custom ones.
-
-```python
-def check_age(age):
-    if age < 18:
-        raise ValueError("Age must be 18 or older.")
-    return True
-
-try:
-    check_age(16)
-except ValueError as e:
-    print(e)
-```
-
-### Video 1.4: Error Handling
-
-[Video Description TBD]
-
-**View the video here:** [LINK TBD]
-
-### 1.4 Check for Understanding
-
-**Question**: If the following code tries to divide by zero, which message will it print?
-
-```python
-try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("Error: Division by zero is not allowed.")
-```
-
-* A) It will print nothing
-* B) `10`
-* C) `Error: Division by zero is not allowed.`
-* D) `None`
-
-<details>
-<summary>Answer</summary>
-
-**Answer:** C) `Error: Division by zero is not allowed.`
-</details>
-
-### In-Depth Read: Errors and Exceptions
-
-For a more in-depth look at Errors and Exceptions, along with plenty of examples, check out the [Python Tutorial's article on this subject](https://docs.python.org/3/tutorial/errors.html).
-
-## 1.5 Basic Debugging
+## 1.7 Basic Debugging
 
 **Debugging** is the process of finding and fixing errors in your code. Two popular methods for basic debugging in Python are using **print statements** and **logging**.
 
@@ -746,6 +794,101 @@ Let's wrap up Lesson 1's content with a short video on debugging.
 **Answer**: A) To find and correct errors in variable values and program flow
 </details>
 ---
+
+## 1.4 Error Handling
+
+Error handling in Python is managed using the `try`, `except`, `else`, and `finally` blocks. This structure allows developers to gracefully handle errors that may occur during runtime, ensuring that the program can either recover from an issue or fail gracefully with useful feedback.
+
+### `try` and `except`
+
+The `try` block contains code that might raise an error. If an error occurs, the `except` block is executed, and Python will not terminate the program abruptly. You can catch specific exceptions or handle all exceptions generally.
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+```
+
+```python
+try:
+    num = int(input("Enter a number: "))
+except Exception as e:
+    print(f"An error occurred: {e}")
+```
+
+### `else`
+
+The `else` block is optional and runs if no exception was raised in the try block.
+
+```python
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+else:
+    print(f"Success! The result is {result}.")
+```
+
+### `finally`
+
+The `finally` block runs regardless of whether an exception occurred or not. It’s often used for cleanup actions like closing files or database connections.
+
+```python
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("Error: File not found.")
+finally:
+    file.close()
+    print("File closed.")
+```
+
+### Raising exceptions
+
+Python allows you to raise exceptions using the raise keyword, either with built-in exceptions or custom ones.
+
+```python
+def check_age(age):
+    if age < 18:
+        raise ValueError("Age must be 18 or older.")
+    return True
+
+try:
+    check_age(16)
+except ValueError as e:
+    print(e)
+```
+
+### Error Handling
+
+[Video Description TBD]
+
+**View the video here:** [LINK TBD]
+
+Check for Understanding
+
+**Question**: If the following code tries to divide by zero, which message will it print?
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+```
+
+* A) It will print nothing
+* B) `10`
+* C) `Error: Division by zero is not allowed.`
+* D) `None`
+
+<details>
+<summary>Answer</summary>
+
+**Answer:** C) `Error: Division by zero is not allowed.`
+</details>
+
 
 
 This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the 
