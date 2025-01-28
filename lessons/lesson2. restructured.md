@@ -1,4 +1,3 @@
-
 # Lesson 2 — Data Structures and File Handling
 
 ## Reminder: How to Follow This Content
@@ -23,7 +22,7 @@ Topics:
 
 * Lists, Tuples, Dictionaries, and Sets: Creating, accessing, and modifying data structures.
 * File Handling: Reading from and writing to text and CSV files.
-* Introduction to Modules & packages: Importing and using Python libraries.
+* Introduction to Modules: Importing and using Python libraries.
 * Keyboard Input
 * Working with the OS: Interacting with the file system and executing commands.
 * Virtual Environments: Managing dependencies for Python projects.
@@ -627,16 +626,75 @@ Virtual environments are a cornerstone of Python development, particularly when 
 
    Many IDEs, like VS Code and PyCharm, allow you to configure the Python interpreter to use the virtual environment. This ensures that the IDE uses the correct Python environment with all the necessary packages installed.
 
+## 2.7 Using *args and **kwargs
 
-## 2.7 Introduction to Modules
+Functions can be made more flexible by allowing them to handle an arbitrary number of arguments.
 
-A module is a Python file containing functions, classes, or variables that can be reused in other files. Modules allow you to organize code into smaller, manageable pieces, promoting reusability and better project structure.
+**What are *args?**
 
-### Using Modules
+*args allows a function to accept any number of positional arguments, which are collected into a tuple.
+
+**Example:**
+
+```python
+def add_numbers(*args):
+    return sum(args)
+
+print(add_numbers(1, 2, 3, 4))  # Output: 10
+```
+
+**Key Points:**
+
+* Use *args when the exact number of arguments isn't known beforehand.
+* The collected arguments are treated as a tuple.
+
+**What are **kwargs?**
+
+**kwargs allows a function to accept any number of keyword arguments, which are collected into a dictionary.
+
+**Example:**
+
+```python
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Janet", role="Developer", age=25)
+```
+
+**Key Points:**
+
+* Use **kwargs when you expect dynamic named parameters.
+* The collected arguments are treated as a dictionary.
+
+**Combining *args and **kwargs**
+
+You can use both together to handle a mix of positional and keyword arguments.
+
+**Example:**
+
+```python
+def mixed_function(*args, **kwargs):
+    print("Positional arguments:", args)
+    print("Keyword arguments:", kwargs)
+
+mixed_function(1, 2, 3, name="Janet", role="Developer")
+```
+
+**Output:**
+
+```
+Positional arguments: (1, 2, 3)
+Keyword arguments: {'name': 'Janet', 'role': 'Developer'}
+```
+
+# 2.8 Introduction to Modules
+
+A module is a Python file containing functions, classes, or variables that can be reused in other files.
 
 **Importing a Module**
 
-To use a module in your program, you use the `import` statement. This makes the functions, classes, and variables in the module available for use in your code.
+You can use the import statement to access functions or variables from a module.
 
 **Example:**
 
@@ -648,127 +706,47 @@ def greet(name):
 # main.py
 import my_module
 
-print(my_module.greet("Janet"))  # Output: Hello, Janet!
-```
-
-**Importing Specific Functions or Variables**
-
-Instead of importing the entire module, you can import only specific parts:
-
-```python
-from math import sqrt
-
-print(sqrt(16))  # Output: 4.0
-```
-
-**Using Aliases**
-
-To simplify references or avoid conflicts, you can assign an alias to a module or its components:
-
-```python
-import pandas as pd
-df = pd.DataFrame({'Name': ['Janet', 'Luis'], 'Age': [25, 30]})
-```
-
-**Creating Your Own Modules**
-
-You can create a custom module by writing Python code in a .py file. For example, save the following as `math_tools.py`:
-
-```python
-# math_tools.py
-def add(a, b):
-    return a + b
-
-def multiply(a, b):
-    return a * b
-```
-
-Now, you can import and use it in another Python file:
-
-```python
-import math_tools
-
-print(math_tools.add(2, 3))       # Output: 5
-print(math_tools.multiply(4, 5)) # Output: 20
+print(my_module.greet("Janet"))
 ```
 
 **Benefits of Modules**
 
-* **Code Reusability:** Write code once, use it anywhere in your project.
-* **Better Organization:** Divide code into smaller, logical pieces for better maintainability.
-* **Simplifies Debugging:** Smaller modules are easier to test and isolate issues.
+* Code reusability and organization.
+* Simplifies debugging by dividing code into smaller, manageable files.
 
 ## 2.9 Creating and Using Packages
 
-A package is a collection of related modules organized into a directory structure. A package typically contains an __init__.py file, which allows Python to treat the directory as a package.
+A package is a collection of related modules organized into a directory with an __init__.py file.
 
-### Package Structure
-
-Here's an example of a simple package structure:
+**Example Structure:**
 
 ```
 my_package/
-    __init__.py         # Indicates that this is a package
-    math_tools.py       # Module for math-related functions
-    string_tools.py     # Module for string-related functions
+    __init__.py
+    math_tools.py
+    string_tools.py
 ```
 
-### Creating the Package
+**Using a Package**
 
-**1. Create the Package Directory:**
+You can import specific modules from a package.
 
-Start by creating a folder for your package, e.g., `my_package/`.
-
-**2. Add an __init__.py File:**
-
-Create an empty `__init__.py` file inside the package directory. This file can also include code to initialize the package.
-
-**3. Add Modules to the Package:**
-
-Add your Python files (modules) to the package directory, e.g., `math_tools.py` and `string_tools.py`.
-
-### Using the Package
-
-**Importing a Module from a Package**
-
-You can import specific modules from a package:
+**Example:**
 
 ```python
 from my_package import math_tools
 
-print(math_tools.add(10, 20))  # Output: 30
+print(math_tools.add(2, 3))
 ```
 
-**Importing All Modules**
+**Why Use Packages?**
 
-You can import all modules at once using `*` (if configured in `__init__.py`):
+* Organizes code for larger projects.
+* Supports modular programming practices.
 
-```python
-from my_package import *
+**Check for Understanding**
+
+* What is the difference between *args and **kwargs in Python?
+* How do you import a specific function from a module?
+* What is the purpose of an __init__.py file in a package?
 ```
-
-### Advanced Packages
-
-**Adding Code to __init__.py**
-
-The `__init__.py` file can include initialization code or make specific modules available at the package level:
-
-```python
-# __init__.py
-from .math_tools import add
-from .string_tools import capitalize
-
-# Now you can use:
-import my_package
-
-print(my_package.add(2, 3))         # Output: 5
-print(my_package.capitalize("hi")) # Output: Hi
-```
-
-### Why Use Packages?
-
-* **Code Organization:** Packages help manage large projects by grouping related modules.
-* **Encapsulation:** Control which parts of your package are accessible to other code.
-* **Modular Programming:** Encourages better software design by separating concerns.
-
-

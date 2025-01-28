@@ -146,15 +146,15 @@ df2 = pd.DataFrame({'ID': [1, 2, 4], 'Score': [85, 92, 88]})
 merged_df = pd.merge(df1, df2, on='ID', how='inner')
 print(merged_df)  # Inner join
 ```
-Merging on Multiple Columns
+### Merging on Multiple Columns
+
 Sometimes you need to merge two DataFrames based on multiple columns. This is useful when you have composite keys or want to match on more than one condition.
 
-## Merging on Multiple Columns
-
+```python
 import pandas as pd
 
 # Sample DataFrames
-```
+
 df1 = pd.DataFrame({
     'ID': [1, 2, 3],
     'Date': ['2021-01-01', '2021-01-02', '2021-01-03'],

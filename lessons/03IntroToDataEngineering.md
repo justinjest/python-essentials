@@ -12,7 +12,7 @@ Topics:
 
 ## 3.1 Intro to Pandas
 
-**Pandas** is a powerful, open-source library for data analysis and manipulation in Python. It's widely used for handling and analyzing data structures, particularly in tabular format. With Pandas, you can work easily with structured data, perform data cleaning, and conduct complex transformations.
+**Pandas** is a very powerful, open-source library for data analysis and manipulation in Python. It's widely used for handling and analyzing data structures, particularly in tabular format. With Pandas, you can work easily with structured data, perform data cleaning, and conduct complex transformations.
 
 ### Why Use Pandas? 
 Pandas provides data structures like **DataFrames** and **Series** that make data manipulation in Python simpler and faster. It's well-suited for tasks that involve:
@@ -574,7 +574,7 @@ View the video here: [LINK TBD]
 
 </details>
 
-These methods will help you quickly inspect and understand your data before diving into further analysis!
+
 
 ---
 This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form (https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
