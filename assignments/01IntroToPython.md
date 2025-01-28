@@ -6,7 +6,7 @@
 **Instructions:**  
 - Start by creating a `.py` file on your local machine. We recommend creating a `PythonClass` folder on your Desktop for organizing your work.
 - You may use Visual Studio Code, a command terminal, or Jupyter Notebooks for your development environment.
-- For Jupyter Notebooks, follow this resource on how to get started in VS Code: [Getting Started with Jupyter in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+- For Jupyter Notebooks, follow this resource on how to get started in VS Code: [Getting Started with Jupyter in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).  The link makes reference to Anaconda, which is another virtual environment manager for Python, but you can ignore that, because we are using the virtualenv package.  Be sure that you are using a Python project folder with the virtual environment active.
 - Complete the following tasks by writing code and modifying it where required. Ensure to add comments where needed to explain your thought process.
 
 ---
