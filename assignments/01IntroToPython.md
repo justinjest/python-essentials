@@ -1,138 +1,119 @@
-# Lesson 1 Assignment: Intro to Python  
-**Objective:** Data Conversion, User Input, Error Handling, Functions, and Additional Concepts
+# **Lesson 1 Assignment: Intro to Python**  
+
+## **Objective**  
+In this assignment, you will practice key Python concepts including:  
+✅ Data type conversion  
+✅ User input and error handling  
+✅ Functions and loops  
+✅ File handling  
 
 ---
 
-**Instructions:**  
-- Start by creating a `.py` file on your local machine. We recommend creating a `PythonClass` folder on your Desktop for organizing your work.
-- You may use Visual Studio Code, a command terminal, or Jupyter Notebooks for your development environment.
-- For Jupyter Notebooks, follow this resource on how to get started in VS Code: [Getting Started with Jupyter in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).  The link makes reference to Anaconda, which is another virtual environment manager for Python, but you can ignore that, because we are using the virtualenv package.  Be sure that you are using a Python project folder with the virtual environment active.
-- Complete the following tasks by writing code and modifying it where required. Ensure to add comments where needed to explain your thought process.
+## **🚀 Instructions**  
+
+### **Step 1: Complete the Coding Tasks**  
+Write your Python code to complete the following tasks. In **Python Essentials and Analysis**, you can work in a Python file (`.py`) or a Jupyter Notebook (`.ipynb`). We recommend starting out with `.py` files — we'll teach you Jupyter notebooks later in the course.
 
 ---
 
-### Task 1: Data Type Conversion
-
-1. **Create a variable `num_str`**  
-    - Create a variable called `num_str` and assign it a string value representing a number (e.g., `"25"`).
-
-2. **String to Integer Conversion**  
-    - Convert the variable `num_str` (a string representing a number) to an integer.  
-    - Perform an arithmetic operation using the converted integer and another variable `age`.  
-    - Print the result.
-
-3. **Float to String Conversion**  
-    - Create a variable `height` (a float) and convert it to a string.  
-    - Concatenate the float value as a string with another string (e.g., `" meters"`).  
-    - Print the result.
-
-4. **Integer to Float Conversion**  
-    - Create a variable `age` (an integer) and convert it to a float.  
-    - Print the result.
+### **Task 1: Data Type Conversion**  
+1. **Create a variable `num_str`** and assign it a string value representing a number (e.g., `"25"`).  
+2. **Convert `num_str` to an integer** and perform an arithmetic operation using another variable, `age`. Print the result.  
+3. **Convert a float (`height`) to a string**, concatenate it with another string (e.g., `" meters"`), and print the result.  
+4. **Convert an integer (`age`) to a float** and print the result.  
 
 ---
 
-### Task 2: Simple Calculator
-
-1. **User Input**  
-    - Ask the user to input two numbers (`num1` and `num2`).
-
-2. **Arithmetic Operations**  
-    - Perform the following operations using the two inputted numbers:  
-      - Addition  
-      - Subtraction  
-      - Multiplication  
-      - Division  
-    - Handle any errors if the user attempts to divide by zero, and display an error message.
-
-3. **Print Results**  
-    - Print the results of the arithmetic operations.
+### **Task 2: Simple Calculator**  
+1. **Ask the user for two numbers** (`num1` and `num2`).  
+2. **Perform basic arithmetic operations** (addition, subtraction, multiplication, division).  
+3. **Handle errors for division by zero** and display an appropriate message.  
+4. **Print the results** of all operations.  
 
 ---
 
-### Task 3: Grading System
-
-1. **User Input for Score**  
-    - Ask the user to enter their score (as a float).
-
-2. **Determine Grade**  
-    - Assign a grade based on the score:  
-        - A: 90 and above  
-        - B: 80-89  
-        - C: 70-79  
-        - D: 60-69  
-        - F: below 60  
-
-3. **Print Grade**  
-    - Print the grade the user received based on their input.
-
-4. **Allow the user to enter multiple scores**  
-    - Store them in a list, calculate and display the average score, and the corresponding grade.
+### **Task 3: Grading System**  
+1. **Ask the user to enter their score** (as a float).  
+2. **Determine the letter grade** based on the following scale:  
+   - A: 90 and above  
+   - B: 80-89  
+   - C: 70-79  
+   - D: 60-69  
+   - F: Below 60  
+3. **Print the assigned grade**.  
+4. **Allow the user to enter multiple scores**, store them in a list, calculate the average, and display the corresponding letter grade.  
 
 ---
 
-### Task 4: Function to Calculate Average
-
-1. **Create a Function**  
-    - Create a function called `calculate_average` that takes a list of numbers as an argument.  
-
-2. **Calculate and Return Average**  
-    - The function should calculate and return the average of the numbers in the list.  
-    - If the list is empty, return 0.
-
-3. **Test the Function**  
-    - Test the function with the list `[1, 2, 3, 4, 5]` and print the result.
-
-4. **Input validation**  
-    - Ensure the list contains only numeric values before calculating the average. If the list contains invalid data, print an appropriate error message.
+### **Task 4: Function to Calculate Average**  
+1. **Create a function `calculate_average`** that takes a list of numbers as input.  
+2. **Calculate and return the average** of the numbers in the list. If the list is empty, return 0.  
+3. **Test the function** with `[1, 2, 3, 4, 5]` and print the result.  
+4. **Validate input data** to ensure the list contains only numeric values. Print an error message if invalid data is found.  
 
 ---
 
-### Task 5: Calculator with Error Handling
-
-1. **Create a Function for Division**  
-    - Create a function called `divide_numbers` that takes two arguments (`num1` and `num2`).
-
-2. **Implement Error Handling**  
-    - Use a try-except block to handle division by zero. Return an appropriate error message if division by zero occurs.
-
-3. **Test the Function**  
-    - Ask the user to input two numbers, call the `divide_numbers` function, and print the result.
-
-4. **Extend error handling**  
-    - Handle other errors, such as when the user enters a non-numeric value. Implement appropriate error handling for these scenarios.
+### **Task 5: Calculator with Error Handling**  
+1. **Create a function `divide_numbers(num1, num2)`** that divides two numbers.  
+2. **Use a `try-except` block** to handle division by zero and return an error message if needed.  
+3. **Test the function** with user input.  
+4. **Extend error handling** to catch other errors, such as non-numeric input.  
 
 ---
 
-### Task 6: Working with Lists and Loops
-
-1. **Create a List**  
-    - Create a list of 5 integers. Print the list.
-
-2. **Loop Through the List**  
-    - Use a loop to print each number in the list, followed by its square. Example output:  
-      `1: 1`, `2: 4`, `3: 9`, `4: 16`, `5: 25`
-
-3. **Calculate and print the sum of the numbers in the list.**
-
----
-
-### Task 7: File Handling
-
-1. **Create a File**  
-    - Create a new file called `numbers.txt` and write a series of numbers to it (one number per line).
-
-2. **Read from the File**  
-    - Read the contents of the file, convert the numbers back to integers, and store them in a list.
-
-3. **Process the List**  
-    - Calculate and print the sum of the numbers in the list.
+### **Task 6: Working with Lists and Loops**  
+1. **Create a list of five integers** and print it.  
+2. **Use a loop to print each number and its square**, like:  
+   ```
+   1: 1  
+   2: 4  
+   3: 9  
+   4: 16  
+   5: 25  
+   ```  
+3. **Calculate and print the sum** of the numbers in the list.  
 
 ---
 
-### Submission:
-- Submit the Python file (`.py`), Jupyter Notebook (`.ipynb`).
-- Make sure your code is well-commented, neatly organized, and that all required tasks are completed.
+### **Task 7: File Handling**  
+1. **Create a file `numbers.txt`** and write numbers to it (one per line).  
+2. **Read the file contents**, convert them back to integers, and store them in a list.  
+3. **Calculate and print the sum** of the numbers in the list.  
 
 ---
 
+### **Step 2: Submit Your Assignment on GitHub**  
+
+📌 **Follow these steps to submit your work:**  
+
+#### **1️⃣ Create a GitHub Repository**  
+- Log in to [GitHub](https://github.com).  
+- Click **+ (New repository)** in the top-right corner.  
+- Name it: `python-class-your-name` *(replace "your-name" with your first and last name).*  
+- Keep it **Public** and click **Create repository**.  
+
+#### **2️⃣ Upload Your Assignment**  
+- Go to your new repository.  
+- Click the **Add file** dropdown and select **Create new file**.  
+- Name it `lesson-01/assignment.py` (or `lesson-01/assignment.ipynb` for a Jupyter Notebook).  
+- Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
+- Click **Commit new file** to save your work.  
+
+#### **3️⃣ Submit Your GitHub Link**  
+- Open your repository and navigate to the `lesson-01` folder.  
+- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-01`).  
+- Paste the URL into the **assignment submission form**.  
+
+---
+
+## **✅ Submission Checklist**  
+Before submitting, make sure:  
+- [ ] Your repository follows the format `python-class-your-name`.  
+- [ ] Your assignment is inside a `lesson-01` folder.  
+- [ ] You've uploaded your `.py` or `.ipynb` file.  
+- [ ] You’ve copied and submitted the correct GitHub folder URL.  
+
+---
+
+## **🎉 Well Done!**  
+Great job completing Lesson 1! You're building a strong foundation in Python. 🚀  
