@@ -9,7 +9,7 @@ In this assignment, you will practice key Python concepts including:
 
 ---
 
-## **🚀 Instructions**  
+## **Instructions**  
 
 ### **Step 1: Complete the Coding Tasks**  
 Write your Python code to complete the following tasks. In **Python Essentials and Analysis**, you can work in a Python file (`.py`) or a Jupyter Notebook (`.ipynb`). We recommend starting out with `.py` files — we'll teach you Jupyter notebooks later in the course.
@@ -84,7 +84,7 @@ Write your Python code to complete the following tasks. In **Python Essentials a
 
 ### **Step 2: Submit Your Assignment on GitHub**  
 
-📌 **Follow these steps to submit your work:**  
+**Follow these steps to submit your work:**  
 
 #### **1️⃣ Create a GitHub Repository**  
 - Log in to [GitHub](https://github.com).  
