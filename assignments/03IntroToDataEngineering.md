@@ -76,14 +76,14 @@ In this assignment, you will explore the basic functionalities of the Pandas lib
 #### **1️⃣ Upload Your Assignment**  
 - Go to your `python-essentials` GitHub repository.
 - Click the **Add file** dropdown and select **Create new file**.
-- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-03/`)
-- Name the file by typing the file name. (i.e., `lesson-03/assignment.py` or `lesson-03/assignment.ipynb` for a Jupyter Notebook).  
+- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-05/`)
+- Name the file by typing the file name. (i.e., `lesson-05/assignment.py` or `lesson-05/assignment.ipynb` for a Jupyter Notebook).  
 - Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
 - Click **Commit new file** to save your work.  
 
 #### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-03` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-03`).  
+- Open your repository and navigate to the `lesson-05` folder.  
+- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-05`).  
 - Paste the URL into the **assignment submission form**.  
 
 ---
@@ -91,8 +91,9 @@ In this assignment, you will explore the basic functionalities of the Pandas lib
 ## **✅ Submission Checklist**  
 Before submitting, make sure:  
 - [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-03` folder.  
+- [ ] Your assignment is inside a `lesson-05` folder.  
 - [ ] You've uploaded your `.py` or `.ipynb` file.  
-- [ ] You’ve copied and submitted the correct GitHub folder URL.  
+- [ ] You’ve copied and submitted the correct GitHub folder URL.
+- [ ] Ensure each task is commented appropriately to explain your code.
 
 ---
