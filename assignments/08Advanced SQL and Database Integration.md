@@ -130,14 +130,14 @@ Combine all tasks into a single Python script that:
 #### **1️⃣ Upload Your Assignment**  
 - Go to your `python-essentials` GitHub repository.
 - Click the **Add file** dropdown and select **Create new file**.
-- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-07/`)
-- Name the file by typing the file name. (i.e., `lesson-07/assignment.py` or `lesson-07/assignment.ipynb` for a Jupyter Notebook).  
+- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-08/`)
+- Name the file by typing the file name. (i.e., `lesson-08/assignment.py` or `lesson-08/assignment.ipynb` for a Jupyter Notebook).  
 - Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
 - Click **Commit new file** to save your work.  
 
 #### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-07` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-07`).  
+- Open your repository and navigate to the `lesson-08` folder.  
+- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-08`).  
 - Paste the URL into the **assignment submission form**.  
 
 ---
@@ -145,7 +145,7 @@ Combine all tasks into a single Python script that:
 ## **✅ Submission Checklist**  
 Before submitting, make sure:  
 - [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-07` folder.  
+- [ ] Your assignment is inside a `lesson-08` folder.  
 - [ ] You've uploaded your `.py` or `.ipynb` file.  
 - [ ] You’ve copied and submitted the correct GitHub folder URL.
 - [ ] Ensure each task is commented appropriately to explain your code.
