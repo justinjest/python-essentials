@@ -63,7 +63,7 @@ print(df.loc[0:2, ['Name', 'Age']])
 # Select rows by position
 print(df.iloc[:2])  # First two rows
 ```
-## **Explanation:**##
+## **Explanation:**
 `.loc[]` is used for label-based indexing. Here, df.loc[0:2, ['Name', 'Age']] selects rows 0 to 2 and the 'Name' and 'Age' columns.
 `.iloc[]` is used for position-based indexing. df.iloc[:2] selects the first two rows.
 
