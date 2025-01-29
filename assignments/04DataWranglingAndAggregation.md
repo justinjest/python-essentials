@@ -71,6 +71,8 @@ data2 = {
    - Aggregate the salary using the mean function.
    - Display the pivot table.
 
+**Hint:** Use the `pivot_table()` function in Pandas, setting 'Age' as the index and 'Salary' as the values. Aggregate the salary using the mean function.
+
 ### **Task 9: Data Transformation**
 1. **Apply a transformation to the 'Salary' column in `df1`:**
    - Increase the salary by 10% for each employee.
@@ -97,7 +99,7 @@ data2 = {
 - Click **Commit new file** to save your work.  
 
 #### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-05` folder.  
+- Open your repository and navigate to the `lesson-04` folder.  
 - Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-05`).  
 - Paste the URL into the **assignment submission form**.  
 
