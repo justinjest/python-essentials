@@ -127,9 +127,9 @@ Ok, let's review! Here's a table demonstrating the key differences between the f
 
 ### 2.1 Video: Lists, Tuples, Dictonaries, and Sets
 
-[Video Description TBD]
+Video 2.1 explains lists, sets, and tuples. 
 
-**View the video here:** [LINK TBD]
+**[View the video here](https://youtu.be/gOMW_n2-2Mw?feature=shared).**
 
 ### 2.1 Check for Understanding
 
@@ -214,7 +214,7 @@ with open('example.csv', 'w', newline='') as file:
 
 In this video, we'll demonstrate reading and writing to a real CSV file. After the video, practice reading and writing to a CSV file using the W3 Resource tutorial [here](https://www.w3resource.com/python-exercises/csv/index.php).
 
-**View the video here:** [LINK TBD]
+**[View the video here](https://youtu.be/MWYRGLKMzAQ?feature=shared).**
 
 ### 2.2 Check for Understanding
 
@@ -326,9 +326,9 @@ Modules and libraries in Python offer flexibility and organization, making your 
 
 ### 2.3 Video: Python Modules and Libraries
 
-[Video Description TBD]
+What are Python modules? How do you import and work with them? Check out vido 2.3 to learn more. 
 
-**View the video here:** [LINK TBD]
+**[View the video here](https://youtu.be/XcfxkHrHTVE?feature=shared).**
 
 ### 2.3 Check for Understanding
 
@@ -407,12 +407,6 @@ except ZeroDivisionError:
     print("Cannot divide by zero.")
 ```
 
-### 2.4 Video
-
-[Video Description TBD]
-
-**View the video here:** [LINK TBD]
-
 ### 2.4 Check for Understanding
 
 **Question**: Which of the following statements about `input()` in Python is correct?
@@ -429,9 +423,6 @@ except ZeroDivisionError:
 **Answer**: B) input() displays a prompt and captures user input as a string by default.
 
 </details>
-
----
-This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
 
 ## 2.5 Working with the OS
 
@@ -529,6 +520,10 @@ path_variable = os.environ.get('PATH')
 print(path_variable)
 ```
 
+### Video 2.5: Working with `os`
+
+**[Watch an overview of working with the `os` module here](https://youtu.be/tJxcKyFMTGo?feature=shared).**
+
 ---
 
 ## 2.6 Virtual Environments
@@ -625,6 +620,11 @@ Virtual environments are a cornerstone of Python development, particularly when 
 
    Many IDEs, like VS Code and PyCharm, allow you to configure the Python interpreter to use the virtual environment. This ensures that the IDE uses the correct Python environment with all the necessary packages installed.
 
+### Video 2.6: The Virtual Environment
+
+Check out Video 2.6 for a quick overview of setting up a virtual environment for Python in VS Code.
+
+**[Watch the video here](https://youtu.be/GZbeL5AcTgw?feature=shared).**
 
 ## 2.7 Introduction to Modules
 
