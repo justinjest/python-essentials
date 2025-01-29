@@ -6,7 +6,7 @@ Welcome to **Python Essentials** with Code the Dream!
 
 * Start by reading the lesson's **learning objective** in the `Lesson Overview` section. Each weekly assignment will measure your skill related to the learning objective.
 * Lessons are split into **subsections**, labeled like this: `1.1`, `1.2`, etc.
-* Each subsection has a short **supplemental video** that will help you understand the content in that subsection.
+* Several subsections also have a short **supplemental video** that will help you understand the content in that subsection.
 * At the end of each subsection, you'll find a multiple-choice **"Check for Understanding"** question. Complete the question and review the material if your answer is not correct!
 * After reading through the lesson content and correctly answering the "Check for Understanding" questions, complete the **Weekly Assignment**.
 
@@ -20,41 +20,27 @@ Topics:
 
 - **Setting Up Your Python Environment**:  
   Installing Python, pip, and IDEs (VS Code, Jupyter Notebook, or Google Colab). Verifying installations and creating `.py` files.
-
 - **Python Basics**:  
   Variables, data types (integers, floats, strings, booleans), data conversion (explicit and implicit), and operators (arithmetic, comparison, logical).
-
 - **Block Structure and Indentation**:  
   Understanding Python’s indentation-based syntax for defining blocks like functions, loops, and conditionals.
-
 - **Control Flow**:  
   Conditional statements (`if`, `elif`, `else`), loops (`for`, `while`), and controlling loops with `break` and `continue`.
-
 - **Functions**:  
   Defining and calling functions, parameters, return values, and handling dynamic arguments with `*args` and `**kwargs`.
-
 - **Debugging**:  
   - **Error Handling**: Introduction to `try`, `except` for handling runtime errors.  
   - **Basic Debugging**: Using print statements and the `logging` module to debug code effectively.
-
 
 ## 1.1 Setting up uour environment 
 
 **Start by creating a .py file somewhere convenient on your local machine.** 
 
-You can create this file manually or through an IDE like Visual Studio Code. 
+You can create this file manually or through an IDE like Visual Studio Code. **To set up VS Code, Download and install it from [here](https://code.visualstudio.com/).**
 
-* **To set up VS Code:** 
-    * Download and install it from here: [https://code.visualstudio.com/] 
-
-### VS 
-
-
-
-**Alternatively, you can use a Jupyter Notebook (with the .ipynb extension) or any notebook platform, such as Google Colab, to keep your classwork organized.**
-
-* **If you're new to Jupyter Notebooks, here's a resource on how to get started with Jupyter Notebooks in VS Code:** [(https://code.visualstudio.com/docs/datascience/jupyter-notebooks)]
-* **Google Colab can also be used for running Jupyter Notebooks in the cloud. [https://colab.research.google.com/]** 
+Alternatively, you can use a **Jupyter Notebook** (with the .ipynb extension) or any notebook platform, such as Google Colab, to keep your classwork organized.
+* **If you're new to Jupyter Notebooks, [here's a resource on how to get started with Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)].**
+* **[Google Colab](https://colab.research.google.com/)** can also be used for running Jupyter Notebooks in the cloud.
 
 ### Install Python
 
@@ -63,7 +49,7 @@ You can download Python from the official website: [python.org](https://www.pyth
 Follow the installation instructions for your operating system:
 
 1. **Install Python:**
-   - Follow the installation instructions for your operating system. Note: If you are using Windows, it is common to use the Windows Subsystem for Linux for development.  WSL is not recommended for this class. Later lessons use matplotlib for graphs.  It is difficult to do the configuration needed to get graphs to show in the WSL environment.  Windows users should install in Windows native.
+   - Follow the installation instructions for your operating system. **Note: If you are using Windows, it is common to use the Windows Subsystem for Linux for development. WSL is not recommended for this class.** Later lessons use `matplotlib for graphs`. It is difficult to do the configuration needed to get graphs to show in the WSL environment. Windows users should install in Windows native.
    - Make sure to check the option to **Add Python to PATH** during installation.
 
 2. **For macOS**:
@@ -148,7 +134,6 @@ name = "Jazmine"   # A variable storing a string
 age = 28           # A variable storing an integer
 height = 5.8       # A variable storing a float (decimal)
 ```
-
 
 ### Install pip
 
@@ -281,7 +266,7 @@ result = int(2.8) + 3  # 5 (integer, because we explicitly converted the float t
 
 Learn how to work with data types in Python in our first video, which covers essential type conversions with `int()`, `float()`, `str()`, and `bool()`, practical examples of when to use them, and tips to avoid common pitfalls.
 
-**Watch the video here.** [LINK TBD]
+**[Watch the video here.](https://youtu.be/v5NBGGHKJtI)**
 
 ## 1.3 Operators in Python
 
@@ -592,6 +577,12 @@ for i in range(3):
 
 </details>
 
+## Video 1.5: Loops and Conditionals
+
+Our next video is a breakdown breakdown of  common situations in which someone might use loops, how to control loop behavior with `break` and `continue`, and loop nesting.
+
+**[Watch the video here](https://youtu.be/VUwzi5TVMzM).**
+
 ## 1.6 Functions
 
 **Functions** are reusable blocks of code that perform specific tasks. They help keep your code organized, modular, and easy to understand.
@@ -720,9 +711,9 @@ Keyword arguments: {'name': 'Janet', 'role': 'Developer'}
 
 ### Video 1.6: Functions
 
-[Video Description TBD]
+Our supplemental video for this section overviews functions, arguments, and parameters; along with two sets of example code.
 
-**View the video here:** [LINK TBD]
+**[Watch the video here](https://youtu.be/89cGQjB5R4M?feature=shared).**
 
 ### Check for Understanding
 
@@ -824,7 +815,7 @@ multiply(3, 5)
 
 ### Basic Debugging Video
 
-Let's wrap up Lesson 1's content with a short video on debugging.
+Let's wrap up this section with a short video on debugging.
 
 **[View the video here!](https://youtu.be/_6RWIz65ssE)**
 
@@ -912,9 +903,9 @@ except ValueError as e:
 
 ### Error Handling
 
-[Video Description TBD]
+Our final video of Lesson 1 covers error handling with `try` and  `except` blocks.
 
-**View the video here:** [LINK TBD]
+**[View the video here](https://youtu.be/NIWwJbo-9_8?feature=shared).**
 
 Check for Understanding
 
@@ -939,6 +930,5 @@ except ZeroDivisionError:
 </details>
 
 
-
-This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the 
-[CTD Curriculum Feedback Form](https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form)
+This content was created by Janet Zulu, Reid Russom, and CTD volunteers—with special thanks to John McGarvey and several CTD video-creation volunteers. To submit feedback, please fill out the 
+[CTD Curriculum Feedback Form].
