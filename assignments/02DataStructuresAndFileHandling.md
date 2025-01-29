@@ -42,5 +42,24 @@
 
 3. Call the `calculator` function to allow the user to perform calculations.
 
+### **Task 4: Working with Lists and Loops**  
+1. **Create a list of five integers** and print it.  
+2. **Use a loop to print each number and its square**, like:  
+   ```
+   1: 1  
+   2: 4  
+   3: 9  
+   4: 16  
+   5: 25  
+   ```  
+3. **Calculate and print the sum** of the numbers in the list.  
+
+---
+
+### **Task 5: File Handling**  
+1. **Create a file `numbers.txt`** and write numbers to it (one per line).  
+2. **Read the file contents**, convert them back to integers, and store them in a list.  
+3. **Calculate and print the sum** of the numbers in the list.  
+
 ### **Submission:**
 Submit your completed Python code, including all tasks, in a `.py` file or a Jupyter notebook. Make sure to include comments explaining your code where necessary.
