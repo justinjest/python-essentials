@@ -11,7 +11,16 @@
 
 ---
 
-## **4.1 Data Selection**
+## **4.1 Pandas Review & Deep Dive** *(Optional)*
+
+Last week, we introduced Pandas, a powerful tool for data analysis. If you want a refresher on key Pandas concepts, **[listen to this NotebookLM-generated podcast](https://youtu.be/T46zVBxHrjc) reviewing what we learned last week**. 
+
+*Note: The podcast references two sources, linked below.*
+
+  * (PDF) [Introduction to Pandas](https://github.com/Code-the-Dream-School/python-essentials/blob/main/resources/Pandas%201%20PDF.pdf)
+  * (Slide Deck) [Pandas for Dummies](https://github.com/Code-the-Dream-School/python-essentials/blob/main/resources/Pandas%20for%20Dummies%20Client%20Name.pdf)
+
+## **4.2 Data Selection**
 
 ### **Overview**
 Indexing and slicing allow you to extract specific rows or columns from a DataFrame, making it easier to analyze subsets of your data.
@@ -60,7 +69,7 @@ print(df.iloc[:2])  # First two rows
 
 ---
 
-## **4.2 Data Aggregation**
+## **4.3 Data Aggregation**
 
 ### **Overview**
 Aggregating data involves summarizing it by groups, enabling insights at a higher level (e.g., total sales by region, average score by category).
@@ -91,7 +100,6 @@ mean_values = df.groupby('Category')['Values'].mean()
 print(mean_values)
 ```
 ## Explanation: 
-## **Explanation:**
 - **`df.groupby('Category').sum()`** groups the data by the 'Category' column and calculates the sum of 'Values' within each category.
 - **`df.groupby('Category')['Values'].mean()`** calculates the mean of 'Values' for each category.
 
@@ -116,13 +124,13 @@ result = df.groupby('Category').agg({'Values': ['sum', 'mean', 'count']})
 print(result)
 ```
 
-## **Explanation:** ##
+## **Explanation:**
 
 `sum()` calculates the total sum of values for each category.
 `mean()` calculates the average value for each category.
 `count()` counts the number of non-null entries for each category
 
-## **4.3 Merging and Joining**
+## **4.4 Merging and Joining**
 
 ### **Overview**
 Combine multiple DataFrames using shared keys (columns or indices). 
@@ -190,7 +198,7 @@ df2 = pd.DataFrame({'Score': [85, 92, 88]}, index=[1, 2, 4])
 joined_df = df1.join(df2, how='outer')
 print(joined_df)
 ```
-## **Explanation:** ##
+## **Explanation:**
 The join() function is used to combine DataFrames based on their index. In this case, it performs an outer join, meaning all rows from both DataFrames will be included, and missing values will be filled with NaN.
 
 
