@@ -203,11 +203,15 @@ Bob,31,Los Angeles,80000
 Charlie,36,Chicago,90000
 
 ```
-### 3.1 Video: Installing and Using Pandas
+### 3.1 Videos: Installing and Using Pandas
 
-In this video, one of our mentors will demonstrate installing and using Pandas in Python. This is an important step! If you're still feeling confused, contact a 1:1 mentor to walk through Pandas.
+In these two videos, we'll walk through installing and using Pandas in Python. This is an important step! If you're still feeling confused, contact a 1:1 mentor to walk through Pandas.
 
-View the video here: [LINK TBD]
+**[Video: What is Pandas? Why and How to Use in Python](https://youtu.be/dcqPhpY7tWk?feature=shared).**
+
+*Note: The above video demonstrates using Pandas with Jupytr notebook. If you would like a look at using Pandas in VS Code, take time to look at the video below as well.*
+
+**[Video: Installing Pandas in VSCode](https://youtu.be/4WZK0eovQIA?feature=shared).**
 
 ### 3.1 Check for Understanding
 
@@ -301,9 +305,7 @@ For complex JSON structures, you may need to specify additional parameters, or p
 
 ### Using the `sep` Parameter in Pandas
 
-
 In **Pandas**, the `sep` parameter is commonly used when reading or writing CSV (or similar) files. It specifies the **delimiter** (separator) used in the file to distinguish between columns.
-
 
 
 ### Common Methods with `sep`
@@ -311,7 +313,6 @@ In **Pandas**, the `sep` parameter is commonly used when reading or writing CSV 
 1. **`pd.read_csv()`**: Reads a file and uses the `sep` parameter to define how columns are separated.
 
 2. **`DataFrame.to_csv()`**: Exports a DataFrame and uses `sep` to specify the delimiter in the output file.
-
 
 
 ### Example 1: Reading a CSV File with a Custom Separator
@@ -371,7 +372,6 @@ Bob	25	Los Angeles
 * **Flexibility:** Handle files with different delimiters (e.g., tabs, pipes, semicolons).
 * **Compatibility:** Work with non-standard or region-specific CSV formats.
 
-
 #### Loading Data from a Dictionary
 
 Pandas also allows you to create DataFrames from Python dictionaries directly, which is useful when you already have data in a Python program.
@@ -409,12 +409,6 @@ This will output:
 | CSV        | `pd.read_csv()`   | `df = pd.read_csv('data.csv')`   |
 | JSON       | `pd.read_json()`  | `df = pd.read_json('data.json')` |
 | Dictionary | `pd.DataFrame()`  | `df = pd.DataFrame(data)`        |
-
-### 3.2 Video
-
-[Video Topic TBD]. 
-
-View the video here: [LINK TBD]
 
 ### 3.2 Check for Understanding
 
@@ -539,12 +533,6 @@ From this output, you can see the column names, data types, number of non-null e
 | `tail()`       | Displays the last five rows of the DataFrame  | 
 | `info()` | Summarizes the DataFrame, including data types, null counts, and memory usage  | 
 
-### 3.3 Video
-
-[Video Topic TBD]. 
-
-View the video here: [LINK TBD]
-
 ### 3.3 Check for Understanding
 
 1. What is the default number of rows displayed when using `df.head()`?
@@ -574,7 +562,5 @@ View the video here: [LINK TBD]
 
 </details>
 
-
-
 ---
-This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form (https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
+This content was written by Janet Zulu, Reid Russom, and CTD volunteers—with special thanks to the brain trust of John McGarvey, Rebecca Callari-Kaczmarczyk, Tom Arns, and Josh Sternfeld. To submit feedback, please fill out the **[CTD Curriculum Feedback Form](https://forms.gle/RZq5mav7wotFxyie6)**.
