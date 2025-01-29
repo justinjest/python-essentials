@@ -817,7 +817,7 @@ multiply(3, 5)
 
 Let's wrap up this section with a short video on debugging.
 
-**[View the video here!](https://youtu.be/_6RWIz65ssE)**
+**[View the video here!](https://youtu.be/R4pCjyknKD0?feature=shared)**
 
 ### Check for Understanding
 
