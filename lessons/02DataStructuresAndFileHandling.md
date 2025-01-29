@@ -235,94 +235,113 @@ In this video, we'll demonstrate reading and writing to a real CSV file. After t
 
 ## 2.3 Introduction to Modules
 
-In Python, a **module** is a file containing Python code, which can define functions, classes, and variables. Modules allow you to organize code logically, keeping related code together, and help avoid redundancy by making it reusable across different parts of a project.
+In Python, modules and packages are essential tools for organizing and reusing code. This section will cover everything you need to know about working with both modules and packages effectively.
 
-For example, if you’re working on a project involving math calculations, you could create a module `math_utils.py` to hold custom math functions, making your main program file cleaner and easier to maintain.
+### Modules
 
-### Why Use Modules?
+A module is a Python file containing code (functions, classes, and variables) that can be reused across different parts of a project. Modules help with:
 
-Modules help in several ways:
+1. **Code Organization**: Breaking large codebases into manageable files
+2. **Reusability**: Using common code wherever needed
+3. **Namespace Management**: Avoiding naming conflicts
+4. **Built-in Functionality**: Accessing Python's standard library features
 
-  1. **Code Organization**: Breaks up large codebases into smaller, more manageable files.
-  2. **Reusability**: Commonly used code can be stored in a module and imported wherever needed.
-  3. **Namespace Management**: Modules allow you to separate code into different namespaces, avoiding conflicts between variables and functions with the same name.
-  4. **Built-in Functionality**: Python’s standard library includes many modules that provide pre-built functionality (like math operations, file handling, and more), so you don’t have to reinvent the wheel.
+#### Importing Modules
 
-### Importing Modules
-
-You can import modules using the `import` statement, either as a whole or by importing specific functions or classes.
-
-#### Importing an Entire Module
-
-You can import a module and use its functions by prefixing them with the module name:
+There are several ways to import modules:
 
 ```python
+# Import entire module
 import math
 print(math.sqrt(16))  # Output: 4.0
-```
 
-#### Importing Specific Functions or Classes
-
-To import specific parts of a module, use `from <module> import <name>`:
-
-```python
+# Import specific functions
 from math import sqrt
 print(sqrt(16))  # Output: 4.0
-```
 
-#### Using Aliases
-
-If a module has a long name, you can give it an alias with the `as` keyword:
-
-```python
+# Use aliases for shorter names
 import pandas as pd
 df = pd.DataFrame({'Name': ['Jazmine', 'Luis'], 'Age': [30, 35]})
 ```
 
-### Python Standard Library and External Libraries
+#### Creating Custom Modules
 
-Python’s **standard library** is packed with built-in modules for handling everything from file I/O and math operations to data serialization and date/time management. For example:
-
-* `datetime` for working with dates and times.
-* `json` for handling JSON data.
-* `os` for interacting with the operating system.
-
-You can install and use **external libraries** with the `pip` package manager. External libraries are modules that add more functionality not included in the standard library, such as `requests` for HTTP requests or `numpy` for numerical operations.
-
-#### Installing and Importing External Libraries
-
-To install a library, use:
-
-```bash
-pip install requests
-```
-
-Then, import and use it like any other module:
+You can create your own modules by saving Python code in a .py file:
 
 ```python
-import requests
-response = requests.get('https://api.example.com/data')
-print(response.json())
+# math_tools.py
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b
+
+# main.py
+import math_tools
+print(math_tools.add(2, 3))  # Output: 5
 ```
 
-#### Example: Creating and Importing a Custom Module
+### Packages
 
-Suppose you create a file called `greetings.py` with a function:
+A package is a collection of related modules organized in a directory structure. Packages require an `__init__.py` file to mark the directory as a Python package.
+
+#### Package Structure Example
+```
+my_package/
+    __init__.py         # Makes this directory a package
+    math_tools.py       # Module for math operations
+    string_tools.py     # Module for string operations
+```
+
+#### Using Packages
 
 ```python
-# greetings.py
-def say_hello(name):
-    return f"Hello, {name}!"
+# Import specific modules from a package
+from my_package import math_tools
+print(math_tools.add(10, 20))
+
+# Import specific functions (if configured in __init__.py)
+from my_package import add, multiply
 ```
 
-Then, in another file, you can import and use it:
+### Types of Modules
 
-```python
-from greetings import say_hello
-print(say_hello("Luis"))  # Output: Hello, Luis!
-```
+1. **Standard Library**: Built-in modules like:
+   - `datetime` for dates and times
+   - `json` for JSON data
+   - `os` for operating system operations
 
-Modules and libraries in Python offer flexibility and organization, making your code easier to manage, expand, and share across projects.
+2. **External Libraries**: Additional modules installed via pip:
+   ```bash
+   pip install requests
+   
+   # Then use in code:
+   import requests
+   response = requests.get('https://api.example.com/data')
+   ```
+
+### Video 2.3: Python Modules and Libraries
+
+What are Python modules? How do you import and work with them? Check out the video below to learn more. 
+
+**[View the video here](https://youtu.be/XcfxkHrHTVE?feature=shared).**
+
+### Check for Understanding
+
+**Question**: Which of the following commands correctly imports only the sqrt function from the `math` module?
+
+* A) `import sqrt from math`
+* B) `from math import sqrt`  
+* C) `import math.sqrt`
+* D) `import math as sqrt`
+
+<details>
+<summary>Answer</summary>
+
+**Answer**: B) `from math import sqrt`
+
+</details>
+
 
 ### 2.3 Video: Python Modules and Libraries
 
@@ -626,147 +645,10 @@ Check out Video 2.6 for a quick overview of setting up a virtual environment for
 
 **[Watch the video here](https://youtu.be/GZbeL5AcTgw?feature=shared).**
 
-## 2.7 Introduction to Modules
+## 🥳 That's it for Lesson 2!
 
-A module is a Python file containing functions, classes, or variables that can be reused in other files. Modules allow you to organize code into smaller, manageable pieces, promoting reusability and better project structure.
+Check out this week's coding assignment, and reach out to a mentor if you need help!
 
-### Using Modules
-
-**Importing a Module**
-
-To use a module in your program, you use the `import` statement. This makes the functions, classes, and variables in the module available for use in your code.
-
-**Example:**
-
-```python
-# my_module.py
-def greet(name):
-    return f"Hello, {name}!"
-
-# main.py
-import my_module
-
-print(my_module.greet("Janet"))  # Output: Hello, Janet!
-```
-
-**Importing Specific Functions or Variables**
-
-Instead of importing the entire module, you can import only specific parts:
-
-```python
-from math import sqrt
-
-print(sqrt(16))  # Output: 4.0
-```
-
-**Using Aliases**
-
-To simplify references or avoid conflicts, you can assign an alias to a module or its components:
-
-```python
-import pandas as pd
-df = pd.DataFrame({'Name': ['Janet', 'Luis'], 'Age': [25, 30]})
-```
-
-**Creating Your Own Modules**
-
-You can create a custom module by writing Python code in a .py file. For example, save the following as `math_tools.py`:
-
-```python
-# math_tools.py
-def add(a, b):
-    return a + b
-
-def multiply(a, b):
-    return a * b
-```
-
-Now, you can import and use it in another Python file:
-
-```python
-import math_tools
-
-print(math_tools.add(2, 3))       # Output: 5
-print(math_tools.multiply(4, 5)) # Output: 20
-```
-
-**Benefits of Modules**
-
-* **Code Reusability:** Write code once, use it anywhere in your project.
-* **Better Organization:** Divide code into smaller, logical pieces for better maintainability.
-* **Simplifies Debugging:** Smaller modules are easier to test and isolate issues.
-
-## 2.9 Creating and Using Packages
-
-A package is a collection of related modules organized into a directory structure. A package typically contains an __init__.py file, which allows Python to treat the directory as a package.
-
-### Package Structure
-
-Here's an example of a simple package structure:
-
-```
-my_package/
-    __init__.py         # Indicates that this is a package
-    math_tools.py       # Module for math-related functions
-    string_tools.py     # Module for string-related functions
-```
-
-### Creating the Package
-
-**1. Create the Package Directory:**
-
-Start by creating a folder for your package, e.g., `my_package/`.
-
-**2. Add an __init__.py File:**
-
-Create an empty `__init__.py` file inside the package directory. This file can also include code to initialize the package.
-
-**3. Add Modules to the Package:**
-
-Add your Python files (modules) to the package directory, e.g., `math_tools.py` and `string_tools.py`.
-
-### Using the Package
-
-**Importing a Module from a Package**
-
-You can import specific modules from a package:
-
-```python
-from my_package import math_tools
-
-print(math_tools.add(10, 20))  # Output: 30
-```
-
-**Importing All Modules**
-
-You can import all modules at once using `*` (if configured in `__init__.py`):
-
-```python
-from my_package import *
-```
-
-### Advanced Packages
-
-**Adding Code to __init__.py**
-
-The `__init__.py` file can include initialization code or make specific modules available at the package level:
-
-```python
-# __init__.py
-from .math_tools import add
-from .string_tools import capitalize
-
-# Now you can use:
-import my_package
-
-print(my_package.add(2, 3))         # Output: 5
-print(my_package.capitalize("hi")) # Output: Hi
-```
-
-### Why Use Packages?
-
-* **Code Organization:** Packages help manage large projects by grouping related modules.
-* **Encapsulation:** Control which parts of your package are accessible to other code.
-* **Modular Programming:** Encourages better software design by separating concerns.
-
+---
+This content was written by Janet Zulu, Reid Russom, and CTD volunteers—with special thanks to the brain trust of John McGarvey, Rebecca Callari-Kaczmarczyk, Tom Arns, and Josh Sternfeld. To submit feedback, please fill out the **[CTD Curriculum Feedback Form](https://forms.gle/RZq5mav7wotFxyie6)**.
 
