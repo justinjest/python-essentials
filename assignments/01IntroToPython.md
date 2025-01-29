@@ -90,7 +90,7 @@ Write your Python code to complete the following tasks. In **Python Essentials a
 - Log in to [GitHub](https://github.com).  
 - Click **+ (New repository)** in the top-right corner.  
 - Name it: `python-class-your-name` *(replace "your-name" with your first and last name).*  
-- Keep it **Public** and click **Create repository**.  
+- Keep it **Public** and **check to add a `README` file**. Click **Create repository**.  
 
 #### **2️⃣ Upload Your Assignment**  
 - Go to your new repository.  
