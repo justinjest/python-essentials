@@ -933,5 +933,4 @@ except ZeroDivisionError:
 Your next step is to complete the coding assignment. As always, reach out to your mentor if you have questions, and take time to celebrate your hard work. 
 
 ---
-This content was created by Janet Zulu, Reid Russom, and CTD volunteers—with special thanks to John McGarvey and several CTD video-creation volunteers. To submit feedback, please fill out the 
-[CTD Curriculum Feedback Form].
+This content was written by Janet Zulu, Reid Russom, and CTD volunteers—with special thanks to the brain trust of John McGarvey, Rebecca Callari-Kaczmarczyk, Tom Arns, and Josh Sternfeld. To submit feedback, please fill out the **[CTD Curriculum Feedback Form](https://forms.gle/RZq5mav7wotFxyie6)**.
