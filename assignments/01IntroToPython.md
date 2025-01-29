@@ -69,27 +69,6 @@ Write your Python code to complete the following tasks. In **Python Essentials a
 
 ---
 
-### **Task 6: Working with Lists and Loops**  
-1. **Create a list of five integers** and print it.  
-2. **Use a loop to print each number and its square**, like:  
-   ```
-   1: 1  
-   2: 4  
-   3: 9  
-   4: 16  
-   5: 25  
-   ```  
-3. **Calculate and print the sum** of the numbers in the list.  
-
----
-
-### **Task 7: File Handling**  
-1. **Create a file `numbers.txt`** and write numbers to it (one per line).  
-2. **Read the file contents**, convert them back to integers, and store them in a list.  
-3. **Calculate and print the sum** of the numbers in the list.  
-
----
-
 ### **Step 2: Submit Your Assignment on GitHub**  
 
 **Follow these steps to submit your work:**  
