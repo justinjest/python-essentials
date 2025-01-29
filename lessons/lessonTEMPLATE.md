@@ -16,4 +16,4 @@ Topics:
 ### Subsection Check for Understanding
 
 ---
-This content was created by Janet Zulu, Reid Russom, and CTD volunteers. To submit feedback, please fill out the [CTD Curriculum Feedback Form (https://airtable.com/apphJi94mO4Uc7a3k/pagD3WQmswgXJvgx3/form).
+This content was written by Janet Zulu, Reid Russom, and CTD volunteers—with special thanks to the brain trust of John McGarvey, Rebecca Callari-Kaczmarczyk, Tom Arns, and Josh Sternfeld. To submit feedback, please fill out the **[CTD Curriculum Feedback Form](https://forms.gle/RZq5mav7wotFxyie6)**.
