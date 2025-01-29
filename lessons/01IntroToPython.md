@@ -2,7 +2,7 @@
 
 Welcome to **Python Essentials** with Code the Dream!
 
-## How to Follow This Content
+## 👀 How to Follow This Content
 
 * Start by reading the lesson's **learning objective** in the `Lesson Overview` section. Each weekly assignment will measure your skill related to the learning objective.
 * Lessons are split into **subsections**, labeled like this: `1.1`, `1.2`, etc.
@@ -117,7 +117,7 @@ Follow the installation instructions for your operating system:
     - When you open a VSCode terminal, you should see a `(.venv)` as part of the prompt.  This is how you know that the virtual environment is active.  You want it to be active before installing packages such as pandas or numpy.
 
         
-## 1.1 Python Basics
+## 1.2 Python Basics
 
 ### Variables in Python
 
@@ -191,7 +191,6 @@ Or, for Python 3:
 ```bash
 pip3 install requests
 ```
-## 1.2 Python Basics 
 ### Data Types in Python
 
 **Data types** tell Python what kind of data is stored in a variable. Common data types include:
@@ -262,7 +261,7 @@ result = 3 + 2.5  # 5.5 (float, because Python converts the integer to float)
 result = int(2.8) + 3  # 5 (integer, because we explicitly converted the float to int)
 ```
 
-### Video 1.2: Data Types and Conversion
+### 🎬 Video 1.2: Data Types and Conversion
 
 Learn how to work with data types in Python in our first video, which covers essential type conversions with `int()`, `float()`, `str()`, and `bool()`, practical examples of when to use them, and tips to avoid common pitfalls.
 
@@ -322,7 +321,7 @@ age = 28
   
 <details>
 
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer**: B) Integer
 
@@ -337,7 +336,7 @@ age = 28
 
 <details>
 
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer**: C) String
 
@@ -358,7 +357,7 @@ print(num_int)
 
 <details>
 
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer**: B) `42`
 
@@ -377,7 +376,7 @@ print(10 % 3)
 
 <details>
 
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer:** B) `1`
 
@@ -551,7 +550,7 @@ else:
 
 <details>
 
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer**: B) "You're a teenager."
 
@@ -571,13 +570,13 @@ for i in range(3):
 
 <details>
 
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer**: B) `0 1 2`
 
 </details>
 
-## Video 1.5: Loops and Conditionals
+## 🎬 Video 1.5: Loops and Conditionals
 
 Our next video is a breakdown breakdown of  common situations in which someone might use loops, how to control loop behavior with `break` and `continue`, and loop nesting.
 
@@ -709,7 +708,7 @@ Positional arguments: (1, 2, 3)
 Keyword arguments: {'name': 'Janet', 'role': 'Developer'}
 ```
 
-### Video 1.6: Functions
+### 🎬 Video 1.6: Functions
 
 Our supplemental video for this section overviews functions, arguments, and parameters; along with two sets of example code.
 
@@ -726,7 +725,7 @@ Our supplemental video for this section overviews functions, arguments, and para
 
 <details>
 
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer**: B) To send a value back to the caller.
 
@@ -748,7 +747,7 @@ greet("Luis")
 
 <details>
 
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer**: B) `"Hello, Luis!"`
 
@@ -813,7 +812,7 @@ def multiply(a, b):
 multiply(3, 5)
 ```
 
-### Basic Debugging Video
+### 🎬 Video 1.7: Basic Debugging
 
 Let's wrap up this section with a short video on debugging.
 
@@ -829,13 +828,13 @@ Let's wrap up this section with a short video on debugging.
 * D) To show only the final output
 
 <details>
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer**: A) To find and correct errors in variable values and program flow
 </details>
 ---
 
-## 1.4 Error Handling
+## 1.8 Error Handling
 
 Error handling in Python is managed using the `try`, `except`, `else`, and `finally` blocks. This structure allows developers to gracefully handle errors that may occur during runtime, ensuring that the program can either recover from an issue or fail gracefully with useful feedback.
 
@@ -901,13 +900,13 @@ except ValueError as e:
     print(e)
 ```
 
-### Error Handling
+### 🎬 Video 1.8 Error Handling
 
 Our final video of Lesson 1 covers error handling with `try` and  `except` blocks.
 
 **[View the video here](https://youtu.be/NIWwJbo-9_8?feature=shared).**
 
-Check for Understanding
+### Check for Understanding
 
 **Question**: If the following code tries to divide by zero, which message will it print?
 
@@ -924,11 +923,15 @@ except ZeroDivisionError:
 * D) `None`
 
 <details>
-<summary>Answer</summary>
+<summary>View answer</summary>
 
 **Answer:** C) `Error: Division by zero is not allowed.`
 </details>
 
+## 🎉 Congratulations on finishing your first lesson in Python Essentials!
 
+Your next step is to complete the coding assignment. As always, reach out to your mentor if you have questions, and take time to celebrate your hard work. 
+
+---
 This content was created by Janet Zulu, Reid Russom, and CTD volunteers—with special thanks to John McGarvey and several CTD video-creation volunteers. To submit feedback, please fill out the 
 [CTD Curriculum Feedback Form].
