@@ -67,7 +67,7 @@ Before submitting, make sure:
 - [ ] Your assignment is inside a `lesson-07` folder.  
 - [ ] You've uploaded your `.py` or `.ipynb` file.  
 - [ ] You’ve copied and submitted the correct GitHub folder URL.
-- [ ] - [ ] Ensure each task is commented appropriately to explain your code.
+- [ ] Ensure each task is commented appropriately to explain your code.
 
 ---
 
