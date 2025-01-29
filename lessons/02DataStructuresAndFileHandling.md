@@ -1,7 +1,6 @@
-
 # Lesson 2 — Data Structures and File Handling
 
-## Reminder: How to Follow This Content
+## 👀 Reminder: How to Follow This Content
 
 * Start by reading the lesson's **learning objective** in the `Lesson Overview` section. Each weekly assignment will measure your skill related to the learning objective.
 * Lessons are split into **subsections**, labeled like this: `1.1`, `1.2`, etc.
@@ -15,7 +14,6 @@ If you have questions at any point, ask a question in the `discussion` Slack cha
 
 Congrats, you've made it to Lesson 2! This week, we'll deepen our knowledge of core Python concepts, including dictionaries and lists. We'll also learn how to import **modules**, powerful tools that help your Python projects reach their full potential.
 Additionally, we’ll learn how to work with the operating system (OS) and virtual environments for more efficient project management.
-
 
 **Learning objective**: Students will explore various data structures, such as lists, tuples, dictionaries, and sets. They will learn how to read and write data to files and use external modules.  Additionally, they will be introduced to basic OS operations and using virtual environments.
 
