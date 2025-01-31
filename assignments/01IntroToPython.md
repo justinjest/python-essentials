@@ -17,14 +17,21 @@ If you ever feel stuck, want a quick refresher before diving in, or just prefer 
 
 **[Listen to the assignment overview podcast here](https://youtu.be/azM0-ybstt4).**
 
-## **Instructions**  
+## **Instructions**
+
+### **Setup**
+
+All of your homework for this and future assignments will use a special python homework repository, so that it can be submitted using git.  That repository is [here.](https://github.com/Code-the-Dream-School/python_homework)  Click on the link, and carefully **follow the instructions in the README**.  You will then have your own copy of the repository, connected to your GitHub account.  You create the program files for the homework in the root of that repository.  For each assignment, you create a separate git branch.  When you have completed your assignment, you add and commit your changes in that branch, push it to your GitHub, and create a pull request for that branch.  You provide a link to that pull request when you submit your homework.  Your instructor will review it, approving or requesting changes.  Once your instructor has approved the pull request, you can merge it.
+
+At the outset, you create python `.py` files.  In some future lessons, you will create Jupyter notebooks.  
 
 ### **Step 1: Complete the Coding Tasks**  
-Write your Python code to complete the following tasks. In **Python Essentials and Analysis**, you can work in a Python file (`.py`) or a Jupyter Notebook (`.ipynb`). We recommend starting out with `.py` files — we'll teach you Jupyter notebooks later in the course.
+All homework is created within your `python_homework` folder.  Be sure to create an `assignment1` branch.  Then, write Python code to complete the following tasks.
 
 ---
 
 ### **Task 1: Data Type Conversion**  
+In the homework repository, create a file `data_type_conversion.py`.   It should do the following.
 1. **Create a variable `num_str`** and assign it a string value representing a number (e.g., `"25"`).  
 2. **Convert `num_str` to an integer** and perform an arithmetic operation using another variable, `age`. Print the result.  
 3. **Convert a float (`height`) to a string**, concatenate it with another string (e.g., `" meters"`), and print the result.  
@@ -32,7 +39,8 @@ Write your Python code to complete the following tasks. In **Python Essentials a
 
 ---
 
-### **Task 2: Simple Calculator**  
+### **Task 2: Simple Calculator** 
+Create a file `calc.py` with the following. 
 1. **Ask the user for two numbers** (`num1` and `num2`).  
 2. **Perform basic arithmetic operations** (addition, subtraction, multiplication, division).  
 3. **Handle errors for division by zero** and display an appropriate message.  
@@ -40,7 +48,8 @@ Write your Python code to complete the following tasks. In **Python Essentials a
 
 ---
 
-### **Task 3: Grading System**  
+### **Task 3: Grading System** 
+Create a file `grade.py` with the following. 
 1. **Ask the user to enter their score** (as a float).  
 2. **Determine the letter grade** based on the following scale:  
    - A: 90 and above  
@@ -54,13 +63,14 @@ Write your Python code to complete the following tasks. In **Python Essentials a
 ---
 
 ### **Task 4: Function to Calculate Average**  
+Create a file `average.py` that contains the following.
 1. **Create a function `calculate_average`** that takes a list of numbers as input.  
 2. **Calculate and return the average** of the numbers in the list. If the list is empty, return 0.  
 3. **Test the function** with `[1, 2, 3, 4, 5]` and print the result.  
 4. **Validate input data** to ensure the list contains only numeric values. Print an error message if invalid data is found.  
 
 ---
-
+Modify the file `calc.py` to add the following.
 ### **Task 5: Calculator with Error Handling**  
 1. **Create a function `divide_numbers(num1, num2)`** that divides two numbers.  
 2. **Use a `try-except` block** to handle division by zero and return an error message if needed.  
@@ -73,34 +83,19 @@ Write your Python code to complete the following tasks. In **Python Essentials a
 
 **Follow these steps to submit your work:**  
 
-#### **1️⃣ Create a GitHub Repository**  
-- Log in to [GitHub](https://github.com).  
-- Click **+ (New repository)** in the top-right corner.  
-- Name it: `python-class-your-name` *(replace "your-name" with your first and last name).*  
-- Keep it **Public** and **check to add a `README` file**. Click **Create repository**.  
+#### **1️⃣ Add, Commit, and Push Your Changes**  
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment1` branch.
+- Push that branch to GitHub. 
 
-#### **2️⃣ Upload Your Assignment**  
-- Go to your new repository.  
-- Click the **Add file** dropdown and select **Create new file**.  
-- Name it `lesson-01/assignment.py` (or `lesson-01/assignment.ipynb` for a Jupyter Notebook).  
-- Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
-- Click **Commit new file** to save your work.  
+#### **2️⃣ Create a Pull Request**  
+- Log on to your GitHub account.
+- Open your `python_homework` repository.
+- Select your `assignment1` branch.  It should be several commits ahead of your main branch.
+- Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-01` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-01`).  
+- Your browser now has the link to your pull request.  Copy that link. 
 - Paste the URL into the **assignment submission form**.  
-
----
-
-## **✅ Submission Checklist**  
-Before submitting, make sure:  
-- [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-01` folder.  
-- [ ] You've uploaded your `.py` or `.ipynb` file.  
-- [ ] You’ve copied and submitted the correct GitHub folder URL.  
-
----
 
 ## **🎉 Well Done!**  
 Great job completing Lesson 1! You're building a strong foundation in Python. 🚀  
