@@ -42,7 +42,7 @@ Introduction to Databases and SQL**
    ```
    result=cursor.fetchall()
    ```
-   This returns an array of tuples, one for each row.  You should loop through the array and print each row.  You can also do a `cursor.fetchone()` to get the first (or next) row from the result.
+   This returns an iterable collection of tuples, one for each row.  An interable collection works like a list.  You should loop through the collection and print each row.  Alternately, you can do a `cursor.fetchone()` to get the first (or next) row from the result.
 
 ---
 
