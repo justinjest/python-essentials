@@ -1,35 +1,35 @@
 Introduction to Databases and SQL**
 
----
 
-## **Task 1: Install Required Tools**
-1. Install Python and verify the installation.
-2. Set up a code editor for writing Python scripts.
-3. Verify that SQLite is installed and accessible with Python.
-
----
-
-## **Task 2: Create a New SQLite Database**
-1. Create a new Python script file for this lesson.
-2. Write code to connect to a new SQLite database.
-3. Execute the script and confirm the database file is created.
+## **Task 1: Create a New SQLite Database**
+1. Within your python_homework folder, create an `assignment7` branch.
+2. Within that folder, create a file `sql_intro.py`.
+2. Write code to connect to a new SQLite database, `./db/new.db` and to close the connection.
+3. Execute the script and confirm the database file is created.  Note: All SQL statements should be executed within a try block, because they can raise exceptions.
 
 ---
 
-## **Task 3: Define Database Structure**
-1. Write SQL queries to create the following tables:
+## **Task 2: Define Database Structure**
+1. Add SQL statements to `sql_intro.py` that create the following tables:
    - `Students`: Include fields for student ID, name, age, and major.
    - `Courses`: Include fields for course ID, course name, and instructor name.
    - `Enrollments`: Include fields for enrollment ID, student ID, and course ID.
-2. Add the queries to your Python script.
-3. Run the script to execute the queries and confirm the tables are created.
+   The student ID and course ID in the Enrollments table should be foreign keys.  Each of these values must correspond to actual records in the Students and Courses tables.
+2. Add the SQLite Viewer to VSCode.
+3. Run the script to execute the queries.
+4. Open the `./db/new.db` file in VSCode to confirm that the tables are created.
 
 ---
 
 ## **Task 4: Populate Tables with Data**
-1. Write Python code to insert sample data into the `Students`, `Courses`, and `Enrollments` tables.
-2. Add the insertion queries to your script and execute them.
-3. Verify the data has been added by checking the database.
+1. Add the following line to sql_intro.py, right after the statement that connects to the database:
+   ```
+   conn.execute("PRAGMA foreign_keys = 1")
+   ```
+   This line tells SQLite to make sure the foreign keys are valid.
+2. Add code to sql_intro.py to insert sample data into the `Students`, `Courses`, and `Enrollments` tables.  Don't forget to do a `conn.commit()` for your inserts!
+2. Run the revised script.
+3. Verify the data has been added by checking the database as displayed by VSCode.  Note: If you run your script again, an exception will be raised, because you are trying to reuse a primary key.  Primary keys in a table have to be unique.  You can delete `./db/new.db` before running your script to get around the problem.
 
 ---
 
@@ -38,7 +38,11 @@ Introduction to Databases and SQL**
 2. Write a query to find courses taught by a specific instructor.
 3. Write a query to retrieve student enrollments along with course names using a `JOIN`.
 4. Write a query to list students ordered by age.
-5. Add these queries to your script and test their outputs.
+5. Add these queries to your script.  For each, print the result.  Note: You get the result by doing a
+   ```
+   result=cursor.fetchall()
+   ```
+   This returns an array of tuples, one for each row.  You should loop through the array and print each row.  You can also do a `cursor.fetchone()` to get the first (or next) row from the result.
 
 ---
 
@@ -46,28 +50,19 @@ Introduction to Databases and SQL**
 
 📌 **Follow these steps to submit your work:**  
 
-#### **1️⃣ Upload Your Assignment**  
-- Go to your `python-essentials` GitHub repository.
-- Click the **Add file** dropdown and select **Create new file**.
-- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-07/`)
-- Name the file by typing the file name. (i.e., `lesson-07/assignment.py` or `lesson-07/assignment.ipynb` for a Jupyter Notebook).  
-- Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
-- Click **Commit new file** to save your work.  
+#### **1️⃣ Add, Commit, and Push Your Changes**  
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment7` branch.
+- Push that branch to GitHub. 
+
+#### **2️⃣ Create a Pull Request**  
+- Log on to your GitHub account.
+- Open your `python_homework` repository.
+- Select your `assignment7` branch.  It should be one or several commits ahead of your main branch.
+- Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-07` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-07`).  
-- Paste the URL into the **assignment submission form**.  
-
----
-
-## **✅ Submission Checklist**  
-Before submitting, make sure:  
-- [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-07` folder.  
-- [ ] You've uploaded your `.py` or `.ipynb` file.  
-- [ ] You’ve copied and submitted the correct GitHub folder URL.
-- [ ] Ensure each task is commented appropriately to explain your code.
+- Your browser now has the link to your pull request.  Copy that link. 
+- Paste the URL into the **assignment submission form**. 
 
 ---
 
