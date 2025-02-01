@@ -39,7 +39,7 @@ For each of the following tasks, you first use the sqlcommand command line to ge
 ### **Task 2: Complex JOINs with Aggregation**
 
 1. **Problem Statement**:  
-   Find the total price of each of the first 5 orders.  Again, there are several staps.  You need to join the orders table with the line_items table and the products table.  You need to GROUP_BY the order_id.  You need to select the order_id and the SUM of the product price times the line_item quantity.  Then, you ORDER BY order_id and LIMIT 5.  You don't need a subquery. Print out the order_id and the total.
+   Find the total price of each of the first 5 orders.  Again, there are several steps.  You need to join the orders table with the line_items table and the products table.  You need to GROUP_BY the order_id.  You need to select the order_id and the SUM of the product price times the line_item quantity.  Then, you ORDER BY order_id and LIMIT 5.  You don't need a subquery. Print out the order_id and the total price for each of the rows returned.
 
 2. **Deliverable**:  
    - Again, get the SQL statement working in sqlcommand.
