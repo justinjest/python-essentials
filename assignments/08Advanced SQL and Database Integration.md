@@ -12,143 +12,91 @@ Students will deepen their understanding of SQL by learning advanced techniques 
 
 ## **Assignment Instructions**
 
+### **Preparation and Practice**
+
+Your python_homework folder contains a program called `load_db.py`.  Take a look at its contents.  It creates a series of tables, for employees, customers, orders, products, and order_details.  Each order is associated with a customer and an employee.  For each order, there are line_items associated with the order, one line item for each product comprising the order.  You'll see the schema created at the top of the file.  Then, the file uses pandas to load data for each table from csv files into the database.  The resulting database is stored as ./db/lesson.db.
+
+Run the `load_db.py` program to create and populate the database.  You can run it again as needed to restore the database to its initial state.  Next, run the `sqlcommand.py` program.  This prompts you with a command line you can use to enter SQL statements.  (Each statement must end with a semicolon.)
+You can do SELECT, INSERT, UPDATE and DELETE.  The SELECT statements can have JOIN, GROUP BY, ORDER BY, subqueries, HAVING, etc.  Practice these until you feel familiar with them.
+
+For each of the following tasks, you first use the sqlcommand command line to get the right SQL statement.  Then you add it to your program.
+
+**Help Available!** This lesson combines a lot of concepts that have been presented only briefly. Get as far as you can with each step of the code.  But, if you get stuck (not unlikely if your are new to SQL), an example answer is available in your python_homework folder, in `./examples/advanced_sql.py`.  Don't copy/paste from this file.  Just review it, and then write the code on your own.  Of course, your answer may differ.  Even if you don't get stuck, you may want to review this example.
+
 ### **Task 1: Understanding Subqueries**
 
 1. **Problem Statement**:  
-   Write a SQL query to find the highest-paid employee in each department using a subquery.
+   For each of the first 5 orders (as ordered by order_id), find the each of the product names for the order.  Return a list that includes the order_id, the line_item_id, and the product name.  There are several steps here.  You need a subquery to retrieve the order_id for the first 5 orders.  In this subquery, you use `ORDER BY order_id` and `LIMIT 5`.  In the main query, you need to select the order_id, line_item_id, and product_name from the orders table, the line_items table, and the products table.  Then you need a WHERE clause: `WHERE o.order_id IN (...)`.  The subquery is what returns the set of order_ids you want to check.
 
-2. **Deliverable**:  
-   - Submit the SQL query and a screenshot of the result from your database interface.
-   - Optional: Write a Python script to execute the query using `sqlite3` and print the results.
-
----
-
-### **Task 2: Complex JOINs**
-
-1. **Problem Statement**:  
-   - Create a table `Projects` with the following fields:
-     - `id`: Primary Key.
-     - `name`: Project Name.
-     - `department`: Responsible Department.
-   - Populate it with at least three projects.
-   - Write a SQL query to list all employees working in departments responsible for a specific project.
-
-2. **Deliverable**:  
-   - Submit the `CREATE TABLE` and `INSERT` statements used for the `Projects` table.
-   - Submit the SQL query and results.
-
-4. **Bonus**:  
-   Extend the query to include the employee's salary in the results.
+2. **Deliverable**: 
+   - Within the python_homework folder, create an `assignment8` branch.
+   - Get the SQL statement working in sqlcommand.
+   - Within the python_homework directory, create `advanced_sql.py`. This opens the database, issues the SQL statement, prints out the result, and closes the database.
+   - test your program.
 
 ---
 
-### **Task 3: Aggregation**
+### **Task 2: Complex JOINs with Aggregation**
 
 1. **Problem Statement**:  
-   Write a SQL query to calculate the following for each department:
-   - Minimum salary.
-   - Maximum salary.
-   - Total number of employees.
+   Find the total price of each of the first 5 orders.  Again, there are several steps.  You need to join the orders table with the line_items table and the products table.  You need to GROUP_BY the order_id.  You need to select the order_id and the SUM of the product price times the line_item quantity.  Then, you ORDER BY order_id and LIMIT 5.  You don't need a subquery. Print out the order_id and the total price for each of the rows returned.
 
 2. **Deliverable**:  
-   - Submit the SQL query and results.
-   - Add sample data in the `Employees` table to test the query.
+   - Again, get the SQL statement working in sqlcommand.
+   - Add code to `advanced_sql.py` to print out the result.
 
-3. **Example**:  
-   ```sql
-   SELECT department_id, 
-          MIN(salary) AS min_salary, 
-          MAX(salary) AS max_salary, 
-          COUNT(employee_id) AS num_employees
-   FROM Employees
-   GROUP BY department_id;
+---
+
+### **Task 3: An Insert Transaction Based on Data**
+
+1. **Problem Statement**:  
+   You want to create a new order for the customer named Perez and Sons.  The employee creating the order is Miranda Harris.  The customer wants 10 of each of the 5 least expensive products.  You first need to do a SELECT statement to retrieve the customer_id, another to retrieve the product_ids of the 5 least expensive products, and another to retrieve the employee_id.  Then, you create the order record and the 5 line_item records comprising the order.  You have to use the customer_id, employee_id, and product_id values you obtained from the SELECT statements. You have to use the order_id for the order record you created in the line_items records. The inserts must occur within the scope of one transaction. Then, using a SELECT with a JOIN, print out the list of line_item_ids for the order along with the quantity and product name for each.
+
+   You want to make sure that the foreign keys in the INSERT statements are valid.  So, add this line to your script, right after the database connection:
+   ```
+   conn.execute("PRAGMA foreign_keys = 1")
    ```
 
-4. **Bonus**:  
-   Write a Python script to execute the query and display the results.
+   In general, when creating a record, you don't want to specify the primary key.  So leave that column name off your insert statements.  SQLite will assign a unique primary key for you.  But, you need the order_id for the order record you insert to be able to insert line_item records for that order.  You can have this value returned by adding the following clause to the INSERT statement for the order:
+   ```
+   RETURNING order_id
+   ```
+
+2. **Deliverable**:   
+   - Get this working in sqlcommand.  (Note that sqlcommand does not provide a way to begin and end transactions, so for sqlcommand, the creation of the order and line_item records are separate transactions.)
+   - Use sqlcommand to delete the line_items records for the order you created.  (This is one delete statement.)  Delete also the order record you created.
+   - Add statements for the complete transaction and the subsequent SELECT statement into `advanced_py.sql`, and to print out the result of the SELECT.
+   - Test your program.
 
 ---
 
 ### **Task 4: Aggregation with HAVING**
 
 1. **Problem Statement**:  
-   Write a SQL query to:
-   - List all departments where the average salary exceeds 70,000.
-   - Display the department manager.
+   Find all employees associated with more than 5 orders.  You need to combine GROUP BY, COUNT, and HAVING.
 
 2. **Deliverable**:  
-   - Submit the SQL query and results.
-   - Explain the purpose of the `HAVING` clause in your solution.
-
-3. **Example**:  
-   ```sql
-   SELECT d.department_name, 
-          d.manager_id, 
-          AVG(e.salary) AS avg_salary
-   FROM Departments AS d
-   JOIN Employees AS e ON d.department_id = e.department_id
-   GROUP BY d.department_id
-   HAVING AVG(e.salary) > 70000;
-   ```
-
-4. **Bonus**:  
-   Integrate the query into a Python script and add exception handling for database errors.
-
----
-
-## **Data Requirements**
-
-1. Students must **create and populate tables** for the tasks:
-   - Example for `Employees`:  
-     | id  | name   | salary   | department   | manager   |
-     |------|--------|----------|--------------|-----------|
-     | 1    | Alice  | 80000    | IT           | Bob       |
-     | 2    | John   | 90000    | IT           | Bob       |
-   - Example for `Projects`:  
-     | id  | name               | department |
-     |-----|--------------------|------------|
-     | 1   | Website Redesign   | IT         |
-
-2. Alternatively, students can use their own datasets if they ensure the data has sufficient variety.
-
----
-
-## **Wrap-Up**
-
-Combine all tasks into a single Python script that:
-1. Creates the necessary tables.
-2. Populates the tables with sample data.
-3. Executes all queries sequentially.
-4. Prints results in a formatted manner.
-
----
+   - Get it working in sqlcommand.
+   - Add code `advanced_sql.py` to print out the employee_id, first_name, last_name, and an order count for each of the employees with more than 5 orders.
+   - Test your program.
 
 ### Submit Your Assignment on GitHub**  
 
 📌 **Follow these steps to submit your work:**  
 
-#### **1️⃣ Upload Your Assignment**  
-- Go to your `python-essentials` GitHub repository.
-- Click the **Add file** dropdown and select **Create new file**.
-- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-08/`)
-- Name the file by typing the file name. (i.e., `lesson-08/assignment.py` or `lesson-08/assignment.ipynb` for a Jupyter Notebook).  
-- Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
-- Click **Commit new file** to save your work.  
+#### **1️⃣ Add, Commit, and Push Your Changes**  
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment8` branch.
+- Push that branch to GitHub. 
+
+#### **2️⃣ Create a Pull Request**  
+- Log on to your GitHub account.
+- Open your `python_homework` repository.
+- Select your `assignment8` branch.  It should be one or several commits ahead of your main branch.
+- Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-08` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-08`).  
-- Paste the URL into the **assignment submission form**.  
-
----
-
-## **✅ Submission Checklist**  
-Before submitting, make sure:  
-- [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-08` folder.  
-- [ ] You've uploaded your `.py` or `.ipynb` file.  
-- [ ] You’ve copied and submitted the correct GitHub folder URL.
-- [ ] Ensure each task is commented appropriately to explain your code.
+- Your browser now has the link to your pull request.  Copy that link. 
+- Paste the URL into the **assignment submission form**. 
 
 ---
 

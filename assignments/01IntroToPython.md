@@ -90,7 +90,7 @@ Modify the file `calc.py` to add the following.
 #### **2️⃣ Create a Pull Request**  
 - Log on to your GitHub account.
 - Open your `python_homework` repository.
-- Select your `assignment1` branch.  It should be several commits ahead of your main branch.
+- Select your `assignment1` branch.  It should be one or several commits ahead of your main branch.
 - Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  
