@@ -4,9 +4,16 @@
 ### **Objective:**
 The purpose of this assignment is to deepen your understanding of data wrangling and aggregation using the Pandas library in Python. You will work with sample DataFrames to perform various operations such as filtering, handling missing values, merging, sorting, transforming, and creating pivot tables.
 
+### **Setup**
+
+The assignments up to this one have required you to create `.py` files and to submit them by creating pull requests for your python_homework repository.  For this assignment, you create a Jupyter notebook file.  Jupyter notebooks are a way to do data presentation and analysis, using Python code.  A notebook is comprised of a sequence of cells, which come in two kinds: Markdown cells, for putting in the text you want to show, and code cells, where you put your Python code.
+
+With a little setup, you can create Jupyter notebooks in VSCode, and submit them to GitHub.  However, GitHub is not a friendly environment for collaboration on notebooks.  Your reviewer wants to see the notebooks, to run them, and to give you comments in context.  For that purpose, we use [https://kaggle.com].  That site also has an interesting collections of data sets you can use for practice in data analysis and presentation.  Connect to the site now and register, so that you have an account.
+
 ### **Tasks:**
 
 ### **Task 1: Data Selection**
+1. On the Kaggle site, click on the plus button in the upper left, and create a notebook called CTD_Assignment_4.  It comes up with a code cell already present.  Leave that one alone, and click on the plus code button to add another cell.  You add the code for this assignment to the cell.  As you complete each of the following tasks, run the cell to make sure your code works.  You run the cell by clicking on the arrow at the top left of the cell.
 1. **Create two DataFrames `df1` and `df2` using the provided sample data(feel free to change the values):**
    - `df1` contains names, ages, and salaries of five employees.
    - `df2` contains names, ages, and salaries of five other employees.
@@ -28,9 +35,10 @@ data2 = {
 }
 
 ```
+Print the resulting dataframes.
 2. **Perform the following selection operations on `df1`:**
-   - Select the 'Name' column.
-   - Select both 'Name' and 'Salary' columns.
+   - Select the 'Name' column, and print the result.
+   - Select both 'Name' and 'Salary' columns, and print the result.
    - Slice the first three rows using integer-based indexing (`iloc`).
 
 ### **Task 2: Data Aggregation**
@@ -90,27 +98,11 @@ data2 = {
 
 📌 **Follow these steps to submit your work:**  
 
-#### **1️⃣ Upload Your Assignment**  
-- Go to your `python-essentials` GitHub repository.
-- Click the **Add file** dropdown and select **Create new file**.
-- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-04/`)
-- Name the file by typing the file name. (i.e., `lesson-04/assignment.py` or `lesson-04/assignment.ipynb` for a Jupyter Notebook).  
-- Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
-- Click **Commit new file** to save your work.  
+#### **1️⃣ Get a Sharing Link for Your Assignment**  
+- On the upper right of the Kaggle page, click on Save Version and save, accepting all defaults.  You can just do a quick save.
+- On the upper right, click on Share.  Choose Public, make sure that Allow Comments is on, and copy 
 
-#### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-04` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-05`).  
+#### **2️⃣ Submit Your Kaggle Link**  
 - Paste the URL into the **assignment submission form**.  
-
----
-
-## **✅ Submission Checklist**  
-Before submitting, make sure:  
-- [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-04` folder.  
-- [ ] You've uploaded your `.py` or `.ipynb` file.  
-- [ ] You’ve copied and submitted the correct GitHub folder URL.
-- [ ] Ensure each task is commented appropriately to explain your code.
 
 ---
