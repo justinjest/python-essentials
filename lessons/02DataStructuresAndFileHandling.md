@@ -103,7 +103,7 @@ list_one = [3,4,5]
 list_two = list(map(lambda x: x+1, list_one)) # [4,5,6]
 ```
 
-The lambda feature is a way to declare a simple function.  They are, in some respects, similar to arrow functions in JavaScript, but they are much more limited.  A lambda is a simple one liner.
+The lambda feature is a way to declare a simple function.  Lambdas are, in some respects, similar to arrow functions in JavaScript, but they are much more limited.  A lambda is a simple one liner.
 
 ### Tuples
 
@@ -336,7 +336,7 @@ print(math_tools.add(2, 3))  # Output: 5
 
 ### Packages
 
-A package is a collection of related modules organized in a directory structure. Packages require an `__init__.py` file to mark the directory as a Python package.  In this course, we don't create large projects with many modules, but as a Python professional, you will need to do this.  The contents of `__init__.py` are not described in this lesson, but you can view [this tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/) to see how it is to be done.
+A package is a collection of related modules organized in a directory structure. Packages require an `__init__.py` file to mark the directory as a Python package.  In this course, we don't create large projects with many modules, but as a Python professional, you will need to do this.  The contents of `__init__.py` are not described in this lesson, but you can view [this tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/) to see how it is to be done (this is optional for this course).
 
 #### Package Structure Example
 ```
@@ -591,6 +591,20 @@ You can access environment variables using `os.environ`. For example, to retriev
 path_variable = os.environ.get('PATH')
 print(path_variable)
 ```
+
+**Addendum: The sys Package**
+
+In many environments, Python is used as a scripting tool.  Python scripts are invoked with arguments.  The user might type:
+
+```bash
+python loadfile.py ./current.csv
+```
+and the script might load the contents of the file into a database.  The sys package enables this (among other things).  Consider the following code:
+
+```python
+import sys
+for arg in sys.argv:
+    print(arg)  # arg[0] is the program name.  The other arguments are what was passed on the command line.
 
 ### Video 2.5: Working with `os`
 

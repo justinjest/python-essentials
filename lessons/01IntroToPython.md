@@ -87,6 +87,8 @@ Follow the installation instructions for your operating system:
     Python 3.9.7
     ```
 
+    At this point, you can try the Python Interactive Shell.  You type `python` or `python3` without arguments.  This brings up a command line into which you can type code, which is then executed as each statement is completed.  The code is not preserved, of course, but this is a good way to try many of the ideas below.  Ctrl-D exits the shell.
+
 3. **Install pip**
 
     **Pip** is Python’s package installer, and it is included automatically with Python versions 3.4 and above. It allows you to easily install and manage Python libraries and packages from the Python Package Index (PyPI).
