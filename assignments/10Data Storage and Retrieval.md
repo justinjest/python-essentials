@@ -1,25 +1,31 @@
 # **Lesson 10: Data Storage and Retrieval**
 
+## **Assignment Instructions**
+
+You create the code for this assignment in your python_homework folder.  Be sure to create an `assignment10` git branch before you start.  As usual, mark the code that completes each task with a comment line.
+
+---
+
 ---
 
 ## **Task 1: Storing Data in JSON**
-1. Write a script to scrape data from another Wikipedia page of your choice.
-2. Save the scraped data (title, headers, and links) into a JSON file.
+1. Write a script called `store_page.py` to scrape data from another Wikipedia page of your choice.
+2. Save the scraped data (title, headers, and links) into a JSON file called page.json.
 3. Open the JSON file and verify its contents.
 
 ---
 
 ## **Task 2: Storing Data in CSV**
 1. Modify the script to include additional data (e.g., image sources).
-2. Save the new data to a CSV file.
+2. Save the new data to a CSV file called page.csv.
 3. Test your script and verify the output.
 
 ---
 
 ## **Task 3: Storing Data in Databases**
-1. Create a new SQLite database table for storing scraped data from a different page.
+1. Create a script called `page_to_db.py`. This should create a new SQLite database, with a table for storing scraped data from a different page.  Create the database within the db directory of your python_homework folder.
 2. Insert the data into the table using Python.
-3. Retrieve and print the data from the database.
+3. Retrieve and print the data from the database.  Redirect the output to a file, `page_db.txt` so that it is submitted with your homework.
 
 ---
 
@@ -28,7 +34,7 @@
 2. Perform the following analyses:
    - Count the number of headers and links.
    - Find the most frequent type of data.
-3. Write a short summary of your findings.
+3. Write a short summary of your findings.  Put that in a file called assignment10.txt.
 
 ---
 
@@ -37,34 +43,28 @@
 2. Discuss which type of storage would be more suitable for:
    - A small-scale project like scraping Wikipedia.
    - A large-scale project involving millions of records.
+   Add your thoughts to assignment10.txt.
+
 
 ---
+
 
 ### Submit Your Assignment on GitHub**  
 
 📌 **Follow these steps to submit your work:**  
 
-#### **1️⃣ Upload Your Assignment**  
-- Go to your `python-essentials` GitHub repository.
-- Click the **Add file** dropdown and select **Create new file**.
-- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-10/`)
-- Name the file by typing the file name. (i.e., `lesson-10/assignment.py` or `lesson-07/assignment.ipynb` for a Jupyter Notebook).  
-- Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
-- Click **Commit new file** to save your work.  
+#### **1️⃣ Add, Commit, and Push Your Changes**  
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment9` branch.
+- Push that branch to GitHub. 
+
+#### **2️⃣ Create a Pull Request**  
+- Log on to your GitHub account.
+- Open your `python_homework` repository.
+- Select your `assignment10` branch.  It should be one or several commits ahead of your main branch.
+- Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-10` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-07`).  
-- Paste the URL into the **assignment submission form**.  
-
----
-
-## **✅ Submission Checklist**  
-Before submitting, make sure:  
-- [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-10` folder.  
-- [ ] You've uploaded your `.py` or `.ipynb` file.  
-- [ ] You’ve copied and submitted the correct GitHub folder URL.
-- [ ] Ensure each task is commented appropriately to explain your code.
+- Your browser now has the link to your pull request.  Copy that link. 
+- Paste the URL into the **assignment submission form**. 
 
 ---

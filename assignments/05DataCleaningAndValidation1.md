@@ -4,9 +4,12 @@
 ### **Objective:**
 This assignment focuses on exploring fundamental data cleaning and validation techniques using the Pandas library in Python. You will learn how to handle missing data, transform data types, remove duplicates, manage outliers, standardize data, encode categorical variables, and validate data ranges.
 
+This assignment is to be created in a Kaggle notebook, as you did for Assignment 4.  This time, create a notebook called CTD_Assignment_5 for code as described below.
+
 ### **Tasks:**
 
 ### **Task 1: Handling Missing Data**
+
 1. **Create a DataFrame using the provided data:**
    - The DataFrame contains columns for 'Name', 'Age', 'Salary', 'Join_Date', and 'City', with some missing values.
    - Print the original DataFrame.
@@ -74,31 +77,15 @@ df = pd.DataFrame(data)
 
 **Hint:** Validating data ranges ensures that your data is consistent and suitable for analysis or modeling.
 
-### Submit Your Assignment on GitHub**  
+### **Submit the Notebook for Your Assignment**  
 
 📌 **Follow these steps to submit your work:**  
 
-#### **1️⃣ Upload Your Assignment**  
-- Go to your `python-essentials` GitHub repository.
-- Click the **Add file** dropdown and select **Create new file**.
-- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-05/`)
-- Name the file by typing the file name. (i.e., `lesson-05/assignment.py` or `lesson-05/assignment.ipynb` for a Jupyter Notebook).  
-- Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
-- Click **Commit new file** to save your work.  
+#### **1️⃣ Get a Sharing Link for Your Assignment**  
+- On the upper right of the Kaggle page, click on Save Version and save, accepting all defaults.  You can just do a quick save.
+- On the upper right, click on Share.  Choose Public, make sure that Allow Comments is on, and copy the public URL to your clipboard.
 
-#### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-05` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-05`).  
+#### **2️⃣ Submit Your Kaggle Link**  
 - Paste the URL into the **assignment submission form**.  
-
----
-
-## **✅ Submission Checklist**  
-Before submitting, make sure:  
-- [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-05` folder.  
-- [ ] You've uploaded your `.py` or `.ipynb` file.  
-- [ ] You’ve copied and submitted the correct GitHub folder URL.
-- [ ] Ensure each task is commented appropriately to explain your code.
 
 ---

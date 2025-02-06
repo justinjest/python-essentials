@@ -12,6 +12,8 @@ Students will deepen their understanding of SQL by learning advanced techniques 
 
 ## **Assignment Instructions**
 
+You create the code for this assignment in your python_homework folder.  Be sure to create an `assignment8` git branch before you start.  As usual, mark the code that completes each task with a comment line.
+
 ### **Preparation and Practice**
 
 Your python_homework folder contains a program called `load_db.py`.  Take a look at its contents.  It creates a series of tables, for employees, customers, orders, products, and order_details.  Each order is associated with a customer and an employee.  For each order, there are line_items associated with the order, one line item for each product comprising the order.  You'll see the schema created at the top of the file.  Then, the file uses pandas to load data for each table from csv files into the database.  The resulting database is stored as ./db/lesson.db.

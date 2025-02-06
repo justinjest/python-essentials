@@ -4,6 +4,12 @@
 ### **Objective:**
 In this assignment, you will explore the basic functionalities of the Pandas library in Python, including creating, manipulating, inspecting, and analyzing data using various DataFrame methods. The goal is to understand how to handle data efficiently and perform essential operations to inspect and analyze datasets.
 
+### **Step 1: Complete the Coding Tasks**  
+
+Homework for this assignment is created within your `python_homework` folder.  Create an `assignment3` branch.  Then, write Python code with the usual comment lines.
+
+---
+
 ### **Tasks:**
 
 ### **Task 1: Introduction to Pandas - Creating and Manipulating DataFrames**
@@ -69,31 +75,24 @@ In this assignment, you will explore the basic functionalities of the Pandas lib
 3. **Calculate the correlation matrix:**
    - Use the `corr()` method to print the correlation matrix of the numeric columns, indicating how the columns are related to each other.
 
-### Submit Your Assignment on GitHub**  
-
-📌 **Follow these steps to submit your work:**  
-
-#### **1️⃣ Upload Your Assignment**  
-- Go to your `python-essentials` GitHub repository.
-- Click the **Add file** dropdown and select **Create new file**.
-- Create a folder for this lesson by typing the lesson name followed by a `/` (i.e., `lesson-03/`)
-- Name the file by typing the file name. (i.e., `lesson-03/assignment.py` or `lesson-03/assignment.ipynb` for a Jupyter Notebook).  
-- Paste your code into the file OR click **Upload files** and add your `.py` or `.ipynb` file.  
-- Click **Commit new file** to save your work.  
-
-#### **3️⃣ Submit Your GitHub Link**  
-- Open your repository and navigate to the `lesson-03` folder.  
-- Copy the URL of the folder (e.g., `https://github.com/your-username/python-class-your-name/tree/main/lesson-05`).  
-- Paste the URL into the **assignment submission form**.  
-
 ---
 
-## **✅ Submission Checklist**  
-Before submitting, make sure:  
-- [ ] Your repository follows the format `python-class-your-name`.  
-- [ ] Your assignment is inside a `lesson-03` folder.  
-- [ ] You've uploaded your `.py` or `.ipynb` file.  
-- [ ] You’ve copied and submitted the correct GitHub folder URL.
-- [ ] Ensure each task is commented appropriately to explain your code.
+### **Step 2: Submit Your Assignment on GitHub**  
+
+**Follow these steps to submit your work:**  
+
+#### **1️⃣ Add, Commit, and Push Your Changes**  
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment3` branch.
+- Push that branch to GitHub. 
+
+#### **2️⃣ Create a Pull Request**  
+- Log on to your GitHub account.
+- Open your `python_homework` repository.
+- Select your `assignment3` branch.  It should be one or several commits ahead of your main branch.
+- Create a pull request.
+
+#### **3️⃣ Submit Your GitHub Link**  
+- Your browser now has the link to your pull request.  Copy that link. 
+- Paste the URL into the **assignment submission form**.  
 
 ---

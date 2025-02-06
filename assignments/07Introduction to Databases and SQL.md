@@ -1,5 +1,7 @@
 Introduction to Databases and SQL**
 
+For this assignment, you create code in your python_homework folder (not Kaggle this time.)
+
 
 ## **Task 1: Create a New SQLite Database**
 1. Within your python_homework folder, create an `assignment7` branch.

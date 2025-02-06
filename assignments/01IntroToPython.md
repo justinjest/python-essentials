@@ -21,12 +21,11 @@ If you ever feel stuck, want a quick refresher before diving in, or just prefer 
 
 ### **Setup**
 
-All of your homework for this and future assignments will use a special python homework repository, so that it can be submitted using git.  That repository is [here.](https://github.com/Code-the-Dream-School/python_homework)  Click on the link, and carefully **follow the instructions in the README**.  You will then have your own copy of the repository, connected to your GitHub account.  You create the program files for the homework in the root of that repository.  For each assignment, you create a separate git branch.  When you have completed your assignment, you add and commit your changes in that branch, push it to your GitHub, and create a pull request for that branch.  You provide a link to that pull request when you submit your homework.  Your instructor will review it, approving or requesting changes.  Once your instructor has approved the pull request, you can merge it.
-
-At the outset, you create python `.py` files.  In some future lessons, you will create Jupyter notebooks.  
+Your homework for this and some future assignments will use a special python homework repository, so that it can be submitted using git.  That repository is [here.](https://github.com/Code-the-Dream-School/python_homework)  Click on the link, and carefully **follow the instructions in the README**.  You will then have your own copy of the repository, connected to your GitHub account.  You create the program files for the homework in the root of that repository.  For each assignment, you create a separate git branch.  When you have completed your assignment, you add and commit your changes in that branch, push it to your GitHub, and create a pull request for that branch.  You provide a link to that pull request when you submit your homework.  Your instructor will review it, approving or requesting changes.  Once your instructor has approved the pull request, you can merge it.
 
 ### **Step 1: Complete the Coding Tasks**  
-All homework is created within your `python_homework` folder.  Be sure to create an `assignment1` branch.  Then, write Python code to complete the following tasks.
+
+At the outset, you create python `.py` files.  In some future lessons, you will create Jupyter notebooks. Homework for this assignment is created within your `python_homework` folder.  Be sure to create an `assignment1` git branch.  Then, write Python code to complete the following tasks.  As you do, put in **comment lines to mark your code for Task 1, Task 2, and so on.** That will help your reviewer.
 
 ---
 
