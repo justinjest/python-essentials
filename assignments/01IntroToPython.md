@@ -58,6 +58,7 @@ Write a greet function.  It takes one argument, a name, and returns `Hello, Name
 - Write a calc function.  It takes three arguments.  The default value for the third argument is "multiply".  The first two arguments are values that are to be combined using the operation requested by the third argument, a string that is one of the following add, subtract, multiply, divide, modulo, int_divide (for integer division) and power.  The function returns the result.
 - Error handling: When the function is called, it could ask you to divide by 0. That will throw an exception: Which one?  You can find out by triggering the exception in your program or in the Python Interactive Shell.  Wrap the code within the calc function in a try block, and put in an except statement for this exception.  If the exception occurs, return the string "You can't divide by 0!".  
 - More error handling: When the function is called, the parameters that are passed might not work for the operation.  For example, you can't multiply two strings.  Find out which exception occurs, catch it, and return a string like "You can't multiply those values!", except that the string might say add or subtract or divide instead of multiply -- so you use a formatted string.
+- Here's a tip.  You have to do different things for add, multiply, divide and so on.  So you can do a conditional cascade, if/elif/elif/else.  That's perfectly valid.  But you might want to use the match-case Python statement instead.  Look it up!  It just improves code appearance.
 
 Again, as you complete each function, you run the test to see whether everything is correct.
 
@@ -109,6 +110,10 @@ based on the following scale:
 - The following string methods may be helpful: split(), join(), and capitalize().  Look 'em up.
 - The split() method returns a list. You might store this in the `words` variable.  `words[-1]` gives the last element in the list.
 - The `in` comparison operator: You have seen `in` used in loops.  But it can also be used for comparisons, for example to check to see if a substring occurs in a string, or a value occurs in a list.
+- A new trick: As you loop through the words in the `words` list, it is helpful to have the index of the word for each iteration.  You can access that index using the enumerate() function:
+```python
+for i, word in enumerate(words):
+```
 
 ---
 
