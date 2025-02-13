@@ -1,12 +1,12 @@
 # **Lesson 1 Assignment: Intro to Python**  
 
 ## **Objective and Overview**  
-In this assignment, you will practice key Python concepts including:  
-✅ Declaring functions 
-✅ Formatted Strings 
+In this assignment, you will practice key Python concepts including:    
+✅ Declaring functions  
+✅ Formatted Strings  
 ✅ Type Conversion  
-✅ Error Handling 
-✅ For Loops with Ranges
+✅ Error Handling  
+✅ For Loops with Ranges  
 ✅ Use of *args and **kwargs in Function Declarations  
 ✅ String Manipulation   
 
