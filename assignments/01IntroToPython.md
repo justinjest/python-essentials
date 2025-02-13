@@ -37,11 +37,11 @@ This assignment uses a Python tool for automated testing, called PyTest.  You in
 - Change to the python_homework folder.
 - Type `code .` to bring up VSCode for this folder. 
 - Start a terminal session within VSCode and enter the command
-  
-C, type `code .` to bring up VSCode, and start a terminal session within VSCode.  Within the terminal session, change to the assignment1 folder, and enter the command
+
 ```bash
 pytest -x assignment1-test.py
 ```
+
 PyTest attempts to perform the tests, and as you haven't written the code yet, it quickly ends with an error -- in this case, because you haven't created the hello function.  You follow this pattern: 
 
 - Add your code to the `./assignment1/assignment1.py file` which is provided (but it's empty.)
