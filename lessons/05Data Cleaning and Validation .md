@@ -10,7 +10,7 @@
 1. **Handling Missing Data**: Removing rows with `dropna()`, replacing values with `fillna()`.
 2. **Data Transformation**: Converting data types, reformatting dates, **feature engineering**, **data discretization**.
 3. **Removing Duplicates**: Identifying and removing duplicate records.
-
+4. **Removing Outliers**: Identify and removing outling records
 ---
 
 ## 5.1 Handling Missing Data
@@ -147,6 +147,23 @@ print(df_cleaned_by_name)
 
 `drop_duplicates()` removes rows where the entire record is a duplicate of another.
 `drop_duplicates(subset='Name')` removes rows where the `Name` column is duplicated, keeping only the first occurrence of each name.
+
+## 5.4 Handling outliers
+### Overview
+Outliers can also inflate metrics and skew results, by providing data that is clearly inacurate. Removing outliers ensures that our records don't have clear errors, which improves the reliability of analyses.
+While duplicates are easy to remove outliers are more complex. You need to confirm that the data you are looking at is an outlier, and decide what you want to replace it with.   
+### Key Method
+
+Unlike other subjects in this chapter there are 2 steps to removing outliers. First we must determine what data is an outlier, and second we must remove it from the data frame.
+
+To determine outliers we can use 
+
+### Why handle outliers
+
+Sometimes you will recieve data that is clearly and obviously incorrect. In those cases it can be wise to remove the data so that it will not interact with the data that is accurate. Consider if you are determining the age of everyone in a county. In your data set some people never had a death recorded in your county, leaving you with some people who are marked as being over 300 years old. In that case the only reasonable thing to do is to remove the outling data. 
+
+
+### Example
 
 **Check for Understanding**
 
