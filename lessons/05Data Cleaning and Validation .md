@@ -52,9 +52,9 @@ print(df_filled)
 
 **Explanation:**
 
-`dropna()` removes any row that contains a `None` (missing) value.
+`dropna()` removes any row that contains a `None` (missing) value. This can remove quite a lot of data, especially if you have a lot of columns.
 
-`fillna()` is used to replace missing values. In this case, the `Age` column's missing values are replaced with 0, and the `Score` column's missing values are filled with the mean of the existing scores.
+`fillna()` is used to replace missing values. In this case, the `Age` column's missing values are replaced with 0, and the `Score` column's missing values are filled with the mean of the existing scores. This can cause issues if the values you are replacing become outliers.
 
 ## 5.2 Data Transformation
 
@@ -118,6 +118,22 @@ df['Location'] = df['Location'].map({'LA': 'Los Angeles', 'NY': "New York"})
 print(df)
 ```
 
+This method is useful when you want to replace everything in one column due to abreviation, and you know what the data will be beforehand.
+
+For **Data Discretization** we have to use the more complicated pandas.cut() function. This will allow us to automatically split data into a series of equal sized bins.
+
+```python
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Location': ['LA', 'LA', 'NY'],
+        'Grade': [78, 40, 85]}
+df = pd.DataFrame(data)
+
+# Convert grade into three catagories, "bad", "okay", "great"
+
+df['Grade'] = pd.cut(df['Grade'], 3, labels = ["bad", "okay", "great"])
+print(df)
+```
 
 **Explanation:**
 
@@ -125,7 +141,7 @@ print(df)
 `pd.to_datetime()` converts the `JoinDate` column into Python’s datetime objects for easier date manipulation and comparison.
 /* TODO */
 /* Add additional examples to this convert method */
-/* Including map(), series, and numpy methods */
+/* Including series, and numpy methods */
 
 
 ## 5.3 Removing Duplicates
