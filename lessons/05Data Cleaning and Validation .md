@@ -101,11 +101,32 @@ df['JoinDate'] = pd.to_datetime(df['JoinDate'])
 print(df.dtypes)  # Verify data types
 print(df)
 ```
+In addition you can use pandas.DataFrame.map we can change items in a column. A possible pitfall with this method is that it will only work if you define a replacement for all items in the column.
+```python
+import pandas as pd
+
+# Sample DataFrame with age in days
+
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Location': ['LA', 'LA', 'NY'],
+        'JoinDate': ['2023-01-15', '2022-12-20', '2023-03-01']}
+df = pd.DataFrame(data)
+
+# Convert 'Location' abbreviations into full names
+
+df['Location'] = df['Location'].map({'LA': 'Los Angeles', 'NY': "New York"})
+print(df)
+```
+
 
 **Explanation:**
 
 `astype(int)` converts the `Age` column, originally stored as strings, into integers.
 `pd.to_datetime()` converts the `JoinDate` column into Python’s datetime objects for easier date manipulation and comparison.
+/* TODO */
+/* Add additional examples to this convert method */
+/* Including map(), series, and numpy methods */
+
 
 ## 5.3 Removing Duplicates
 
