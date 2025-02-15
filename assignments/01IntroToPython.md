@@ -1,12 +1,12 @@
 # **Lesson 1 Assignment: Intro to Python**  
 
 ## **Objective and Overview**  
-In this assignment, you will practice key Python concepts including:  
-✅ Declaring functions 
-✅ Formatted Strings 
+In this assignment, you will practice key Python concepts including:    
+✅ Declaring functions  
+✅ Formatted Strings  
 ✅ Type Conversion  
-✅ Error Handling 
-✅ For Loops with Ranges
+✅ Error Handling  
+✅ For Loops with Ranges  
 ✅ Use of *args and **kwargs in Function Declarations  
 ✅ String Manipulation   
 
@@ -32,11 +32,25 @@ Your homework for this and some future assignments will use a special python hom
 
 At the outset, you create python `.py` files.  In some future lessons, you will create Jupyter notebooks. Homework for this assignment is created within your `python_homework` folder.  Be sure to create an `assignment1` git branch.  Then, write Python code to complete the following tasks.  As you do, put in **comment lines to mark your code for Task 1, Task 2, and so on.** That will help your reviewer.
 
-This assignment uses a Python tool for automated testing, called PyTest.  You installed it when you set up the python_homework folder.  You'll code a series of functions.  PyTest will validate whether your code is correct.  You put your code in the `./assignment1/assignment1.py file` which is provided (but it's empty.) Change to the python_homework folder, type `code .` to bring up VSCode, and start a terminal session within VSCode.  Within the terminal session, change to the assignment1 folder, and enter the command
+This assignment uses a Python tool for automated testing, called PyTest.  You installed it when you set up the python_homework folder.  You'll code a series of functions.  PyTest will validate whether your code is correct.  To run the test:  
+
+- Change to the python_homework folder.
+- Type `code .` to bring up VSCode for this folder. 
+- Start a terminal session within VSCode and enter the command
+
 ```bash
 pytest -x assignment1-test.py
 ```
-It attempts to perform the tests, and as you haven't written the code yet, it quickly ends with an error -- in this case, because you haven't created the hello function.  You follow this pattern: Write each function according to the instructions below.  Put a print() statement in, and call the function from within the print() statement to see if it works.  Then run the test using the command above.  If it reports errors, change your code to fix them.  Once the first test passes, you'll get an error for the second test, so you go on to write the second function, and so on until all 10 tests complete successfully.  You should have a look at assignment1-test.py to see how it works and what it tests for.  Keep going until all tests pass.
+
+PyTest attempts to perform the tests, and as you haven't written the code yet, it quickly ends with an error -- in this case, because you haven't created the hello function.  You follow this pattern: 
+
+- Add your code to the `./assignment1/assignment1.py file` which is provided (but it's empty.)
+- Write each function according to the instructions below.
+- Put a print() statement in the mainline of your code (not inside the function), and call the function from within the print() statement to see if it works.
+- Then run the test using the command above.  
+- If it reports errors, change your code to fix them.  
+
+Once the first test passes, you'll get an error for the second test, so you go on to write the second function, and so on until all 10 tests complete successfully.  You should have a look at assignment1-test.py to see how it works and what it tests for.  Keep going until all tests pass.
 
 There are a number of new Python capabilities introduced during this assignment, beyond what is in the lesson, but they are explained below, so that you can learn and practice at the same time.
 
