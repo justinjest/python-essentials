@@ -24,10 +24,22 @@ A sample assignment2.py solution, to reference as necessary, is available in the
    - In a loop, prompt the user for a line of input.  The first prompt should say, "What happened today? ".  All subsequent prompts should say "What else? "
    - As each line is received, write it to `diary.txt`, with a newline at the end.
    - When the special line "done for now" is received, write that to `diary.txt`.  Then close the file and exit the program (you just exit the loop).
-   - Wrap all of this in a try block.  If an exception occurs, catch the exception and print out "An exception occurred." followed by the name exception itself. In this case, you want to catch all the exceptions, so you do an except for `BaseException`.  You need:
+   - Wrap all of this in a try block. If an exception occurs, catch the exception and print out "An exception occurred." followed by the name exception itself. Now, normally, you catch specific types of exceptions, and handle each according to program logic.  In this case, you can catch any non-fatal exceptions via an except for `Exception`, and then display the information from the exception and exit the program.
 ```python
-except BaseException as e:
-   print("An exception occurred: ", type(e).__name__)
+import traceback
+
+...
+
+except Exception as e:
+    trace_back = traceback.extract_tb(e.__traceback__)
+    stack_trace = list()
+    for trace in trace_back:
+        stack_trace.append("File : %s , Line : %d, Func.Name : %s, Message : %s" % (trace[0], trace[1], trace[2], trace[3]))
+    print(f"Exception type: {type(e).__name__}")
+    message = str(e)
+    if message:
+        print(f"Exception message: {message}")
+    print(f"Stack trace: {stack_trace}")
 ```
    - Open the file using a `with` statement (inside the try block), and rely on that statement to handle the file close.
    - The input statement should be inside the loop inside the `with` block.
@@ -54,7 +66,7 @@ This will give errors to report what you need to fix.  You run it repeatedly as 
    - Add the list of rows (this is a list of lists) to the dict, using the key "rows".
    - The function should return the dict.
    - Add a line below the function that calls read_employees and stores the returned value in a global variable called employees. Then print out this value, to verify that the function works.
-   - In this case, it's not clear what to do if you get an exception.  For now, just print out the type of exception, followed by `raise e`.  The raise passes the exception along.  You may get some helpful information this way.  The most likely exception in this case is an error in the syntax of your code.
+   - In this case, it's not clear what to do if you get an exception.  You might get an exception because the filename is bad, or because the file couldn't be parsed as a CSV file.  For now, just use the same approach as described above: catch the exception, print out the information, and exit the program.  One likely exception in this case is an error in the syntax of your code.
 
 3. Run the test to see if you have this much right.
 
