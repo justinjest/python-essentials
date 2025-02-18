@@ -282,5 +282,6 @@ In this lesson, you’ve learned:
 * How to handle missing data using `dropna()` and `fillna()`.
 * How to transform data by converting data types, reformatting dates, **performing feature engineering**, and **discretizing continuous variables**.
 * How to identify and remove duplicate records with `drop_duplicates()`.
+* How to remove outliers using statistical methods
 
 By applying these techniques, you can clean and validate your datasets for accurate and effective analysis. For further exploration, refer to the Pandas Documentation and Python's official documentation.
