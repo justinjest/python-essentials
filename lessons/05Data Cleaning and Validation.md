@@ -239,8 +239,6 @@ B) `dropna()`
 C) `remove_missing()`
 D) `replace_na()`
 
-**Answer:** B
-
 <details>
 <summary>Answer</summary>
 Answer: B
