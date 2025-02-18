@@ -158,10 +158,8 @@ print(df)
 `astype(int)` converts the `Age` column, originally stored as strings, into integers.
 `pd.to_datetime()` converts the `JoinDate` column into Python’s datetime objects for easier date manipulation and comparison.
 `pd.cut()` allows us to create bins for data and provide data discretization
-/* TODO */
-/* Add additional examples to this convert method */
-/* Including numpy methods */
 
+---
 
 ## 5.3 Removing Duplicates
 
@@ -204,19 +202,30 @@ print(df_cleaned_by_name)
 `drop_duplicates()` removes rows where the entire record is a duplicate of another.
 `drop_duplicates(subset='Name')` removes rows where the `Name` column is duplicated, keeping only the first occurrence of each name.
 
-## 5.4 Handling outliers
-### Overview
-Outliers can also inflate metrics and skew results, by providing data that is clearly inaccurate. Removing outliers ensures that our records don't have clear errors, which improves the reliability of analyses.
-While duplicates are easy to remove outliers are more complex. You need to confirm that the data you are looking at is an outlier, and decide what you want to replace it with.   
-### Key Method
+---
 
-Unlike other subjects in this chapter there are 2 steps to removing outliers. First we must determine what data is an outlier, and second we must remove it from the data frame.
+## **5.4 Handling Outliers**
 
-To determine outliers we can use 
+### **Overview**
+Outliers are extreme values that deviate significantly from other observations and can bias statistical calculations.
 
-### Why handle outliers
+### **Common Approach:**
+- Replace outliers with statistical measures like the median.
 
-Sometimes you will receive data that is clearly and obviously incorrect. In those cases it can be wise to remove the data so that it will not interact with the data that is accurate. Consider if you are determining the age of everyone in a county. In your data set some people never had a death recorded in your county, leaving you with some people who are marked as being over 300 years old. In that case the only reasonable thing to do is to remove the outlying data. 
+### **Code Example:**
+```python
+# Replace outliers in 'Age' (e.g., Age > 100 or Age < 0)
+df['Age'] = df['Age'].apply(lambda x: df['Age'].median() if x > 100 or x < 0 else x)
+
+print("DataFrame after handling outliers:")
+print(df)
+```
+
+### **Explanation:**
+- Outliers in the `Age` column that are greater than 100 or less than 0 are replaced by the median value of the `Age` column.
+
+---
+
 
 
 ### Example
