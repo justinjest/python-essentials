@@ -10,7 +10,7 @@
 1. **Handling Missing Data**: Removing rows with `dropna()`, replacing values with `fillna()`.
 2. **Data Transformation**: Converting data types, reformatting dates, **feature engineering**, **data discretization**.
 3. **Removing Duplicates**: Identifying and removing duplicate records.
-4. **Removing Outliers**: Identify and removing outling records
+4. **Removing Outliers**: Identify and removing outlying records
 ---
 
 ## 5.1 Handling Missing Data
@@ -101,7 +101,8 @@ df['JoinDate'] = pd.to_datetime(df['JoinDate'])
 print(df.dtypes)  # Verify data types
 print(df)
 ```
-In addition you can use pandas.DataFrame.map we can change items in a column. A possible pitfall with this method is that it will only work if you define a replacement for all items in the column.
+In addition you can use pandas.DataFrame.map we can change items in a column. A possible pitfall with this method is that it will only work if you define a replacement for all items in the column. 
+
 ```python
 import pandas as pd
 
@@ -118,7 +119,24 @@ df['Location'] = df['Location'].map({'LA': 'Los Angeles', 'NY': "New York"})
 print(df)
 ```
 
-This method is useful when you want to replace everything in one column due to abreviation, and you know what the data will be beforehand.
+This method is useful when you want to replace everything in one column due to abbreviation, and you know what the data will be beforehand. If you want to avoid this you can use it in conjunction with fillna with `df['col1'].map(dict_.fillna(df['col1'])`
+
+
+Finally we can use built in numpy functions in order to change all of the data in a data frame by following a function
+```python
+
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+	'Age': [20, 22, 43]}
+
+df = pd.DataFrame(data)
+
+# Increase the age by 1 as a new year has passed
+df['Age'] = df['Age'] += 1
+print(df)
+```
+
 
 For **Data Discretization** we have to use the more complicated pandas.cut() function. This will allow us to automatically split data into a series of equal sized bins.
 
@@ -139,9 +157,10 @@ print(df)
 
 `astype(int)` converts the `Age` column, originally stored as strings, into integers.
 `pd.to_datetime()` converts the `JoinDate` column into Python’s datetime objects for easier date manipulation and comparison.
+`pd.cut()` allows us to create bins for data and provide data discretization
 /* TODO */
 /* Add additional examples to this convert method */
-/* Including series, and numpy methods */
+/* Including numpy methods */
 
 
 ## 5.3 Removing Duplicates
@@ -187,7 +206,7 @@ print(df_cleaned_by_name)
 
 ## 5.4 Handling outliers
 ### Overview
-Outliers can also inflate metrics and skew results, by providing data that is clearly inacurate. Removing outliers ensures that our records don't have clear errors, which improves the reliability of analyses.
+Outliers can also inflate metrics and skew results, by providing data that is clearly inaccurate. Removing outliers ensures that our records don't have clear errors, which improves the reliability of analyses.
 While duplicates are easy to remove outliers are more complex. You need to confirm that the data you are looking at is an outlier, and decide what you want to replace it with.   
 ### Key Method
 
@@ -197,7 +216,7 @@ To determine outliers we can use
 
 ### Why handle outliers
 
-Sometimes you will recieve data that is clearly and obviously incorrect. In those cases it can be wise to remove the data so that it will not interact with the data that is accurate. Consider if you are determining the age of everyone in a county. In your data set some people never had a death recorded in your county, leaving you with some people who are marked as being over 300 years old. In that case the only reasonable thing to do is to remove the outling data. 
+Sometimes you will receive data that is clearly and obviously incorrect. In those cases it can be wise to remove the data so that it will not interact with the data that is accurate. Consider if you are determining the age of everyone in a county. In your data set some people never had a death recorded in your county, leaving you with some people who are marked as being over 300 years old. In that case the only reasonable thing to do is to remove the outlying data. 
 
 
 ### Example
