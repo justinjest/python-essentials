@@ -103,7 +103,7 @@ list_one = [3,4,5]
 list_two = list(map(lambda x: x+1, list_one)) # [4,5,6]
 ```
 
-The lambda feature is a way to declare a simple function.  Lambdas are, in some respects, similar to arrow functions in JavaScript, but they are much more limited.  A lambda is a simple one liner.
+The lambda feature is a way to declare a simple function.  Lambdas are, in some respects, similar to arrow functions in JavaScript, but they are much more limited.  A lambda is a simple one liner.  The syntax is as follows: the word `lambda` followed by the arguments to be passed (the map function only passes one parameter, so in the case above there is only argument for the lambda), followed by a colon `:`, followed by an expression.  The value of the expression is what is returned by the lambda.  You can only give one expression in a lambda, so there is no room for multiple statements.  (It's much more limited than JavaScript arrow functions.)
 
 ### Tuples
 
