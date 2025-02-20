@@ -91,7 +91,7 @@ Databases store structured data in tables. SQL queries allow you to define the s
 
 ### **Steps:**
 
-1. Use SQL `CREATE TABLE` queries to define the structure of your database.  This code is added to `lesson07_a.py`.
+1. Use SQL `CREATE TABLE` queries to define the structure of your database.  This code is added to `lesson07_a.py`.  **Note** It is best to use `CREATE TABLE IF NOT EXISTS`, as in the example code that follows this section.  Otherwise your code will fail the second time you run it, as the table already exists.
 2. Execute these queries within your Python script using the `execute()` method of a database cursor.
 
 **Tables:**
