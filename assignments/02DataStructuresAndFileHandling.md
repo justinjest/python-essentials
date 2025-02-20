@@ -175,6 +175,108 @@ We want to call the sort() method on the rows.  However, we need to tell it whic
 
 4. Get the test working.
 
+### **Task 9: Use the os Module**
+
+Sometimes the behavior of a program is to be modified without changing the program itself.  One way is to use environment variables.  Environment variables are also used to store secrets needed by the program, such as passwords.  Environment variables are accessed via the `os.getenv()` function.  Of course, there are many other functions in the os package.
+
+1. Within the terminal, enter the command `export THISVALUE=ABC`.
+
+2. Add a line to `assignment2.py` to import the os module.
+
+3. Create a function get_this_value().  This function takes no parameters and returns the value of the environment variable `THISVALUE`.
+
+4. Get the test working.  (Note that each time you want this test to pass, you have to have the `THISVALUE` environment variable set in your terminal session.)
+
+### **Task 10: Creating Your Own Module**
+
+1. In the same folder, create a file called custom_module.py, with the following contents:
+
+```python
+secret = "shazam!"
+
+def set_secret(new_secret):
+   global secret
+   secret = new_secret
+```
+
+2. Add the line `import custom_module` to assignment2.py.
+
+3. Create a function called set_that_secret.  It should accept one parameter, which is the new secret to be set.  It should call custom_module.set_secret(), passing the parameter, so as to set the secret in custom_module.
+
+4. Add a line to your program to call set_that_secret, passing the new string of your choice.
+
+5. In another line, print out custom_module.secret.  Verify that it has the value you expect.
+
+6. Run the test until the next part passes.
+
+
+### **Task 11: Read minutes1.csv and minutes2.csv **
+
+The "story" behind the following list of tasks is as follows.  A club meets, and for each meeting, there is a chairperson.  The club keeps several notebooks that record who whas the chairperson on a given date.  Some of the information is in one notebook, some in the other.  The club now wants to combine this information, to get the list of chairpersons sorted by date.  But the information in the csv files contains duplicates and is in no particular order.  (Yeah, the story is lame, but it is similar to other data analysis tasks.)
+
+1. Create a function called `read_minutes`.  It takes no parameters.  It creates two dicts, minutes1 and minutes2, by reading `../csv/minutes1.csv` and `../csv/minutes2.csv`.  Each dict has `fields` and `rows`, just as the employees dict had.  However! As you create the list of rows for both minutes1 and minutes2, convert each row to a tuple.  The function should return both minutes1 and minutes2.  **Note** You can return several values from a Python function, as follows: `return v1, v2`.
+
+2. Call the function within your assignment2.py script.  Store the values from the valuse it returns in the global variables minutes1 and minutes2. **Note** When a function returns several values, you get them as follows: `v1, v2 = function()`. Print out those dicts, so that you can see what's stored.
+
+3. Run the test until this part passes.
+
+### **Task 12: Create minutes_set
+
+1. Create a function called `create_minutes_set`.  It takes no parameters. It creates two sets from the rows of minutes1 and minutes2 dicts.  (This is just type conversion.  However, to make it work, each row has to be hashable!  Sets only support hashable elements.  Lists aren't hashable, so that is why you stored the rows as tuples in Task 10.)  Combine the members of both sets into one single set.  (This operation is called a union.)  The function returns the resulting set.
+
+2. Call the function within your assignment2.py script.  Store the value returned in the global variable minutes_set.
+
+3. Run the test until the next part passes.
+
+### **Task 13: Convert to datetime**
+
+1. Add a statement, `import datetime from datetime`, to your program.  The datetime module has some nice capabilities for converting strings to dates.  You can look them up: strptime() and strftime().
+
+2. Create a function called create_minutes_list.  It takes no parameters, and does the following:
+   - Create a list from the minutes_set.  This is just type conversion.
+   - Use the `map()` function to convert each element of the list.  At present, each element is a list of strings, where the first element of that list is the name of the recorder and the second element is the date when they recorded.
+   - The map() should covert each of these into a tuple.  The first element of the tuple is the name (unchanged).  The second element of the tuple is the date string converted to a datetime object.
+   - You convert the date strings into datetime objects using `datetime.strptime(string, "%B %d, %Y")`.
+   - So, you could use the following lambda:
+   `lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y"))`
+   - The function should return the resulting list.
+
+3. Call the function from within your program.  Store the return value in the minutes_list global.  Print it out, so you can see what it looks like.
+
+4. Run the test until the next part passes.
+
+### **Task 14: Write Out Sorted List**
+
+1. Create a function called write_sorted_list.  It takes no parameters.  It should do the following:
+   - Sort minutes_list in ascending order of datetime.
+   - Call map again to convert the list.  In this case, for each tuple, you create a new tuple.  The first element of the tuple is the name (unchanged).  The second element of the tuple is the datetime converted back to a string, using `datetime.strftime(date, "%B %-d, %Y")`
+   - Open a file called `./minutes.csv`.  Use a csv.writer to write out the resulting sorted data.  The first row you write should be the value of `fields` the from minutes1 dict.  The subsequent rows should be the elements from minutes_list.
+   - The function should return the converted list.
+
+2. Call this function from within your program.  Then check that the file is created, and that it contains appropriate content.
+
+3. Run the test again until the next test has passed.
+
+### Check for Understanding
+
+1. You created the minutes_set from several lists.  You then created a list from the set.  What's the point of the set, if you're going to end up with a list?
+
+2. Why did you subsequently need to create the list called minutes_list?  Couldn't you just keep working with the set?
+
+3. Why did you need to convert the date strings to datetime objects?
+
+4. Why did you convert them back to strings before writing out the CSV?
+
+
+### Answers
+
+1. The original lists had duplicates.  A set has only unique values, so by converting to a set, you get rid of duplicates.
+
+2. You need to call the map() function and sort() method.  Set objects don't support these, and in fact, the entries in a set are not in any particular order.  So, for these steps, you need lists.
+
+3. You needed to convert the date strings to datetime objects.  Otherwise, they'd just be sorted in alphabetical order, and "April 1, 2023" would come before "September 2, 1980".  You could have done this conversion in the lambda for `key=` in the sort() of the list, but that approach would make that lambda a little complicated.
+
+4. When a datetime object is printed, its appearance is not as friendly as the original date string, so you converted it back.
 
 
 ### **Step 2: Submit Your Assignment on GitHub**  
