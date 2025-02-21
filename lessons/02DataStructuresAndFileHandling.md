@@ -373,29 +373,6 @@ from my_package import add, multiply
    response = requests.get('https://api.example.com/data')
    ```
 
-### Video 2.3: Python Modules and Libraries
-
-What are Python modules? How do you import and work with them? Check out the video below to learn more. 
-
-**[View the video here](https://youtu.be/XcfxkHrHTVE?feature=shared).**
-
-### Check for Understanding
-
-**Question**: Which of the following commands correctly imports only the sqrt function from the `math` module?
-
-* A) `import sqrt from math`
-* B) `from math import sqrt`  
-* C) `import math.sqrt`
-* D) `import math as sqrt`
-
-<details>
-<summary>Answer</summary>
-
-**Answer**: B) `from math import sqrt`
-
-</details>
-
-
 ### 2.3 Video: Python Modules and Libraries
 
 What are Python modules? How do you import and work with them? Check out vido 2.3 to learn more. 
