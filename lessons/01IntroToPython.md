@@ -741,7 +741,7 @@ def set_name():
 set_name()
 print(name) # Prints "Hima"
 
-def set_name_2(name)
+def set_name_2(name):
     name = "Nguyen"
 
 set_name_2()
