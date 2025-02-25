@@ -26,7 +26,7 @@ Since the podcast was created, the assignment itself has been updated to make it
 
 ### **Setup**
 
-Your homework for this and some future assignments will use a special python homework repository, so that it can be submitted using git.  That repository is [here.](https://github.com/Code-the-Dream-School/python_homework)  Click on the link, and carefully **follow the instructions in the README**.  You will then have your own copy of the repository, connected to your GitHub account.  You create the program files for the homework in the root of that repository.  For each assignment, you create a separate git branch.  When you have completed your assignment, you add and commit your changes in that branch, push it to your GitHub, and create a pull request for that branch.  You provide a link to that pull request when you submit your homework.  Your instructor will review it, approving or requesting changes.  Once your instructor has approved the pull request, you can merge it.
+Your homework for this and some future assignments will use a special python homework repository, so that it can be submitted using git.  That repository is [here.](https://github.com/Code-the-Dream-School/python_homework)  Click on the link, and carefully **follow the instructions in the README**.  You will then have your own copy of the repository, connected to your GitHub account.  You create the program files for the homework in the root of that repository.  For each assignment, you create a separate git branch (e.g. `git checkout -b lesson1`).  When you have completed your assignment, you add and commit your changes in that branch, push it to your GitHub, and create a pull request for that branch.  You provide a link to that pull request when you submit your homework.  Your instructor will review it, approving or requesting changes.  Once your instructor has approved the pull request, you can merge it.
 
 ### **Step 1: Complete the Coding Tasks**  
 
@@ -34,9 +34,9 @@ At the outset, you create python `.py` files.  In some future lessons, you will 
 
 This assignment uses a Python tool for automated testing, called PyTest.  You installed it when you set up the python_homework folder.  You'll code a series of functions.  PyTest will validate whether your code is correct.  To run the test:  
 
-- Change to the python_homework folder.
+- Change to the python_homework/assignment1 folder.
 - Type `code .` to bring up VSCode for this folder. 
-- Start a terminal session within VSCode and enter the command
+- Start a git bash terminal session within VSCode and enter the command (you can make git bash the default using ctl-shift-p and setting the `Terminal: Select Default Profile`)
 
 ```bash
 pytest -x assignment1-test.py
@@ -46,7 +46,7 @@ PyTest attempts to perform the tests, and as you haven't written the code yet, i
 
 - Add your code to the `./assignment1/assignment1.py file` which is provided (but it's empty.)
 - Write each function according to the instructions below.
-- Put a print() statement in the mainline of your code (not inside the function), and call the function from within the print() statement to see if it works.
+- Put a print() statement in the mainline of your code (not inside the function), and call the function from within the print() statement to see if it works.  You can run the file by typing `python assignment1.py`.
 - Then run the test using the command above.  
 - If it reports errors, change your code to fix them.  
 
