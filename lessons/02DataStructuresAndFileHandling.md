@@ -231,6 +231,8 @@ with open('example.txt', 'w') as file:
     file.write("Hello, World!")  # Write to the file
 ```
 
+The `write()` method does not add a newline after the string which is provided.  The special character `'\n'` can be added to the end of the string to add a newline.
+
 #### Additional Modes
 
 * `"r+"`: Read and write
