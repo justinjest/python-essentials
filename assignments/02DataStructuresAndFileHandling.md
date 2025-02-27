@@ -13,6 +13,11 @@ You may find these tasks a little challenging.  Lambdas are new.  Functions that
 
 A sample assignment2.py solution, to reference as necessary, is available in the examples folder within python_homework.
 
+On Windows, if you find that the prompt in git bash is unexpected, you can fix it by running ``cd \`pwd``.
+
+Since Python uses indentation to define blocks of code, it is often necessary to indent or outdent a whole block of code.  You can do this in vscode by selecting the code and then typing `ctl-]` to indent or `ctl-[` to outdent.
+
+
 ---
 
 ### **Task 1: Diary**
@@ -22,40 +27,42 @@ A sample assignment2.py solution, to reference as necessary, is available in the
 2. Create a program called `diary.py`. Add code to do the following:
    - Open a file called `diary.txt` for appending.
    - In a loop, prompt the user for a line of input.  The first prompt should say, "What happened today? ".  All subsequent prompts should say "What else? "
-   - As each line is received, write it to `diary.txt`, with a newline at the end.
+   - As each line is received, write it to `diary.txt`, with a newline (`\n`) at the end.
    - When the special line "done for now" is received, write that to `diary.txt`.  Then close the file and exit the program (you just exit the loop).
-   - Wrap all of this in a try block. If an exception occurs, catch the exception and print out "An exception occurred." followed by the name exception itself. Now, normally, you catch specific types of exceptions, and handle each according to program logic.  In this case, you can catch any non-fatal exceptions via an except for `Exception`, and then display the information from the exception and exit the program.
-```python
-import traceback
+   - Wrap all of this in a try block. If an exception occurs, catch the exception and print out "An exception occurred." followed by the name of the exception itself. Now, normally, you catch specific types of exceptions, and handle each according to program logic.  In this case, you can catch any non-fatal exceptions via an except for `Exception`, and then display the information from the exception and exit the program.  The `traceback` module provides a way to include function traceback information in your error message, which will make it easier to find the error.  You can use the following code to handle exceptions using the traceback module.
+   ```python
+   import traceback
 
-...
+   ...
 
-except Exception as e:
-    trace_back = traceback.extract_tb(e.__traceback__)
-    stack_trace = list()
-    for trace in trace_back:
-        stack_trace.append("File : %s , Line : %d, Func.Name : %s, Message : %s" % (trace[0], trace[1], trace[2], trace[3]))
-    print(f"Exception type: {type(e).__name__}")
-    message = str(e)
-    if message:
-        print(f"Exception message: {message}")
-    print(f"Stack trace: {stack_trace}")
-```
+   except Exception as e:
+      trace_back = traceback.extract_tb(e.__traceback__)
+      stack_trace = list()
+      for trace in trace_back:
+         stack_trace.append(f'File : {trace[0]} , Line : {trace1}, Func.Name : {trace[2]}, Message : {trace[3]}')
+      print(f"Exception type: {type(e).__name__}")
+      message = str(e)
+      if message:
+         print(f"Exception message: {message}")
+      print(f"Stack trace: {stack_trace}")
+   ```
    - Open the file using a `with` statement (inside the try block), and rely on that statement to handle the file close.
    - The input statement should be inside the loop inside the `with` block.
 
 3. Test the program.
-   - Run it a couple of times to create diary entries.
+   - Run it a couple of times to create diary entries. (`python diary.py`)
    - Have a look at `diary.txt` to make sure it appears correct.  **Warning:** `diary.txt` will end up in GitHub when you submit your homework, so don't put in anything personal.
    - Trigger an exception while running the program:  When it prompts you for input, press Ctrl-D.  Check to see that the exception is handled. 
 
 ### **Task 2: Read a CSV File**
 
-This task, and the others that follow below, use the same pattern as for assignment1.  That is, you type the following command:
+This task, and the others that follow below, use the same pattern as for assignment1. This pattern is known as Test Driven Development (TDD).  It is a good practice which is often used in software industry.  You will need to create assignment2.py for the rest of the tasks.  Then type the following command:
 ```bash
-pytest -x assignment2-test.py
+pytest -v -x assignment2-test.py
 ```
 This will give errors to report what you need to fix.  You run it repeatedly as you create the following functions, until all functions are working correctly.
+
+Remember to import the `csv` module for this task.
 
 2. Create a function called read_employees that has no arguments, and do the following within it. 
    - Declare an empty dict.  You'll add the key/value pairs to that.  Declare also an empty list to store the rows.
@@ -70,11 +77,11 @@ This will give errors to report what you need to fix.  You run it repeatedly as 
 
 3. Run the test to see if you have this much right.
 
-A word about what's going on when the test runs: The test file imports your assignment2.py module.  When the import statement occurs, all the program statements in your module that are outside of functions do run.  That means statement that sets your employees global variable is run.  As a result, the assignment2-test.py can reference this global variable too -- and it does.  If you forget to set this variable in your program, the test reports an error.
+A word about what's going on when the test runs: The test file imports your assignment2.py module.  When the import statement occurs, all the program statements in your module that are outside of functions do run.  That means the statement which sets your employees global variable is run.  As a result, the assignment2-test.py can reference this global variable too -- and it does.  If you forget to set this variable in your program, the test reports an error.
 
 ### **Task 3: Find the Column Index**
 
-1. Create a function called column_index.  The input is a string.  The function looks in dict["fields"] (an array of column headers) to find the index of the column header requested.  There won't be much to this function, because you just use the index() method of the list class, like so:
+1. Create a function called column_index.  The input is a string.  The function looks in employees["fields"] (an array of column headers) to find the index of the column header requested.  There won't be much to this function, because you just use the index() method of the list class, like so:
 ```python
 employees["fields"].index("first_name")
 ```
