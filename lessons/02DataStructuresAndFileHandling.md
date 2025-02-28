@@ -215,7 +215,7 @@ try:
     with open('example.txt', 'r') as file:
         content = file.read()  # Read entire file
         print(content)
-except Error as e:
+except Exception as e:
     print(f"An error occurred reading the file: {e}")
 else:
     print("The file was read ok.")
