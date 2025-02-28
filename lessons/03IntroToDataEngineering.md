@@ -12,7 +12,7 @@ Topics:
 
 ## 3.1 Intro to Pandas
 
-**Pandas** is a very powerful, open-source library for data analysis and manipulation in Python. It's widely used for handling and analyzing data structures, particularly in tabular format. With Pandas, you can work easily with structured data, perform data cleaning, and conduct complex transformations.
+**Pandas** is a very powerful, open-source library for data analysis and manipulation in Python. It's widely used for handling and analyzing data structures, particularly in tabular format. With Pandas, you can work easily with structured data, perform data cleaning, and conduct complex transformations.  You can read more about pandas [here](https://pandas.pydata.org/docs/index.html).
 
 ### Why Use Pandas? 
 Pandas provides data structures like **DataFrames** and **Series** that make data manipulation in Python simpler and faster. It's well-suited for tasks that involve:
@@ -34,6 +34,10 @@ Then, you can import it in your Python code:
 ```python
 import pandas as pd
 ```
+
+### The numpy library ###
+
+The numpy library provides highly optimized datatypes and numerical operations for python.  It is written in c and compiled to binary code which is linked with python.  Numerical computation in python using numpy are competitive with compiled languages like c++ and much faster than native python.  The pandas library is built on top of numpy and numpy numbers are often used with pandas.  You can read more about numpy [here](https://numpy.org/).
 
 ### Key Data Structures
 
