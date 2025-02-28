@@ -63,13 +63,14 @@ The output should be:
 Name: numbers, dtype: int64
 ```
 
+A Series is a one dimensional data structure.  The column on the left is the index.  The column on the right is the data.
 
 #### Key Features of a Series:
 1. **Customizable Indexes**:
-   - Unlike standard lists or arrays, a Series can have user-defined labels for its indexes, making it easier to differentiate and access data.
+   - Unlike standard lists or arrays, a Series can have user-defined labels for its indices, making it easier to differentiate and access data.
    - For example:
      ```python
-     import pandas as pd
+     import pandas as pd # The import only needs to be done once per interactive session
      data = pd.Series([10, 20, 30], index=["a", "b", "c"])
      print(data)
      # Output:
