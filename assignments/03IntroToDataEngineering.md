@@ -6,7 +6,7 @@ In this assignment, you will explore the basic functionalities of the Pandas lib
 
 ### **Step 1: Complete the Coding Tasks**  
 
-Homework for this assignment is created within your `python_homework` folder.  Create an `assignment3` branch.  Then, write Python code with the usual comment lines.
+Homework for this assignment is created within your `python_homework` folder.  Create an `assignment3` branch and checnge to the `assignment3` folder.  Write your code in `assignment3.py`.  As with the previous lessons, you will run unit tests on the assignment `pytest -v -x assignment3-test.py`.
 
 ---
 
@@ -20,17 +20,20 @@ Homework for this assignment is created within your `python_homework` folder.  C
      - `City`: ['New York', 'Los Angeles', 'Chicago']
    - Convert the dictionary into a DataFrame using Pandas.
    - Print the DataFrame to verify its creation.
+   - save the DataFrame in a variable called `task1_data_frame`
 
 2. **Add a new column:**
+   - Make a copy of the dataFrame you created named `task1_with_salary` (use the `copy()` method)
    - Add a column called `Salary` with values `[70000, 80000, 90000]`.
-   - Print the updated DataFrame.
+   - Print the new DataFrame
 
 3. **Modify an existing column:**
+   - Make a copy of `task1_with_salary` in a variable named `task1_older`
    - Increment the `Age` column by 1 for each entry.
    - Print the modified DataFrame to verify the changes.
-   - 
+
 4. **Save the DataFrame as a CSV file:**
-   - Save the DataFrame to a file named employees.csv using ```to_csv()```.
+   - Save the `task1_older` DataFrame to a file named `employees.csv` using ```to_csv()```.
      
 
 ### **Task 2: Loading Data from CSV, JSON, and Dictionaries**
@@ -52,7 +55,7 @@ Homework for this assignment is created within your `python_homework` folder.  C
 
 
 3. **Combine DataFrames:**
-   - Append the data from the JSOn file to the DataFrame Loaded from the CSV file.
+   - Append the data from the JSON file to the DataFrame Loaded from the CSV file.
    - Print the combined Dataframe
 
 ### **Task 3: Data Inspection - Using Head, Tail, and Info Methods**
