@@ -122,6 +122,19 @@ print(my_series["b"])  # Access by index label
 
 ### Common Operations in Pandas
 
+#### Loading data from python objects
+In addition to initialization from python Lists and Dictionaries demonstrated in the examples above.  Pandas can be initialized from numpy objects.
+
+```python
+import numpy as np # load the numpy library
+# Create a Pandas DataFrame using NumPy arrays
+data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+df = pd.DataFrame(data, columns=['A', 'B', 'C'])
+
+print(df)
+
+```
+
 #### Reading Data
 Pandas makes it easy to read data from files. For instance, to read data from a CSV file: 
 
