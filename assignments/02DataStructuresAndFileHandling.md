@@ -1,5 +1,4 @@
 ## Lesson 2 Assignment: Data Structures and File Handling
-### Python Operators, Control Flow, and Calculator Implementation
 
 **Objective:** In this assignment, you practice the use of the input() function.  You also practice file operations.  You use several methods of the list class, and you construct dictionaries from the contents of a CSV file.
 
