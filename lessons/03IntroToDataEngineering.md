@@ -307,7 +307,7 @@ df = pd.read_json('data.json')
 print(df.head())
 ```
 
-The JSON structure should be either a list of dictionaries (each representing a row) or a dictionary of lists (each representing a column). Here’s an example of JSON data that can be read into a DataFrame:
+The JSON structure should be either a list of dictionaries (each representing a row) or a dictionary of lists (each representing a column). Here’s two examples of JSON data that can be read into a DataFrame:
 
 ```json
 [
@@ -315,6 +315,15 @@ The JSON structure should be either a list of dictionaries (each representing a 
     {"Name": "Bob", "Age": 27, "City": "San Francisco"},
     {"Name": "Charlie", "Age": 22, "City": "Chicago"}
 ]
+```
+
+The same DataFrame can be read using this JSON structure.  It's a bit simpler since it doesn't repeat the column names.
+
+```json
+{ "Name": ["Alice", "Bob", "Charlie"],
+  "Age": [25, 30, 35],
+  "City": ["New York", "Los Angeles", "Chicago"]
+}
 ```
 
 For complex JSON structures, you may need to specify additional parameters, or preprocess the JSON data before loading.
