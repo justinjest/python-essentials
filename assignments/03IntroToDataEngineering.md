@@ -20,29 +20,33 @@ Homework for this assignment is created within your `python_homework` folder.  C
      - `City`: ['New York', 'Los Angeles', 'Chicago']
    - Convert the dictionary into a DataFrame using Pandas.
    - Print the DataFrame to verify its creation.
-   - save the DataFrame in a variable called `task1_data_frame`
+   - save the DataFrame in a variable called `task1_data_frame` and run the tests.
 
 2. **Add a new column:**
    - Make a copy of the dataFrame you created named `task1_with_salary` (use the `copy()` method)
    - Add a column called `Salary` with values `[70000, 80000, 90000]`.
-   - Print the new DataFrame
+   - Print the new DataFrame and run the tests.
 
 3. **Modify an existing column:**
    - Make a copy of `task1_with_salary` in a variable named `task1_older`
    - Increment the `Age` column by 1 for each entry.
-   - Print the modified DataFrame to verify the changes.
+   - Print the modified DataFrame to verify the changes and run the tests.
 
 4. **Save the DataFrame as a CSV file:**
-   - Save the `task1_older` DataFrame to a file named `employees.csv` using ```to_csv()```.
+   - Save the `task1_older` DataFrame to a file named `employees.csv` using ```to_csv()```, do not include an index in the csv file.
+   - Look at the contents of the CSV file to see how it's formatted.
+   - Run the tests.
      
 
-### **Task 2: Loading Data from CSV, JSON, and Dictionaries**
+### **Task 2: Loading Data from CSV and JSON**
 1. **Read data from a CSV file:**
-   - Create a sample CSV file using the DataFrame from Task 1.
-   - Load the CSV file into a new DataFrame and print it.
+   - Load the CSV file from Task 1 into a new DataFrame saved to a variable `task2_employees`.
+   - Print it and run the tests to verify the contents.
 
-2. **Read data from a JSON file:**
-   - Create a JSON file (additional_employees.json) with the following data:
+2. **Write data to a JSON file:**
+   - 
+3. **Read data from a JSON file:**
+   - Create a JSON file (`additional_employees.json`) with the following data:
      
 ```
 
@@ -50,13 +54,13 @@ Homework for this assignment is created within your `python_homework` folder.  C
   {"Name": "Frank", "Age": 40, "City": "Seattle", "Salary": 95000}
 
 ```
-   - Load this JSON file into a new DataFrame using pd.read_json().
-   - Print the DataFrame to verify it loaded correctly
+   - Load this JSON file into a new DataFrame using pd.read_json() and assign it to the variable `json_employees`.
+   - Print the DataFrame to verify it loaded correctly and run the tests.
 
 
 3. **Combine DataFrames:**
    - Append the data from the JSON file to the DataFrame Loaded from the CSV file.
-   - Print the combined Dataframe
+   - Print the combined Dataframe and run the tests.
 
 ### **Task 3: Data Inspection - Using Head, Tail, and Info Methods**
 1. **Use the `head()` method:**
