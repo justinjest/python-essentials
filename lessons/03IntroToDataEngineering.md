@@ -193,14 +193,129 @@ print(df['City'].nunique())
 ```
 
 ### Data Cleaning
-Handling missing data and cleaning data is essential in data analysis.
+Handling missing data and cleaning data is essential in data analysis.  These are some examples of the data cleaning methods which are available.
+
+#### Converting Columns to Numeric
 
 ```python
-# Drop rows with missing values
-df = df.dropna()
+import pandas as pd
 
-# Fill missing values with a default value
-df = df.fillna(0)
+data = {
+    "Name": ["Alice", "Bob", "Charlie"],
+    "Height": ["5.5", "unknown", "5.9"],  # "unknown" is not numeric
+    "Weight": ["60", "70", "NaN"]        # "NaN" is a missing placeholder
+}
+df = pd.DataFrame(data)
+
+print("Before conversion:")
+print(df)
+
+# Replace placeholders with NaN and convert to numeric
+df["Height"] = df["Height"].replace("unknown", pd.NA)
+df["Height"] = pd.to_numeric(df["Height"], errors="coerce")
+df["Weight"] = pd.to_numeric(df["Weight"], errors="coerce")
+
+print("\nAfter conversion to numeric:")
+print(df)
+
+ 
+```
+
+#### Handling Missing Values with `fillna()`
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {
+    "Person": ["Alice", "Bob", "Charlie", "Dana", "Eve"],
+    "Score": [10, np.nan, 20, None, 25],
+    "City": ["New York", "Chicago", None, "Boston", "NaN"]
+}
+df = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(df)
+
+# Strategy 1: Fill numeric missing values with a fixed number
+df["Score_filled_fixed"] = df["Score"].fillna(0)
+
+# Strategy 2: Fill numeric missing values with the column mean
+mean_score = df["Score"].mean()  # ignoring NaNs
+df["Score_filled_mean"] = df["Score"].fillna(mean_score)
+
+# Strategy 3: Fill textual missing values with "Unknown"
+df["City_filled"] = df["City"].replace("NaN", pd.NA).fillna("Unknown")
+
+print("\nDataFrame after fillna strategies:")
+print(df)
+
+
+```
+
+#### Forward fill and backward fill
+
+Handle missing data in a time series or sequential data scenario.
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {
+    "Day": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    "Sales": [100, np.nan, 150, np.nan, 200]
+}
+df = pd.DataFrame(data)
+
+print("Original Sales Data:")
+print(df)
+
+# Forward fill (propagate last valid observation forward)
+df_ffill = df.copy()
+df_ffill["Sales"] = df_ffill["Sales"].fillna(method="ffill")
+
+# Backward fill (use next valid observation to fill gaps)
+df_bfill = df.copy()
+df_bfill["Sales"] = df_bfill["Sales"].fillna(method="bfill")
+
+print("\nForward Fill Result:")
+print(df_ffill)
+
+print("\nBackward Fill Result:")
+print(df_bfill)
+
+
+```
+
+#### Text Standardization (strip, upper, lower)
+
+```python
+import pandas as pd
+
+data = {
+    "Department": [" SALES ", "   HR", "FinanCe  ", "Sales", "MARKETING "],
+    "Location": [" New York ", " Boston", "Chicago   ", "  Boston ", "LOS ANGELES"]
+}
+df = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(df)
+
+# Strip whitespace
+df["Department"] = df["Department"].str.strip()
+df["Location"] = df["Location"].str.strip()
+
+# Convert columns to uppercase
+df["Department_upper"] = df["Department"].str.upper()
+df["Location_upper"] = df["Location"].str.upper()
+
+# Or lowercase, if you prefer
+df["Department_lower"] = df["Department"].str.lower()
+
+print("\nAfter text standardization:")
+print(df)
+
+
 ```
 
 ### Saving DataFrames to CSV Files
