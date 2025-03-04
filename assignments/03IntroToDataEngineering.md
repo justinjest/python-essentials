@@ -56,23 +56,24 @@ Homework for this assignment is created within your `python_homework` folder.  C
 
 ### **Task 3: Data Inspection - Using Head, Tail, and Info Methods**
 1. **Use the `head()` method:**
-   - Print the first 5 rows of the original dictionary DataFrame using the `head()` method.
+   - Assign the first three rows of the `more_employees` DataFrame to the variable `first_three`
+   - Print the variable and run the tests.
 
 2. **Use the `tail()` method:**
-   - Print the last 2 rows of the original dictionary DataFrame using the `tail(2)` method.
+   - Assign the last two rows of the `more_employees` DataFrame to the variable `last_two`
+   - Print the variable and run the tests.
 
-3. **Use the `info()` method:**
+3. **Get the `shape` of a DataFrame**
+   - Assign the shape of the `more_employees` DataFrame to the variable `employee_shape`
+   - Print the variable and run the tests 
+
+4. **Use the `info()` method:**
    - Print a concise summary of the DataFrame using the `info()` method to understand the data types and non-null counts.
 
-### **Task 4: Additional Data Inspection and Analysis**
-1. **Determine the shape of the DataFrame:**
-   - Use the `shape` attribute to print the number of rows and columns in the original DataFrame.
+### **Task 4: Data Cleaning**
 
-2. **Use the `describe()` method:**
-   - Print a statistical summary of the numeric columns in the DataFrame, including count, mean, standard deviation, min, max, and quartiles.
-
-3. **Calculate the correlation matrix:**
-   - Use the `corr()` method to print the correlation matrix of the numeric columns, indicating how the columns are related to each other.
+1. Create a DataFrame from `dirty_data.csv` file.
+   - Print it and run the tests.
 
 ---
 
