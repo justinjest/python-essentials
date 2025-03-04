@@ -46,20 +46,12 @@ Homework for this assignment is created within your `python_homework` folder.  C
 2. **Write data to a JSON file:**
    - 
 3. **Read data from a JSON file:**
-   - Create a JSON file (`additional_employees.json`) with the following data:
-     
-```
-
-  {"Name": "Eve", "Age": 28, "City": "Miami", "Salary": 60000},
-  {"Name": "Frank", "Age": 40, "City": "Seattle", "Salary": 95000}
-
-```
-   - Load this JSON file into a new DataFrame using pd.read_json() and assign it to the variable `json_employees`.
+   - Create a JSON file (`additional_employees.json`).  The file adds two new employees.  Eve, who is 28, lives in Miami, and has a salary of 60000, and Frank, who is 28, lives in Seattle, and has a salary of 95000.
+   - Load this JSON file into a new DataFrame and assign it to the variable `json_employees`.
    - Print the DataFrame to verify it loaded correctly and run the tests.
 
-
 3. **Combine DataFrames:**
-   - Append the data from the JSON file to the DataFrame Loaded from the CSV file.
+   - Combine the data from the JSON file into the DataFrame Loaded from the CSV file and save it in the variable `more_employees`.
    - Print the combined Dataframe and run the tests.
 
 ### **Task 3: Data Inspection - Using Head, Tail, and Info Methods**
