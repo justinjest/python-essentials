@@ -106,6 +106,21 @@ The output should be:
 2  Charlie   22        Chicago
 ```
 
+#### Loading data from numpy objects
+In addition to initialization from python Lists and Dictionaries demonstrated in the examples above, Pandas can be initialized from numpy objects.
+
+```python
+import numpy as np # load the numpy library
+# Create a Pandas DataFrame using NumPy arrays
+data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+df = pd.DataFrame(data, columns=['A', 'B', 'C'])
+
+print(df)
+
+```
+
+#### the DataFrame index
+DataFrames include an index which can be thought of as a row number.  It can be useful for operations such as indexing, data alignment and subsetting.  For some of the operations we will discuss, we add an optional parameter to ignore the index since there is additional complexity involved in setting it up correctly.  For example, the index would need to be reset when combining two DataFrames.
 
 #### Example: Differentiating a Series from a List
 ```python
@@ -122,25 +137,31 @@ print(my_series["b"])  # Access by index label
 
 ### Common Operations in Pandas
 
-#### Loading data from python objects
-In addition to initialization from python Lists and Dictionaries demonstrated in the examples above.  Pandas can be initialized from numpy objects.
-
-```python
-import numpy as np # load the numpy library
-# Create a Pandas DataFrame using NumPy arrays
-data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-df = pd.DataFrame(data, columns=['A', 'B', 'C'])
-
-print(df)
-
-```
-
 #### Reading Data
 Pandas makes it easy to read data from files. For instance, to read data from a CSV file: 
 
 ```python
 # Read data from a CSV file
 df = pd.read_csv('data.csv')
+```
+
+#### Combining two DataFrames
+The `concat` method can be used to combine two DataFrames.
+
+```python
+data = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [24, 27, 22],
+    'City': ['New York', 'San Francisco', 'Chicago']
+})
+
+more_data = pd.DataFrame({
+  'Name': ['Fred', 'Barney'],
+  'Age': [57, 55],
+  'City': ['Bedrock', 'Bedrock']
+})
+
+combined_df = pd.concat([data, more_data], ignore_index=True)
 ```
 
 #### Data Selection
