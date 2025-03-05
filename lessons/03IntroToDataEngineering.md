@@ -12,7 +12,7 @@ Topics:
 
 ## 3.1 Intro to Pandas
 
-**Pandas** is a very powerful, open-source library for data analysis and manipulation in Python. It's widely used for handling and analyzing data structures, particularly in tabular format. With Pandas, you can work easily with structured data, perform data cleaning, and conduct complex transformations.
+**Pandas** is a very powerful, open-source library for data analysis and manipulation in Python. It's widely used for handling and analyzing data structures, particularly in tabular format. With Pandas, you can work easily with structured data, perform data cleaning, and conduct complex transformations.  You can read more about pandas [here](https://pandas.pydata.org/docs/index.html).
 
 ### Why Use Pandas? 
 Pandas provides data structures like **DataFrames** and **Series** that make data manipulation in Python simpler and faster. It's well-suited for tasks that involve:
@@ -34,6 +34,10 @@ Then, you can import it in your Python code:
 ```python
 import pandas as pd
 ```
+
+### The numpy library ###
+
+The numpy library provides highly optimized datatypes and numerical operations for python.  It is written in c and compiled to binary code which is linked with python.  Numerical computation in python using numpy are competitive with compiled languages like c++ and much faster than native python.  The pandas library is built on top of numpy and numpy numbers are often used with pandas.  You can read more about numpy [here](https://numpy.org/).
 
 ### Key Data Structures
 
@@ -63,13 +67,14 @@ The output should be:
 Name: numbers, dtype: int64
 ```
 
+A Series is a one dimensional data structure.  The column on the left is the index.  The column on the right is the data.
 
 #### Key Features of a Series:
 1. **Customizable Indexes**:
-   - Unlike standard lists or arrays, a Series can have user-defined labels for its indexes, making it easier to differentiate and access data.
+   - Unlike standard lists or arrays, a Series can have user-defined labels for its indices, making it easier to differentiate and access data.
    - For example:
      ```python
-     import pandas as pd
+     import pandas as pd # The import only needs to be done once per interactive session
      data = pd.Series([10, 20, 30], index=["a", "b", "c"])
      print(data)
      # Output:
@@ -101,6 +106,21 @@ The output should be:
 2  Charlie   22        Chicago
 ```
 
+#### Loading data from numpy objects
+In addition to initialization from python Lists and Dictionaries demonstrated in the examples above, Pandas can be initialized from numpy objects.
+
+```python
+import numpy as np # load the numpy library
+# Create a Pandas DataFrame using NumPy arrays
+data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+df = pd.DataFrame(data, columns=['A', 'B', 'C'])
+
+print(df)
+
+```
+
+#### the DataFrame index
+DataFrames include an index which can be thought of as a row number.  It can be useful for operations such as indexing, data alignment and subsetting.  For some of the operations we will discuss, we add an optional parameter to ignore the index since there is additional complexity involved in setting it up correctly.  For example, the index would need to be reset when combining two DataFrames.
 
 #### Example: Differentiating a Series from a List
 ```python
@@ -123,6 +143,25 @@ Pandas makes it easy to read data from files. For instance, to read data from a 
 ```python
 # Read data from a CSV file
 df = pd.read_csv('data.csv')
+```
+
+#### Combining two DataFrames
+The `concat` method can be used to combine two DataFrames.
+
+```python
+data = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [24, 27, 22],
+    'City': ['New York', 'San Francisco', 'Chicago']
+})
+
+more_data = pd.DataFrame({
+  'Name': ['Fred', 'Barney'],
+  'Age': [57, 55],
+  'City': ['Bedrock', 'Bedrock']
+})
+
+combined_df = pd.concat([data, more_data], ignore_index=True)
 ```
 
 #### Data Selection
@@ -154,14 +193,158 @@ print(df['City'].nunique())
 ```
 
 ### Data Cleaning
-Handling missing data and cleaning data is essential in data analysis.
+Handling missing data and cleaning data is essential in data analysis.  These are some examples of the data cleaning methods which are available.
+
+#### Converting Columns to Numeric
 
 ```python
-# Drop rows with missing values
-df = df.dropna()
+import pandas as pd
 
-# Fill missing values with a default value
-df = df.fillna(0)
+data = {
+    "Name": ["Alice", "Bob", "Charlie"],
+    "Height": ["5.5", "unknown", "5.9"],  # "unknown" is not numeric
+    "Weight": ["60", "70", "NaN"]        # "NaN" is a missing placeholder
+}
+df = pd.DataFrame(data)
+
+print("Before conversion:")
+print(df)
+
+# Replace placeholders with NaN and convert to numeric
+df["Height"] = df["Height"].replace("unknown", pd.NA)
+df["Height"] = pd.to_numeric(df["Height"], errors="coerce")
+df["Weight"] = pd.to_numeric(df["Weight"], errors="coerce")
+
+print("\nAfter conversion to numeric:")
+print(df)
+
+ 
+```
+
+#### Handling Missing Values with `fillna()`
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {
+    "Person": ["Alice", "Bob", "Charlie", "Dana", "Eve"],
+    "Score": [10, np.nan, 20, None, 25],
+    "City": ["New York", "Chicago", None, "Boston", "NaN"]
+}
+df = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(df)
+
+# Strategy 1: Fill numeric missing values with a fixed number
+df["Score_filled_fixed"] = df["Score"].fillna(0)
+
+# Strategy 2: Fill numeric missing values with the column mean
+mean_score = df["Score"].mean()  # ignoring NaNs
+df["Score_filled_mean"] = df["Score"].fillna(mean_score)
+
+# Strategy 3: Fill textual missing values with "Unknown"
+df["City_filled"] = df["City"].replace("NaN", pd.NA).fillna("Unknown")
+
+print("\nDataFrame after fillna strategies:")
+print(df)
+
+
+```
+
+#### Forward fill and backward fill
+
+Handle missing data in a time series or sequential data scenario.
+
+```python
+import pandas as pd
+import numpy as np
+
+data = {
+    "Day": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    "Sales": [100, np.nan, 150, np.nan, 200]
+}
+df = pd.DataFrame(data)
+
+print("Original Sales Data:")
+print(df)
+
+# Forward fill (propagate last valid observation forward)
+df_ffill = df.copy()
+df_ffill["Sales"] = df_ffill["Sales"].fillna(method="ffill")
+
+# Backward fill (use next valid observation to fill gaps)
+df_bfill = df.copy()
+df_bfill["Sales"] = df_bfill["Sales"].fillna(method="bfill")
+
+print("\nForward Fill Result:")
+print(df_ffill)
+
+print("\nBackward Fill Result:")
+print(df_bfill)
+
+
+```
+
+#### Text Standardization (strip, upper, lower)
+
+```python
+import pandas as pd
+
+data = {
+    "Department": [" SALES ", "   HR", "FinanCe  ", "Sales", "MARKETING "],
+    "Location": [" New York ", " Boston", "Chicago   ", "  Boston ", "LOS ANGELES"]
+}
+df = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(df)
+
+# Strip whitespace
+df["Department"] = df["Department"].str.strip()
+df["Location"] = df["Location"].str.strip()
+
+# Convert columns to uppercase
+df["Department_upper"] = df["Department"].str.upper()
+df["Location_upper"] = df["Location"].str.upper()
+
+# Or lowercase, if you prefer
+df["Department_lower"] = df["Department"].str.lower()
+
+print("\nAfter text standardization:")
+print(df)
+
+
+```
+
+#### Converting dates to `datetime`
+
+```python
+import pandas as pd
+
+# Sample data with dates in various formats and some invalid values
+data = {
+    "Event": ["Project Start", "Client Meeting", "Beta Release", "Final Launch"],
+    "Date": ["2021/01/15", "2021-02-30", "03-15-2021", "April 31, 2021"]  # Some invalid or unusual dates
+}
+df = pd.DataFrame(data)
+
+print("Before conversion:")
+print(df)
+
+# Convert 'Date' to datetime
+# errors="coerce" will turn invalid dates into NaT (Not a Time)
+df["Date_converted"] = pd.to_datetime(df["Date"], errors="coerce")
+
+print("\nAfter converting to datetime:")
+print(df)
+
+# You can check how many values became NaT (invalid dates)
+num_invalid_dates = df["Date_converted"].isna().sum()
+print(f"\nNumber of invalid dates converted to NaT: {num_invalid_dates}")
+
+
 ```
 
 ### Saving DataFrames to CSV Files
@@ -289,7 +472,7 @@ df = pd.read_json('data.json')
 print(df.head())
 ```
 
-The JSON structure should be either a list of dictionaries (each representing a row) or a dictionary of lists (each representing a column). Here’s an example of JSON data that can be read into a DataFrame:
+The JSON structure should be either a list of dictionaries (each representing a row) or a dictionary of lists (each representing a column). Here’s two examples of JSON data that can be read into a DataFrame:
 
 ```json
 [
@@ -297,6 +480,15 @@ The JSON structure should be either a list of dictionaries (each representing a 
     {"Name": "Bob", "Age": 27, "City": "San Francisco"},
     {"Name": "Charlie", "Age": 22, "City": "Chicago"}
 ]
+```
+
+The same DataFrame can be read using this JSON structure.  It's a bit simpler since it doesn't repeat the column names.
+
+```json
+{ "Name": ["Alice", "Bob", "Charlie"],
+  "Age": [25, 30, 35],
+  "City": ["New York", "Los Angeles", "Chicago"]
+}
 ```
 
 For complex JSON structures, you may need to specify additional parameters, or preprocess the JSON data before loading.
