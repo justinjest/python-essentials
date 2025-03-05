@@ -1,4 +1,5 @@
-# **Lesson 1 Assignment: Intro to Python**  
+# **Lesson 1 Assignment: Intro to Python**
+### Python Operators, Control Flow, and Calculator Implementation
 
 ## **Objective and Overview**  
 In this assignment, you will practice key Python concepts including:    
