@@ -72,8 +72,28 @@ Homework for this assignment is created within your `python_homework` folder.  C
 
 ### **Task 4: Data Cleaning**
 
-1. Create a DataFrame from `dirty_data.csv` file.
+1. Create a DataFrame from `dirty_data.csv` file and assign it to the variable `dirty_data`.
    - Print it and run the tests.
+   - Create a copy of the dirty data in the varialble `clean_data` (use the `copy()` method).  You will use data cleaning methods to update `clean_data`.
+
+2. Remove any duplicate rows from the DataFrame
+   - Print it and run the tests.
+
+3. Convert `Age` to numeric and handle missing values
+   - Print it and run the tests.
+
+4. Convert `Salary` to numeric and replace known placeholders (`unknown`, `n/a`) with NaN
+   - print it and run the tests.
+
+5. Fill missing numeric values (use `fillna`).  Fill `Age` which the mean and `Salary` with the median
+   - Print it and run the tests
+
+6. Convert `Hire Date` to `datetime`
+   - Print it and run the tests
+
+7. Strip extra whitespace and standardize `Name` and `Department` as uppercase
+   - Print it and run the tests
+
 
 ---
 
