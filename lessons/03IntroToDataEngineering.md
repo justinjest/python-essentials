@@ -23,13 +23,15 @@ Pandas provides data structures like **DataFrames** and **Series** that make dat
   * Visualizing data with integration to other libraries like Matplotlib and Seaborn
 
 ### Getting Started with Pandas
-To get started, install Pandas using pip: 
+Typically, to get started, you would do the following.
 
 ```bash
 pip install pandas
 ```
 
-Then, you can import it in your Python code: 
+**But this is not necessary when you use your python_homework repository.** When you set up the folder, you installed all of the packages in `requirements.txt`, and that included Pandas.
+
+Once the package is installed, you can import it in your Python code: 
 
 ```python
 import pandas as pd
@@ -45,7 +47,8 @@ The numpy library provides highly optimized datatypes and numerical operations f
 2. **Data Frame:** A two-dimensional table where each column can hold different types of data. This is the most commonly used data structure in Pandas.
 
 #### Example: Creating a Series
-Run the following code in Python:
+
+**You should run all of the following code examples within the Python interactive shell.**  Start VSCode from within your `python_homework` directory, start a terminal within VSCode, and enter the `python` command to start it. Then run the following code:
 
 ```python
 # Creating a simple Series
@@ -82,12 +85,66 @@ A Series is a one dimensional data structure.  The column on the left is the ind
      # b    20
      # c    30
      ```
-     
+   - To give a more difficult case, do this one:
+     ```python
+     data2 = pd.Series(['Tom', 'Li', 'Antonio', 'Mary'], index=[5, 2, 2, 3])
+     print(data2)
+     # Output:
+     # 5 Tom
+     # 2 Li
+     # 2 Antonio
+     # 3 Mary
+     print(data2[2])
+     # Output:
+     # 2 Li
+     # 2 Antonio
+     print(data2[1])
+     # This gives a key error!
+     ```
+    - **Notice the following:** Index labels are not necessarily numbers, nor are they in sequential order, and they may not even be unique.  They are **not** the same as the row number.  If some index label is not unique, and you request the value of the series for that index label, what is returned is another series.  This is called `levels` in Pandas.  Try the following:
+     ```python
+     data3 = data2.reset_index()
+     print(data3)
+     # output:
+     # 0 Tom
+     # 1 Li
+     # 2 Antonio
+     # 3 Mary
+     ```
+   - The order of entries in the Series does not change.  In Pandas, Series are value-mutable, meaning that you can change the value stored at a particular location, but are not size or order mutable.  Also, the index labels in a Series are immutable.
+2. Access entries by index label or position
+#### Example: Differentiating a Series from a List
+```python
+# List Example
+my_list = [10, 20, 30]
+print(my_list[1])  # Access by position
+# Output: 20
+
+# Series Example
+my_series = pd.Series([10, 20, 30], index=["a", "b", "c"])
+print(my_series["b"])  # Access by index label
+# Output: 20
+
+print(my_series.iloc[2]) # Access by integer position
+# Output: 30
+```
+
+3. **Operations on an entire series:**
+```python
+my_revised_series = my_series * 2
+print(my_revised_series)
+# Output:
+a 20
+b 40
+c 60
+```
+This does not work for lists!  As we will see, there are other ways to change a series, including a map() method and numpy functions.
+
 #### Example: Creating a DataFrame
-DataFrames are like tables in a database or spreadsheet. To create a DataFrame from a dictionary, run the following code in Python: 
+DataFrames are like tables in a database or spreadsheet. To create a DataFrame from a dict, run the following code in Python: 
 
 ```python
-# Creating a DataFrame from a dictionary
+# Creating a DataFrame from a dict
 data = {
     'Name': ['Alice', 'Bob', 'Charlie'],
     'Age': [24, 27, 22],
@@ -106,6 +163,17 @@ The output should be:
 2  Charlie   22        Chicago
 ```
 
+One can also create a dataframe from a list of dicts:
+
+```python
+data_alice = {'Name': 'Alice', 'Age': 24, 'City': 'New York'}
+data_bob = {'Name': 'Bob', 'Age': 27, 'City': 'San Francisco'}
+data_charlie = {'Name': 'Charlie', 'Age': 22, 'City': 'Chicago'}
+df = pd.DataFrame([data_alice, data_bob, data_charlie])
+print(df)
+# output: same as before
+```
+
 #### Loading data from numpy objects
 In addition to initialization from python Lists and Dictionaries demonstrated in the examples above, Pandas can be initialized from numpy objects.
 
@@ -119,21 +187,9 @@ print(df)
 
 ```
 
-#### the DataFrame index
-DataFrames include an index which can be thought of as a row number.  It can be useful for operations such as indexing, data alignment and subsetting.  For some of the operations we will discuss, we add an optional parameter to ignore the index since there is additional complexity involved in setting it up correctly.  For example, the index would need to be reset when combining two DataFrames.
+#### the DataFrame index and column labels
+DataFrames include an index.  The index provides a label for each row.  Again, this is **not** the same as the row number.  It can be useful for operations such as indexing, data alignment and subsetting.  For some of the operations we will discuss, we add an optional parameter to ignore the index since there is additional complexity involved in setting it up correctly.  For example, the index would need to be reset when combining two DataFrames.  DataFrames also have column labels.  These are typically descriptive strings.  You *can* have non-distinct column labels, but this is usually not helpful.
 
-#### Example: Differentiating a Series from a List
-```python
-# List Example
-my_list = [10, 20, 30]
-print(my_list[1])  # Access by position
-# Output: 20
-
-# Series Example
-my_series = pd.Series([10, 20, 30], index=["a", "b", "c"])
-print(my_series["b"])  # Access by index label
-# Output: 20
-```
 
 ### Common Operations in Pandas
 
@@ -165,7 +221,18 @@ combined_df = pd.concat([data, more_data], ignore_index=True)
 ```
 
 #### Data Selection
-You can select rows and columns in various ways. 
+You can select entries, rows and columns from a DataFrame in various ways. 
+```python
+# Select an entry by index label and column
+print(combined_df.loc[1,'Name])
+# Output: Bob
+
+# Select an entry by position
+print(combined_df.iloc(1, 1))
+# Output: 27
+```
+
+In either case, **you specify the row first, and then the column.**
 
 ```python
 # Select a single column
@@ -174,12 +241,35 @@ print(df['Age'])
 # Select multiple columns
 print(df[['Name', 'City']])
 
+```
+When you select columns in this way, you obtain views or references to one or more columns in the DataFrame.
+- Each reference points to a Series.  Each Series has the same index labels as the DataFrame itself.
+- You should regard these views as read/only.  If you try to change the values in one of these series, you might get a warning, and it might not change the value in the original DataFrame.
+- The following is a bad practice:
+  ```python
+  df['Age'][1] = 35
+  ```
+  This changes the value in a view, which is a bad idea.  There are two correct ways to do this.
+  ```python
+  age_series = df['Age'].copy() # creates a new series
+  age_series[1] = 35 # changes the value in the series
+  df['Age'] = age_series # replaces the previous column with the new series
+  ```
+  This approach is long-winded if you are only changing one entry in a column.  More direct is:
+  ```python
+  df.loc[1,'Age'] = 35
+  ```
+
+```python
 # Select rows by index position
 print(df.iloc[1])  # Select the second row
 
 # Select rows by condition
 print(df[df['Age'] > 23])
 ```
+When you select rows in this way, you get one or more Series.  These are copies of the data from the DataFrame.  If you change the values in these Series, that does not affect the original DataFrame.  The index labels for these series are the column labels from the original DataFrame.
+
+The size, row order, and index labels for a Pandas DataFrame are immutable.  The values and column labels are mutable, and entire columns can be added, removed, or replaced.
 
 ### Data Aggregation
 Pandas also allows for powerful aggregations, such as finding the mean or sum of a column. 
