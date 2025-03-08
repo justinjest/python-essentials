@@ -13,9 +13,9 @@ With a little setup, you can create Jupyter notebooks in VSCode, and submit them
 ### **Tasks:**
 
 ### **Task 1: Data Selection**
-1. On the Kaggle site, click on the plus button in the upper left, and create a notebook called CTD_Assignment_4.  It comes up with a code cell already present.  Leave that one alone, and click on the plus code button to add another cell.  You add the code for this assignment to the cell.  As you complete each of the following tasks, run the cell to make sure your code works.  You run the cell by clicking on the arrow at the top left of the cell.  Again, put comments in your code to indicate where you have completed each task.
+1. **On the Kaggle site, click on the plus button in the upper left, and create a notebook called CTD_Assignment_4.**  It comes up with a code cell already present.  Leave that one alone, and click on the plus code button to add another cell.  You add the code for this assignment to the cell.  As you complete each of the following tasks, run the cell to make sure your code works.  You run the cell by clicking on the arrow at the top left of the cell.  Again, put comments in your code to indicate where you have completed each task.
 
-1. **Create DataFrames `df1`, `df2`, and `df3` using the provided sample data(feel free to change the values):**
+2. **Create DataFrames `df1`, `df2`, and `df3` using the provided sample data(feel free to change the values):**
    - `df1` contains names, ages, and salaries of five employees.
    - `df2` contains names, ages, and salaries of five other employees.
    - Display each DataFrames.
@@ -41,11 +41,12 @@ data3 = {
     'Favorite Color': ['blue', 'pink', 'burgundy', 'red', 'turquoise']
 }
 ```
-Print the resulting dataframes.
-2. **Perform the following selection operations on `df1`:**
+Print the resulting dataframes. 
+
+3. **Perform the following selection operations on `df1`:**
    - Select the 'Name' column, and print the result.
    - Select both 'Name' and 'Salary' columns, and print the result.
-   - Slice the first three rows using integer-based indexing (`iloc`).
+   - Slice the first three rows using integer-based indexing (`iloc`), and print the result.
 
 ### **Task 2: Data Aggregation**
 1. **Group `df1` by 'Age' and aggregate the 'Salary' column:**
@@ -78,31 +79,26 @@ Print the resulting dataframes.
 1. **Filter rows in `df1` where 'Age' is greater than 30:**
    - Display the filtered rows.
 
-### **Task 5: Handling Missing Values**
-1. **Handle missing values in the merged DataFrame:**
-   - Replace any `NaN` values with 0.
-   - Display the updated DataFrame.
-
-### **Task 6: Sorting Data**
+### **Task 5: Sorting Data**
 1. **Sort `df1` by the 'Salary' column in descending order:**
    - Display the sorted DataFrame.
 
-### **Task 7: Renaming Columns**
+### **Task 6: Renaming Columns**
 1. **Rename columns in `df1`:**
    - Rename 'Age' to 'Employee Age' and 'Salary' to 'Employee Salary'.  Do not use `inplace=True`, because then you wouldn't be able to do Task 9.
    - Display the DataFrame with the renamed columns.
 
-### **Task 8: Data Transformation**
+### **Task 7: Data Transformation**
 1. **Apply a transformation to the 'Salary' column in `df1`:**
    - Increase the salary by 10% for each employee.
    - Display the updated DataFrame.
 
-### **Task 9: Concatenating DataFrames**
+### **Task 8: Concatenating DataFrames**
 1. **Concatenate `df1` and `df2` to add the rows of `df2` to the end of `df1`**
    - Use `ignore_index=True` to reset the index.
    - Display the result.
 
-### **Task 10: Data Wrangling a Kaggle Dataset**
+### **Task 9: Data Wrangling a Kaggle Dataset**
 
 Kaggle has some nice datasets you can use in exercises.  These are `csv` files.  We are going to do some data wrangling on one of those provided files. For this task, we are going to find the international football teams that are especially bad on defense.
 - Open another Kaggle window in your browser.
@@ -125,7 +121,7 @@ Kaggle has some nice datasets you can use in exercises.  These are `csv` files. 
 - Do a `groupby()` on 'team'.  Get the mean() of the 'points_against' column.  Store the result (it is a Series) in the variable points_against.
 - Sort points_against so the values are descending.  Print out the first 10 lines.  These are the teams that are very bad on defense.
 
-### **Task 11: More Data Wrangling for Football Results**
+### **Task 10: More Data Wrangling for Football Results**
 
 This time, you'll have to figure out the steps.  Starting with the football_results DataFrame you created in Task 10, print out the most recent 10 games for Tunisia.  Remember to sort these so that you get the right games.
 
