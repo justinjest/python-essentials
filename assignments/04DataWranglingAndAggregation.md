@@ -56,7 +56,7 @@ Print the resulting dataframes.
 1. **Merge `df1` and `df3` into `df_1_3_merged` on the 'Name' column:**
    - Use an outer join to combine the two DataFrames and handle any missing data.
    - Use the suffixes `_df1` and `_df2` to differentiate columns from each DataFrame. (You specify `suffixes=['_left','_right']` on the call to merge.)
-   - Display the result.  (Within a Jupyter notebook, you can just issue the statement `df_1_3_merged` and the DataFrame is displayed.  You do not need to use `print()`.)
+   - Display the result with print(). 
    - We see that the 'Salary' column has `NaN` values.  Transform this column to replace `NaN` with the starting salary of 15000.  Hint: fillna() can be used on a Series.
    - Also, transform the 'Favorite Color' column to replace `NaN` values with 'yellow'.
    - Reset the index on the merged DataFrame.
