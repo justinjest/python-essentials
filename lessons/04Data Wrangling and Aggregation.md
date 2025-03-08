@@ -8,6 +8,8 @@
 1. Data Selection: Indexing and slicing DataFrames.
 2. Data Aggregation: Grouping data using `groupby()` and aggregation functions like `sum()`, `mean()`, `count()`.
 3. Merging and Joining: Combining multiple DataFrames with `merge()` and `join()`.
+4. Data Transformation: How to modify an existing DataFrame.
+5. Some useful utility methods.
 
 ---
 
@@ -37,12 +39,7 @@ Data selection helps you:
 - Access specific values or ranges for visualization or calculation.
 - Preprocess data by selecting subsets of interest.
 
-### **Getting Started**
-Before proceeding, ensure Pandas is installed:
-
-```bash
-pip install pandas
-```
+**You should run all of the following code examples within the Python interactive shell.**  Start VSCode from within your `python_homework` directory, start a terminal within VSCode, and enter the `python` command to start the shell.
 
 ### **Example: Using `.loc[]` and `.iloc[]`**
 ```python
@@ -66,6 +63,20 @@ print(df.iloc[:2])  # First two rows
 ## **Explanation:**
 `.loc[]` is used for label-based indexing. Here, df.loc[0:2, ['Name', 'Age']] selects rows 0 to 2 and the 'Name' and 'Age' columns.
 `.iloc[]` is used for position-based indexing. df.iloc[:2] selects the first two rows.
+
+This is slicing, similar to the slicing of lists described in lesson 2.  There are some differences however. The indices for df, in this case, are 0 through 3.
+
+```python
+print(df.loc[0:2])  # This prints the first 3 rows! It starts with the row with index 0 and continues up to and including the row with index 2.
+print(df.iloc[:2]) # This prints the first 2 rows only.  iloc[] works like list slicing.  It does not include the row with index 2.
+print(df.loc[[0,2]]) # This prints row 0 and row 2.  You specify a list of the rows you want.  You can't do this with lists!
+```
+In each of the cases above, what is returned is a new DataFrame that is a subset of the old one.
+
+One can also specify a filter.
+
+```python
+print(df.loc[])
 
 ---
 
@@ -93,7 +104,7 @@ df = pd.DataFrame(data)
 
 # Group by 'Category' and calculate the sum
 grouped = df.groupby('Category').sum()
-print(grouped)
+print(grouped) # grouped is another DataFrame with summary data
 
 # Calculate the mean for each group
 mean_values = df.groupby('Category')['Values'].mean()
@@ -152,8 +163,14 @@ df2 = pd.DataFrame({'ID': [1, 2, 4], 'Score': [85, 92, 88]})
 
 # Merge on the 'ID' column
 merged_df = pd.merge(df1, df2, on='ID', how='inner')
-print(merged_df)  # Inner join
+print(merged_df)  # Inner merge
 ```
+
+The merged DataFrame has the columns from both DataFrames.  In this case the key is the 'ID' column.  If those match up, the rows of the merged DataFrame will have both 'Name' and 'Score' columns.
+
+Suppose that the two DataFrames also both have an 'Age' column.  You end up with an `Age_x` and an `Age_y` columns, where the renaming is done to prevent collision.  There are ways to choose which one you want to keep.
+
+This is an inner merge.  That means you get only the rows where the ID values match.  One could specify a `how` value of 'left', 'right', or 'outer'.  'left' means include all rows from the left DataFrame, along with matching rows from the right DataFrame.  'right' means the converse.  And 'outer' means include all rows, matching up the ones for which the 'ID' is the same.  When using 'left', 'right', or 'outer', you get `NaN` values in the columns to be added for rows that don't match up.
 ### Merging on Multiple Columns
 
 Sometimes you need to merge two DataFrames based on multiple columns. This is useful when you have composite keys or want to match on more than one condition.
@@ -184,10 +201,8 @@ In this example:
 Merging on both 'ID' and 'Date': This allows you to ensure that the rows are only merged when both conditions match, i.e., the same ID and the same Date.
 how='inner': This ensures that only the rows with matching values in both DataFrames are included in the result.
 
-
-
 ## **Explanation:** 
-The merge() function combines two DataFrames based on a common column. Here, it's merging df1 and df2 on the 'ID' column using an inner join, meaning only rows with matching 'ID' values from both DataFrames will appear in the result.
+The merge() function combines two DataFrames based on a common column. Here, it's merging df1 and df2 on the 'ID' column using an inner join, meaning only rows with matching 'ID' values from both DataFrames will appear in the result.  You can also use the join() function.  This matches on index values, instead of the values in one or several key columns.
 
 ### **Example: Using `join()`**
 ```python
@@ -198,9 +213,79 @@ df2 = pd.DataFrame({'Score': [85, 92, 88]}, index=[1, 2, 4])
 joined_df = df1.join(df2, how='outer')
 print(joined_df)
 ```
-## **Explanation:**
-The join() function is used to combine DataFrames based on their index. In this case, it performs an outer join, meaning all rows from both DataFrames will be included, and missing values will be filled with NaN.
 
+## **Data Transformation**
+
+While one can do transformation of the DataFrame as a whole, for the moment we will focus on approaches that do it one column at a time.  You can add, replace, or delete a column of a DataFrame at any time.
+
+```python
+joined_df['bogus']=['x','y','z','w'] # adds a column
+print(joined_df)
+joined_df['bogus']=joined_df['bogus'] + "_value"  # replaces a column
+print(joined_df)
+joined_df.drop('bogus', axis=1, inplace=True) # deletes the column.  You need axis=1 to identify that the drop is for a column, not a row
+print(joined_df)
+```
+
+Look carefully at the case where the column is replaced.  `joined_df['bogus']` returns a view of the column, which is a Series.  You don't write to that directly.  You create a new column, transforming the existing value.  In this case, "_value" is concatenated to each of the values in the original view.  Then, you replace the 'bogus' column with the new column.
+
+You can transform a Series in several ways.
+- You can use an operator, as in the above example.  Of course, you can't raise a string to a power of 2, or anything like that, so the type of the entry is important.
+- You can use a Series method.  One important example is the map() method, but there are others, such as astype().
+- You can use a NumPy function that can operate on a Series.  
+Let's look at an example of each:
+
+```python
+import numpy
+data = {'Name': ['A','B','C'],'Value':[1,2,3]}
+new_df = pd.DataFrame(data)
+print(new_df)
+new_df['Value'] = new_df['Value'] ** 2  # using an operator
+print(new_df)
+new_df['Value'] = numpy.sqrt(new_df['Value']) # using a numpy function.  You can't use math.sqrt() on a Series.
+print(new_df)
+new_df['EvenOdd'] = new_df['Value'].map(lambda x : 'Even' if x % 2 == 0 else 'Odd') # the map method for a Series
+print(new_df)
+new_df['Value'] = new_df['Value'].astype(int) # type conversion method for a Series
+print(new_df)
+```
+The map() method takes one parameter, a function that does the conversion.  In the example above, a lambda is used to specify the function, and a ternary expression is used in the lambda.
+
+## **Utility Methods**
+
+### **Changing Column Names**
+
+You can rename one or more columns as follows:
+
+```python
+joined_df.rename({'Score':'Test Score'}, inplace=True)
+print(joined_df)
+```
+
+### **Converting a Column To An Index**
+
+```python
+renamed_df=joined_df.set_index('Name')
+print(renamed_df)
+```
+
+### **Sorting a DataFrame**
+
+You can sort a DataFrame by column values: 
+
+```python
+joined_df.sort_values(by='Score',ascending=False,inplace=True)
+print(joined_df)
+```
+
+### **Resetting the Index***
+
+After you sort, the index values are no longer in order.  In this and other cases, you may want to reset the index:
+
+```python
+joined_df.reset_index(inplace=True, drop=True)
+print(joined_df)
+```
 
 ---
 
@@ -224,7 +309,7 @@ The join() function is used to combine DataFrames based on their index. In this 
 <summary>Answer</summary>
 
 **Answer Key:**
-1. A  
+1. A or D  
 2. A  
 
 </details>
@@ -236,6 +321,8 @@ In this lesson, you’ve learned:
 - How to select and slice subsets of data using `.loc[]` and `.iloc[]`.
 - How to use `groupby()` for aggregations like `sum()` and `mean()`.
 - How to combine DataFrames using `merge()` and `join()`.
+- How to transform the data.
+- Some utilities to rename columns, sort, convert a column to an index, and reset the index.
 
 Use these techniques to perform advanced data analysis in Pandas. For further exploration, refer to the [Pandas Documentation](https://pandas.pydata.org/docs/) and Python's [official documentation](https://docs.python.org/3/).
 ```
