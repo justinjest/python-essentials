@@ -2,7 +2,7 @@
 ### Advanced Data Wrangling and Aggregation with Pandas
 
 ### **Objective:**
-The purpose of this assignment is to deepen your understanding of data wrangling and aggregation using the Pandas library in Python. You will work with sample DataFrames to perform various operations such as filtering, handling missing values, merging, sorting, transforming, and creating pivot tables.
+The purpose of this assignment is to deepen your understanding of data wrangling and aggregation using the Pandas library in Python. You will work with sample DataFrames to perform various operations such as filtering, handling missing values, merging, sorting, and transforming.
 
 ### **Setup**
 
@@ -18,7 +18,7 @@ With a little setup, you can create Jupyter notebooks in VSCode, and submit them
 2. **Create DataFrames `df1`, `df2`, and `df3` using the provided sample data(feel free to change the values):**
    - `df1` contains names, ages, and salaries of five employees.
    - `df2` contains names, ages, and salaries of five other employees.
-   - Display each DataFrames.
+   - Display each DataFrame.
    
 ```
 data1 = {
