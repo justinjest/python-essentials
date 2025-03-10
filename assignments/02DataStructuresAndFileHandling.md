@@ -8,9 +8,7 @@ Homework for this assignment is created within your `python_homework` folder.  B
 
 **Help is Available**
 
-You may find these tasks a little challenging.  Lambdas are new.  Functions that call functions are new.  File operations are new.  Use the debugging guidance from lesson 1!
-
-A sample assignment2.py solution, to reference as necessary, is available in the examples folder within python_homework.
+You may find these tasks a little challenging.  If you get stuck, 1:1 mentors are available to answer your questions.  Appointments are available in the [1:1 Mentor Table](https://airtable.com/appoSRJMlXH9KvE6w/shrQinGb1phZYwdiL)
 
 On Windows, if you find that the prompt in git bash is unexpected, you can fix it by running ``cd \`pwd``.
 

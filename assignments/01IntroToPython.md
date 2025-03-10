@@ -57,7 +57,7 @@ There are a number of new Python capabilities introduced during this assignment,
 
 **Help is Available**
 
-We have covered quite a bit, and it's probably all new to you.  If you get stuck, a sample of a completed assignment1.py is provided in the examples folder.  Don't copy/paste.  Just look at the example to get yourself past your stumbling block.
+We have covered quite a bit.  If you get stuck, 1:1 mentors are available to answer your questions.  Appointments are available in the [1:1 Mentor Table](https://airtable.com/appoSRJMlXH9KvE6w/shrQinGb1phZYwdiL)
 
 ---
 
