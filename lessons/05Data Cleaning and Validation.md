@@ -427,6 +427,9 @@ D) `remove_redundant()`
 
 In this lesson, you’ve learned:
 
+* How to use pivot tables for improved data presentation.
+* How to use apply() on a DataFrame to generate a new column.
+* Concepts in data cleaning.
 * How to handle missing data using `isnull()`, `dropna()` and `fillna()`.
 * How to transform data by converting data types, reformatting dates, and discretizing continuous variables.
 * How to identify and remove duplicate records with `drop_duplicates()`.
