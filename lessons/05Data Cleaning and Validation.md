@@ -3,18 +3,91 @@
 
 **Lesson Overview**
 
-**Learning objective:** Students will learn techniques for handling missing data, transforming data types, and identifying and removing duplicate records to ensure data quality. This lesson will provide foundational skills necessary for cleaning raw data, ensuring it's ready for effective analysis.
+**Learning objective:** Students will learn techniques for presenting data, transforming DataFrames, handling missing data, transforming data types, and identifying and removing duplicate records to ensure data quality. This lesson will provide foundational skills necessary for cleaning raw data, ensuring it's ready for effective analysis.
 
 ### Topics
 
-1. **What is Data Cleaning?**: An introduction to the concepts of data cleaning.
-1. **Handling Missing Data**: Removing rows with `dropna()`, replacing values with `fillna()`.
-2. **Data Transformation**: Converting data types, reformatting dates, **feature engineering**, **data discretization**.
-3. **Removing Duplicates**: Identifying and removing duplicate records.
-4. **Removing Outliers**: Identify and removing outlying records
+1. **Pivot Tables**: A way to present summary data.
+2. **Transforming DataFrames with apply()**: A flexible way to create new columns by combining column entries from existing columns.
+3. **What is Data Cleaning?**: An introduction to the concepts of data cleaning. 
+4. **Handling Missing Data**: Removing rows with `dropna()`, replacing values with `fillna()`. 
+5. **Data Transformation**: Converting data types, reformatting dates, **feature engineering**, **data discretization**. 
+6. **Removing Duplicates**: Identifying and removing duplicate records.
+7. **Removing Outliers**: Identify and removing outlying records
 ---
 
-## 5.1 What is Data Cleaning?
+## 5.1 Pivot Tables.
+
+As usual, run these examples in the Python interactive shell of your `python_homework` terminal session.
+
+Consider the following case. Acme Inc. has 3 sales employees and 2 regions.  The employees each report the revenue they got from sales of each of the products in each of the regions.  These reports are probably kept in a database, but for our purposes, they look like this:
+```python
+include pandas as pd
+data = [{'Employee': 'Jones', 'Product': 'Widget', 'Region': 'West', 'Revenue': 9000}, \
+{'Employee': 'Jones', 'Product': 'Gizmo', 'Region': 'West', 'Revenue': 4000}, \
+{'Employee': 'Jones', 'Product': 'Doohickey', 'Region': 'West', 'Revenue': 11000}, \
+{'Employee': 'Jones', 'Product': 'Widget', 'Region': 'East', 'Revenue': 4000}, \
+{'Employee': 'Jones', 'Product': 'Gizmo', 'Region': 'East', 'Revenue': 5500}, \
+{'Employee': 'Jones', 'Product': 'Doohickey', 'Region': 'East', 'Revenue': 2345}, \
+{'Employee': 'Smith', 'Product': 'Widget', 'Region': 'West', 'Revenue': 9007}, \
+{'Employee': 'Smith', 'Product': 'Gizmo', 'Region': 'West', 'Revenue': 40003}, \
+{'Employee': 'Smith', 'Product': 'Doohickey', 'Region': 'West', 'Revenue': 110012}, \
+{'Employee': 'Smith', 'Product': 'Widget', 'Region': 'East', 'Revenue': 9002}, \
+{'Employee': 'Smith', 'Product': 'Gizmo', 'Region': 'East', 'Revenue': 15500}, \
+{'Employee': 'Garcia', 'Product': 'Widget', 'Region': 'West', 'Revenue': 6007}, \
+{'Employee': 'Garcia', 'Product': 'Gizmo', 'Region': 'West', 'Revenue': 42003}, \
+{'Employee': 'Garcia', 'Product': 'Doohickey', 'Region': 'West', 'Revenue': 160012}, \
+{'Employee': 'Garcia', 'Product': 'Gizmo', 'Region': 'East', 'Revenue': 16500}, \
+{'Employee': 'Garcia', 'Product': 'Doohickey', 'Region': 'East', 'Revenue': 2458}]
+sales = pd.DataFrame(data)
+print(sales)
+```
+Ok, all the information is here, but it is not organized as the CFO would like.  You have already learned one way to summarize the data, using groupby().  Another is to use pivot tables.  Here are three examples:
+
+```python
+sales_pivot1 = pd.pivot_table(sales,index=['Product','Region'],values=['Revenue'],aggfunc='sum',fill_value=0)
+print(sales_pivot1)
+# This creates a two level index to show sales by product and region. The revenue values are summed for each product and region.
+sales_pivot2 = pd.pivot_table(sales,index='Product',values='Revenue',columns='Region', aggfunc='sum',fill_value=0)
+print(sales_pivot2)
+# The result here is similar, but instead of a two level index, you have columns to give sales by region.
+sales_pivot3 = pd.pivot_table(sales,index='Product',values='Revenue',columns=['Region','Employee'], aggfunc='sum',fill_value=0)
+print(sales_pivot3)
+# By adding the employee column, you get these revenue numbers broken down by employee.  The fill value is used when there is no corresponding entry.
+```
+By gaining familiarity with pivot tables, you can present data in various ways that make it easy to show the business picture.
+
+## 5.2 Using apply()
+
+You have already learned several ways to generate a new column from an existing one.  Suppose, however, that you want to combine information from several columns.  For example, you could do the following:
+```python
+sales_pivot2['Total'] = sales_pivot2['East'] + sales_pivot2['West'] # adding two columns to make a new one
+print(sales_pivot2)
+per_employee_sales=sales.groupby('Employee').agg({'Revenue':'sum'})
+per_employee_sales['Commission Percentage'] = [0.12, 0.09, 0.1]
+per_employee_sales['Commission'] = per_employee_sales['Revenue'] * per_employee_sales['Commission Percentage']
+print(per_employee_sales)
+```
+Ok, so far so good.  But suppose the combination rules are a little more complicated.  Consider this case:
+```python
+per_employee_sales=sales.groupby('Employee').agg({'Revenue':'sum'})
+per_employee_sales['Commission Plan'] = ['A', 'A', 'B']
+```
+Sales employees on commission plan A get $1000 for the first 10000 in revenue, and 5% for revenue over 10000.  Everyone else gets $1400 for the first 10000 in revenue, but 4% for revenue over 10000.  All employees get zip if they don't get at least 10000 in revenue. You use apply(), and you specify `axis=1` to request the entire row.  You pass a function to apply(), and the function is called once per row.  As follows:
+```python
+def calculate_commission(row):
+    if row['Revenue'] < 10000:
+        return 0
+    if row['Commission Plan'] == 'A':
+        return 1000 + 0.05 * (row['Revenue'] - 10000)
+    else:
+        return 1400 + 0.04 * (row['Revenue'] - 10000)
+
+per_employee_sales['Commission'] = per_employee_sales.apply(calculate_commission, axis=1)
+print(per_employee_sales)
+```
+
+## 5.3 What is Data Cleaning?
 
 Data is often dirty.  Values may be missing, or duplicated, or incorrectly formatted, or have values that are not plausible or manageable by data analysis.  The following optional [video](https://www.youtube.com/watch?v=WpX2F2BS3Qc) expains the concepts.  The main idea is garbage-in, garbage-out.  Any analysis you do on data that is partly incorrect may be invalid.  Data cleaning involves the following procedures:
 
@@ -51,7 +124,7 @@ Each automated change to clean the data involves a tradeoff.  You should always 
 This is a process to check that the cleaned data is in fact correct.  For example, for information about a person, you might want to ask the person if the stored information is correct.
 
 
-## 5.1 Handling Missing Data
+## 5.4 Handling Missing Data
 
 ### Overview
 
@@ -100,7 +173,7 @@ print(df_filled)
 
 `fillna()` is used to replace missing values. In this case, the `Age` column's missing values are replaced with 0, and the `Score` column's missing values are filled with the mean of the existing scores. This can cause issues if the values you are replacing become outliers.
 
-## 5.2 Data Transformation
+## 5.5 Data Transformation
 
 ### Overview
 
@@ -233,7 +306,7 @@ print(df)
 
 ---
 
-## 5.3 Removing Duplicates
+## 5.6 Removing Duplicates
 
 ### Overview
 
@@ -276,7 +349,7 @@ print(df_cleaned_by_name)
 
 ---
 
-## **5.4 Handling Outliers**
+## **5.7 Handling Outliers**
 
 ### **Overview**
 Outliers are extreme values that deviate significantly from other observations and can bias statistical calculations.
