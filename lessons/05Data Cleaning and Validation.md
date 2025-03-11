@@ -7,11 +7,49 @@
 
 ### Topics
 
+1. **What is Data Cleaning?**: An introduction to the concepts of data cleaning.
 1. **Handling Missing Data**: Removing rows with `dropna()`, replacing values with `fillna()`.
 2. **Data Transformation**: Converting data types, reformatting dates, **feature engineering**, **data discretization**.
 3. **Removing Duplicates**: Identifying and removing duplicate records.
 4. **Removing Outliers**: Identify and removing outlying records
 ---
+
+## 5.1 What is Data Cleaning?
+
+Data is often dirty.  Values may be missing, or duplicated, or incorrectly formatted, or have values that are not plausible or manageable by data analysis.  The following optional [video](https://www.youtube.com/watch?v=WpX2F2BS3Qc) expains the concepts.  The main idea is garbage-in, garbage-out.  Any analysis you do on data that is partly incorrect may be invalid.  Data cleaning involves the following procedures:
+
+- Standardization.  For example, you want to represent dates and phone numbers in a standard way.  You also want to have consiten
+- Addressing outliers.  These are values that appear improbable and were likely entered in error.
+- Deduplication.
+- Addressing missing values.
+- Validation.
+
+You will learn various technical approaches to each of these.
+
+### Standardization
+
+You can check, for example, that email addresses are of a valid format.  Suppose some are not.  You can either flag the rows for manual correction, or discard the rowss, or attempt to reformat the addresses to correct the problem, or derive the correct addresses from other information in the row or perhaps in a separate dataset.  For US phone numbers, you could check that each is a string of 10 numeric characters.
+
+### Addressing Outliers
+
+Sometimes outliers are easy to identify.  If a person's age is negative, or greater than 120, this is an outlier.  But in other cases, it might not be so clear.  For example, if you discarded outliers for daily rainfall in a region, you could end up discarding all flood events, which are important records that are needed for the analysis.
+
+### Deduplication
+
+Deduplication is pretty easy if the rows are exactly the same.  But, if one of the values in the row is a little bit different, it may not be as clear.  Perhaps you have access to a reliable key, such as a known phone number or email address.
+
+### Addressing missing values
+
+You can throw away the rows with missing information ... but other parts of the record may have valuable information.
+
+You can substitute a plausible value ... but this distorts the data.  For example, if the data contains a person's net worth, you could substitute the mean value for that column, but actually most people don't have nearly the 'average' net worth.  You could substitute the median value instead, but again, most people have incomes that differ from the median by quite a bit.
+
+Each automated change to clean the data involves a tradeoff.  You should always archive the original data, in case cleaning introduces distortions.
+
+### Validation
+
+This is a process to check that the cleaned data is in fact correct.  For example, for information about a person, you might want to ask the person if the stored information is correct.
+
 
 ## 5.1 Handling Missing Data
 
@@ -21,6 +59,7 @@ Missing data is common in datasets and can significantly affect the outcome of a
 
 ### Key Methods
 
+- `isnull()`: Find the rows where data is missing.
 - `dropna()`: Removes rows or columns with missing data.
 - `fillna()`: Replaces missing values with specified values.
 
@@ -30,7 +69,9 @@ Missing data is common in datasets and can significantly affect the outcome of a
 - Prevents runtime errors during analysis.
 - Allows consistent dataset formatting.
 
-### Example: Using `dropna()` and `fillna()`
+### Example: Using `isnull()`, `dropna()` and `fillna()`
+
+**For this and all examples below, you should run the code within the Python interactive shell of your python_homework VSCode terminal.**
 
 ```python
 import pandas as pd
@@ -41,6 +82,9 @@ data = {'Name': ['Alice', 'Bob', None, 'David'],
         'Score': [85, None, 88, 76]}
 df = pd.DataFrame(data)
 
+# Find rows with missing data
+df_missing = df[df.isnull().any(axis=1)]
+print(df_dropped)
 # Remove rows with missing data
 df_dropped = df.dropna()
 print(df_dropped)
@@ -101,12 +145,12 @@ df['JoinDate'] = pd.to_datetime(df['JoinDate'])
 print(df.dtypes)  # Verify data types
 print(df)
 ```
-In addition you can use pandas.DataFrame.map we can change items in a column. A possible pitfall with this method is that it will only work if you define a replacement for all items in the column. 
+In addition you can use the Series map() method to change items in a column.
 
 ```python
 import pandas as pd
 
-# Sample DataFrame with age in days
+# Sample DataFrame
 
 data = {'Name': ['Alice', 'Bob', 'Charlie'],
         'Location': ['LA', 'LA', 'NY'],
@@ -119,8 +163,36 @@ df['Location'] = df['Location'].map({'LA': 'Los Angeles', 'NY': "New York"})
 print(df)
 ```
 
-This method is useful when you want to replace everything in one column due to abbreviation, and you know what the data will be beforehand. If you want to avoid this you can use it in conjunction with fillna with `df['col1'].map(dict_.fillna(df['col1'])`
+The problem with the code above is that if the value in the 'Location' column is not either 'LA' or 'NY', it is converted to `NaN`.  Suppose you want to preserve the existing value in this case. You'd use the replace() method instead:
 
+```python
+df['Location'] = df['Location'].replace({'LA': 'Los Angeles', 'NY': "New York"})
+```
+
+Here is another case.  Suppose we have a list of people's phone numbers, but they are not in standard format.  We can attempt to clean this up in this way:
+
+```python
+import pandas as pd
+data = {'Name': ['Tom', 'Dick', 'Harry', 'Mary'], 'Phone': [3212347890, '(212)555-8888', '752-9103','8659134568']}
+df = pd.DataFrame(data)
+df['Correct Phone'] = df['Phone'].astype(str)
+
+def fix_phone(phone):
+    if phone.isnumeric():
+        out_string = phone
+    else:
+        out_string = ''
+        for c in phone:
+            if c in '0123456789':
+                out_string += c
+    if len(out_string) == 10:
+        return out_string
+    return None
+    
+df['Correct Phone'] = df['Correct Phone'].map(fix_phone)
+print(df)
+```
+In the code above, the 'Phone' column is preserved, in case there is useful information, but the 'Correct Phone' column is created, with a best effort at reformatting the phone numbers.  Note that the logic did not fit in a lambda, so a function was declared to pass to map().
 
 Finally we can use built in numpy functions in order to change all of the data in a data frame by following a function
 ```python
@@ -213,6 +285,9 @@ Outliers are extreme values that deviate significantly from other observations a
 - Replace outliers with statistical measures like the median.
 
 ### **Code Example:**
+
+(You don't need to run this one, as the DataFrame is not provided.)
+
 ```python
 # Replace outliers in 'Age' (e.g., Age > 100 or Age < 0)
 df['Age'] = df['Age'].apply(lambda x: df['Age'].median() if x > 100 or x < 0 else x)
@@ -279,9 +354,9 @@ D) `remove_redundant()`
 
 In this lesson, you’ve learned:
 
-* How to handle missing data using `dropna()` and `fillna()`.
-* How to transform data by converting data types, reformatting dates, **performing feature engineering**, and **discretizing continuous variables**.
+* How to handle missing data using `isnull()`, `dropna()` and `fillna()`.
+* How to transform data by converting data types, reformatting dates, and discretizing continuous variables.
 * How to identify and remove duplicate records with `drop_duplicates()`.
-* How to remove outliers using statistical methods
+* How to remove outliers using statistical methods.
 
 By applying these techniques, you can clean and validate your datasets for accurate and effective analysis. For further exploration, refer to the Pandas Documentation and Python's official documentation.
