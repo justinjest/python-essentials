@@ -104,7 +104,7 @@ Kaggle has some nice datasets you can use in exercises.  These are `csv` files. 
 - Open another Kaggle window in your browser.
 - On the upper right of your notebook, click on 'Add Input'.  Click on the 'Datasets' button.  Then do a search on 'international football results'.  You should see one from Mart Jürisoo.  Click on the plus sign next to that one.  That adds the dataset to your notebook, so that you can read the CSV files.
 - Create a new code cell in your notebook for the following steps.
-- You need to find the available CSV file path names, a little tricky in Kaggle. Add the following code, and then run your cell:
+- You need to find the available CSV file path names.  The first cell in your notebook, the one it came with, has the following code:
     ```python
     import pandas as pd
     import os
@@ -112,7 +112,7 @@ Kaggle has some nice datasets you can use in exercises.  These are `csv` files. 
         for filename in filenames:
             print(os.path.join(dirname, filename))
     ```
-- This will list, among others, the path `/kaggle/input/international-football-results-from-1872-to-2017/results.csv`.  This is the one you want.  Read it into a DataFrame called football_results.
+   Click on this cell to make it active, and run the cell.  This will list, among others, the path `/kaggle/input/international-football-results-from-1872-to-2017/results.csv`.  This is the one you want.  Read it into a DataFrame called football_results.
 - Print the first 5 lines of this file.
 - All the entries have a home team and an away team.  This is kind of clumsy for us, because we want results for each team whether they were home or away.  So, we'll create a new DataFrame that organizes the in that way.  First, create a DataFrame called results_1.  You select the following columns from football_results: 'home_team','away_team','home_score','away_score',  and 'date'.  Print out the first 5 lines.
 - Next, create a DataFrame called results_2 from results_1.  You rename the column for 'home_team' to 'team', for 'away_team' to 'opponent', for 'home_score' to 'points_for', and for 'away_score' to 'points against'.  Do not use `inplace=True`.  This dataset gives all the entries for the home teams.  Print out the first 5 lines.
