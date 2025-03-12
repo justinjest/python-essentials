@@ -12,7 +12,7 @@ This assignment is to be created in a Kaggle notebook, as you did for Assignment
 
 1. In the upper right of your notebook page click on "Add Input" and then "Datasets".  Search on "Ecommerce Consumer Behavior".  You should find a dataset from Salahuddin Ahmed.  Click on the plus button to add this one to your notebook.
 
-2. Resolve the file you need to read.  The notebook shows sample code on how to do this, and you can copy/paste that code.  Then read the file into a DataFrame called `ecommerce`.  Print out the first 5 rows, so that you know what the data looks like.
+2. Resolve the file you need to read, by running the first cell in your notebook. Then read the file into a DataFrame called `ecommerce`.  Print out the first 5 rows, so that you know what the data looks like.
 
 3. In the following step, you will want to sum the Purchase_Amount values.  Unfortunately, this column is stored as a string.  Replace the column with one that converts the string to a float.  You will need to take the dollar sign off before conversion.
 
