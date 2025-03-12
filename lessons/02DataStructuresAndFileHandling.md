@@ -107,6 +107,17 @@ list_two = list(map(lambda x: x+1, list_one)) # [4,5,6]
 
 The lambda feature is a way to declare a simple function.  Lambdas are, in some respects, similar to arrow functions in JavaScript, but they are much more limited.  A lambda is a simple one liner.  The syntax is as follows: the word `lambda` followed by the arguments to be passed (the map function only passes one parameter, so in the case above there is only argument for the lambda), followed by a colon `:`, followed by an expression.  The value of the expression is what is returned by the lambda.  You can only give one expression in a lambda, so there is no room for multiple statements.
 
+### Slicing Lists
+
+You can create a subset list from a list by slicing.  Here are examples:
+
+```python
+list_1 = ['A','B','C','D','E']
+list_2 = list_1[1:3] # Slicing from beginning to end. Gives ['B','C'].  list_1[3] is not included.
+list_3 = list_1[2:]  # Gives ['C','D','E']
+list_4 = list_1[:2]  # Gives ['A', 'B']
+list_5 = list_1[-2:] # Gives ['D', 'E'] -- the last two elements
+
 ### Tuples
 
 A **tuple** is an *immutable*, ordered collection of items. Once defined, the elements in a tuple cannot be modified, added, or removed. Tuples are useful for data that shouldn’t change, like fixed configuration values or coordinates.
