@@ -13,7 +13,9 @@ With a little setup, you can create Jupyter notebooks in VSCode, and submit them
 ### **Tasks:**
 
 ### **Task 1: Data Selection**
-1. **On the Kaggle site, click on the plus button in the upper left, and create a notebook called CTD_Assignment_4.**  It comes up with a code cell already present.  Leave that one alone, and click on the plus code button to add another cell.  You add the code for this assignment to the cell.  As you complete each of the following tasks, run the cell to make sure your code works.  You run the cell by clicking on the arrow at the top left of the cell.  Again, put comments in your code to indicate where you have completed each task.
+1. **On the Kaggle site, click on the plus button in the upper left, and create a notebook called CTD_Assignment_4.**  It comes up with a code cell already present.  Leave that one alone, and click on the plus markdown button to add a cell that says "Task 1". (You do not have to use markdown).  This is how you convey information about your code to your reviewer, Jupyter notebook style.  Then click on the plus code button to add another cell.  You add the code for this task to the cell.  As you complete each of the following tasks, run the cell to make sure your code works.  You run the cell by clicking on the arrow at the top left of the cell.
+
+**Note:** The various code cells in a Jupyter notebook are all part of the same program, so you have access to the variables and functions of one cell from each of the ones that follow.  You only need to import Pandas once, for example.  However, Kaggle sessions **time out** if you go to the kitchen for a sandwich or something.  When they time out, your variables go away.  So, if you then run cell 2, which is dependent on something in cell 1, you'll get an error.  To correct this, click on the Run All button at the top of your Kaggle notebook screen, and the entirety of the program runs in the order the cells appear.
 
 2. **Create DataFrames `df1`, `df2`, and `df3` using the provided sample data(feel free to change the values):**
    - `df1` contains names, ages, and salaries of five employees.
@@ -49,6 +51,9 @@ Print the resulting dataframes.
    - Slice the first three rows using integer-based indexing (`iloc`), and print the result.
 
 ### **Task 2: Data Aggregation**
+
+Again, you create a markdown cell to show where you have the code for this task, and a code cell containing the code for the task.  Do this throughout, whenever you are doing your homework in Jupyter notebooks.
+
 1. **Group `df1` by 'Age' and aggregate the 'Salary' column:**
    - Calculate the mean, sum, and count of the salary for each age group.
    - Display the aggregated results.
@@ -56,8 +61,13 @@ Print the resulting dataframes.
 ### **Task 3: Merging and Joining DataFrames**
 1. **Merge `df1` and `df3` into `df_1_3_merged` on the 'Name' column:**
    - Use an outer join to combine the two DataFrames and handle any missing data.
-   - Use the suffixes `_df1` and `_df2` to differentiate columns from each DataFrame. (You specify `suffixes=['_left','_right']` on the call to merge.)
-   - Display the result with print(). 
+   - Use the suffixes `_left` and `_right` to differentiate columns from each DataFrame. (You specify `suffixes=['_left','_right']` on the call to merge.)
+   - Display the result with print(). When you do, you will see some annoying warning messages that contain words like "Runtime Warning: invalid value encountered ...".  This is because of the NaN values in the frame.  You could suppress these warnings by 
+      ```python
+      import python as np
+      np.warnings.filterwarnings('ignore')
+      ```
+      But, don't do this yet.  You might see some other warnings if you make a mistake, and you don't want to miss them.  Just ignore these particular warnings.
    - We see that the 'Salary' column has `NaN` values.  Transform this column to replace `NaN` with the starting salary of 15000.  Hint: fillna() can be used on a Series.
    - Also, transform the 'Favorite Color' column to replace `NaN` values with 'yellow'.
    - Reset the index on the merged DataFrame.
@@ -72,8 +82,8 @@ Print the resulting dataframes.
    - Drop the 'Age_left' and 'Age_right' columns and display the result.
 
 2. **Use the Join Method:**
-   - Create new DataFrames df1_b and df3_b.  In these, set 'Name' as the index.  Do not use `inplace=True`.
-   - Join the DataFrames with outer join logic and display the result.
+   - Create new DataFrames df1_b and df3_b.  In these, set 'Name' as the index.
+   - Join the DataFrames with outer join logic and display the result.  Do not use `inplace=True`.  The join method allows you to specify suffixes, but the syntax is a little different form merge.  If you don't specify suffixes, Pandas will pick them for you, so you can just let it default.  Check the online documentation if you want to set them.
 
 ### **Task 4: Filtering Rows Based on Conditions**
 1. **Filter rows in `df1` where 'Age' is greater than 30:**
@@ -104,7 +114,7 @@ Kaggle has some nice datasets you can use in exercises.  These are `csv` files. 
 - Open another Kaggle window in your browser.
 - On the upper right of your notebook, click on 'Add Input'.  Click on the 'Datasets' button.  Then do a search on 'international football results'.  You should see one from Mart Jürisoo.  Click on the plus sign next to that one.  That adds the dataset to your notebook, so that you can read the CSV files.
 - Create a new code cell in your notebook for the following steps.
-- You need to find the available CSV file path names.  The first cell in your notebook, the one it came with, has the following code:
+- You need to find the available CSV file path names.  The first cell in your notebook, the one it started out with, has the following code:
     ```python
     import pandas as pd
     import os
@@ -115,7 +125,7 @@ Kaggle has some nice datasets you can use in exercises.  These are `csv` files. 
    Click on this cell to make it active, and run the cell.  This will list, among others, the path `/kaggle/input/international-football-results-from-1872-to-2017/results.csv`.  This is the one you want.  Read it into a DataFrame called football_results.
 - Print the first 5 lines of this file.
 - All the entries have a home team and an away team.  This is kind of clumsy for us, because we want results for each team whether they were home or away.  So, we'll create a new DataFrame that organizes the in that way.  First, create a DataFrame called results_1.  You select the following columns from football_results: 'home_team','away_team','home_score','away_score',  and 'date'.  Print out the first 5 lines.
-- Next, create a DataFrame called results_2 from results_1.  You rename the column for 'home_team' to 'team', for 'away_team' to 'opponent', for 'home_score' to 'points_for', and for 'away_score' to 'points against'.  Do not use `inplace=True`.  This dataset gives all the entries for the home teams.  Print out the first 5 lines.
+- Next, create a DataFrame called results_2 from results_1.  You rename the column for 'home_team' to 'team', for 'away_team' to 'opponent', for 'home_score' to 'points_for', and for 'away_score' to 'points_against'.  Do not use `inplace=True`.  This dataset gives all the entries for the home teams.  Print out the first 5 lines.
 - Next, create a DataFrame called results_3 from results_1.  This also renames the columns, but now the rename is: 'away_team' becomes 'team', 'home_team' becomes 'opponent', 'away_score' becomes 'points_for', and 'home_score' becomes 'points_against'.  This dataset gives all the entries for the away teams.  Print out the first 5 lines.
 - Concatenate the results, resetting the index.  Store the result in football_results.  Print out the first 5 lines.  Now we have all the entries per team.
 - Do a `groupby()` on 'team'.  Get the mean() of the 'points_against' column.  Store the result (it is a Series) in the variable points_against.
@@ -123,7 +133,7 @@ Kaggle has some nice datasets you can use in exercises.  These are `csv` files. 
 
 ### **Task 10: More Data Wrangling for Football Results**
 
-This time, you'll have to figure out the steps.  Starting with the football_results DataFrame you created in Task 10, print out the most recent 10 games for Tunisia.  Remember to sort these so that you get the right games.
+This time, you'll have to figure out the steps.  Starting with the football_results DataFrame you created in Task 9, print out the most recent 10 games for Tunisia.  Remember to sort these so that you get the right games.  Avoid use of "in_place=True", as you may get annoying warnings.  It is often better to create a new DataFrame and store the result.
 
 
 ### **Submit the Notebook for Your Assignment**  
