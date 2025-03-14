@@ -168,6 +168,7 @@ print(df_filled)
 ```
 
 **Explanation:**
+`df.isnull().any(axis=1)` finds the rows that have null or NaN values.  The `axis=1` is needed to specify rows.
 
 `dropna()` removes any row that contains a `None` (missing) value. This can remove quite a lot of data, especially if you have a lot of columns.
 
