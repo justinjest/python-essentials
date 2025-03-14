@@ -157,7 +157,7 @@ df = pd.DataFrame(data)
 
 # Find rows with missing data
 df_missing = df[df.isnull().any(axis=1)]
-print(df_dropped)
+print(df_missing)
 # Remove rows with missing data
 df_dropped = df.dropna()
 print(df_dropped)
