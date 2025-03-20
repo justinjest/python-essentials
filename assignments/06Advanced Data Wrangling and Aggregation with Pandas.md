@@ -1,6 +1,12 @@
 # Advanced Data Cleaning and Validation Assignment
 
-This assignment is to be created in a Kaggle notebook, as you did for Assignments 4 and 5.  This time, create a notebook called CTD_Assignment_6 for code as described below.
+### Data Cleaning and Validation with Pandas
+
+### **Objective:**
+
+This assignment is an approximation of a real world data cleaning case.  You have four copies of a dataset, each with errors.  You want to create a single authoritative dataset that cleans all the errors out.  In addition, you'll get practice in using regular expressions for data transformation.
+
+This assignment is to be created in a Kaggle notebook, as you did for Assignments 4 and 5.  This time, create a notebook called CTD_Assignment_6 for code as described below.  As for all assignments that use notebooks, you should create a markdown cell above your code that marks the location where you completed each coding task.
 
 Complete the tasks below to demonstrate your understanding of data cleaning and validation techniques. Submit your code and outputs for each task.
 
@@ -92,7 +98,7 @@ Let's explain this code.
 - We use as_index=False because we don't want to change the indexing.  
 - Then we do a transform() on the Zip column.  This works kind of like the map() function, but you are passed each group in turn.  
 - Each time we get a group of values, we collect the votes.  First we do a dropna(), because a NaN value doesn't get a vote.  Then we use the mode() function to find the most common value, and change the value for the entire group to match.  
-- There may be several modes, for example if there are 2 of one value and 2 of another, so we just take the first mode. (Actually this is a little dangerous, because one of the other modes might be the correct one.)  
+- There may be several modes, for example if there are 2 of one value and 2 of another, so we just take the first mode. (Actually this is a little dangerous, because one of the other modes might be the correct one.  The correct approach might be to leave the values unchanged if there is more than one mode.)  
 - We have to handle a couple of edge cases.  First, all the values may be NaN, in which case we have nothing to do.  Second, there may be no mode.  This happens if each of the non-null values occurs once.  So then we just leave the values unchanged, because we don't know which one to use. After the transform() completes, we are done with the groupby(), so we reset the index.
 
 1. Fix the phone number column the same way.  Hint: You can reuse fix_anomaly().
@@ -128,6 +134,10 @@ Validation of the final result, and failure analysis for whatever isn't working 
 2. Also, in the markdown cell, explain why the approach failed for "Charles Smith".
 
 3. What could be done to make the data valid?  Put your ideas into the markdown cell.  Hint: The solution is often not more code.
+
+## Task 8: Regular Expressions for Data Cleaning
+
+**To Be Added**
 
 ---
 
