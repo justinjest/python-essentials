@@ -83,7 +83,7 @@ Again, you create a markdown cell to describe this task, and a code cell contain
 
 2. **Use the Join Method:**
    - Create new DataFrames df1_b and df3_b.  In these, set 'Name' as the index.
-   - Join the DataFrames with outer join logic and display the result.  Do not use `inplace=True`.  The join method allows you to specify suffixes, but the syntax is a little different form merge.  If you don't specify suffixes, Pandas will pick them for you, so you can just let it default.  Check the online documentation if you want to set them.
+   - Join the DataFrames with outer join logic and display the result.  Do not use `inplace=True`.  Unlike the merge method, the join method does not provide default suffixes if there are overlapping columns.  Check the online documentation to find out how to specify them.
 
 ### **Task 4: Filtering Rows Based on Conditions**
 1. **Filter rows in `df1` where 'Age' is greater than 30:**
