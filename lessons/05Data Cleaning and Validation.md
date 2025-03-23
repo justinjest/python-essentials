@@ -3,7 +3,7 @@
 
 **Lesson Overview**
 
-**Learning objective:** Students will learn techniques for presenting data, transforming DataFrames, handling missing data, transforming data types, and identifying and removing duplicate records to ensure data quality. This lesson will provide foundational skills necessary for cleaning raw data, ensuring it's ready for effective analysis.
+**Learning objective:** Students will learn techniques for presenting data, transforming DataFrames, handling missing data, transforming data types, and identifying and removing duplicate records to ensure data quality. This lesson will provide foundational skills necessary for cleaning raw data, ensuring it's ready for effective analysis.  Data cleaning is a key area for data analysts and engineers, and it will be covered in the following lesson as well, so as to introduce various data cleaning techniques and show how they may be combined.
 
 ### Topics
 
