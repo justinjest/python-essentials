@@ -18,7 +18,7 @@ This assignment is to be created in a Kaggle notebook, as you did for Assignment
 
 4. Create a "buying_patterns" pivot table from the data.  The index should be the 'Purchase_Category'.  The columns should be 'Gender' and 'Income_Level'.  The value you sum should be 'Purchase_Amount'.  Print out the resulting DataFrame.
 
-5. Create a "demographics" pivot table from the ecommerce DataFrame.  You want two levels of index, on 'Income_Level' and 'Education'.  For columns you want 'Marital_Status'.  You want to count the 'Customer_ID' values.  Print out the resulting DataFrame.
+5. Create a "demographics" pivot table from the ecommerce DataFrame.  You want two levels of index, on 'Income_Level' and 'Education_Level'.  For columns you want 'Marital_Status'.  You want to count the 'Customer_ID' values.  Print out the resulting DataFrame.
 
 ### **Task 2: Practice apply()**
 
