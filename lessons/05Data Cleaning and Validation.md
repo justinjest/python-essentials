@@ -91,7 +91,7 @@ print(per_employee_sales)
 
 Data is often dirty.  Values may be missing, or duplicated, or incorrectly formatted, or have values that are not plausible or manageable by data analysis.  The following optional [video](https://www.youtube.com/watch?v=WpX2F2BS3Qc) expains the concepts.  The main idea is garbage-in, garbage-out.  Any analysis you do on data that is partly incorrect may be invalid.  Data cleaning involves the following procedures:
 
-- Standardization.  For example, you want to represent dates and phone numbers in a standard way.  You also want to have consiten
+- Standardization.  For example, you want to represent dates and phone numbers in a standard way.
 - Addressing outliers.  These are values that appear improbable and were likely entered in error.
 - Deduplication.
 - Addressing missing values.
