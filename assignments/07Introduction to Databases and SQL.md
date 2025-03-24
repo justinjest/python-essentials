@@ -12,7 +12,7 @@ For this assignment, you create code in your python_homework/assignment7 folder.
 ---
 
 ## **Task 2: Define Database Structure**
-We have publishers that publish magazines.  Each publisher has a unique name, and so does each magazine.  There is a one-to-many relationship between publishers and magazines.  We also have subscribers, and each subscriber has a name and an address.  We have a many-to-many association between subscribers and magazines, because a subscriber may subscribe to several magazines, and a magazine may have many subscribers.  So, we have a join table called subscriptions.  The subscriptions table also stores the expiration_date (a string) for the subscription.  All the names, the address, and the expiration_date must be non-null.
+We have publishers that publish magazines.  Each publisher has a unique name, and so does each magazine.  There is a one-to-many relationship between publishers and magazines.  We also have subscribers, and each subscriber has a name and an address.  We have a many-to-many association between subscribers and magazines, because a subscriber may subscribe to several magazines, and a magazine may have many subscribers.  So, we have a join table called subscriptions.  The subscriptions table also stores the expiration_date (a string) for the subscription.  All the names, the address, and the expiration_date must be non-null.  
 
 1. Think for a minute.  There is a one-to-many relationship between publishers and magazines.  Which table has a foreign key? Where does the foreigh key point?  How about the subscriptions table: What foreigh keys does it have?
 
@@ -33,8 +33,8 @@ We have publishers that publish magazines.  Each publisher has a unique name, an
    conn.execute("PRAGMA foreign_keys = 1")
    ```
    This line tells SQLite to make sure the foreign keys are valid.
-2. Create functions, one for each of the tables, to add entries.  Include code to handle exceptions as needed, and to ensure that there is no duplication of information.
-3. Add code to the main line of your program to populate each of the tables with at least 3 entries.  Don't forget the `commit`!
+2. Create functions, one for each of the tables, to add entries.  Include code to handle exceptions as needed, and to ensure that there is no duplication of information.  The subscribers name and address columns don't have unique values -- you might have several subscribers with the same name -- but when creating a subscriber you should check that you don't already have an entry where BOTH the name and the address are the same as for the one you are trying to create.
+3. Add code to the main line of your program to populate each of the 4 tables with at least 3 entries.  Don't forget the `commit`!
 4. Run the program several times.  View the database to ensure that you are creating the right information, without duplication.
 
 ---
@@ -53,7 +53,7 @@ You will now use Pandas to create summary data from the db/lesson.db database yo
 2. Read data into a DataFrame, as described in the lesson.  The SQL statement should retrieve the line_item_id, quantity, product_id, product_name, and price from a JOIN of the line_items table and the product table. Hint: Your `ON` statement would be `ON line_items.product_id = products.product_id`.
 3. Print the first 5 lines of the resulting DataFrame.  Run the program to make sure this much works.
 4. Add a column to the DataFrame called "total".  This is the quantity times the price.  (This is easy: df[total] = df[quantity] * df[price]).  Print out the first 5 lines of the DataFrame to make sure this works.
-5. Add groupby() code to group by the product_id.  You want to have an agg() method that specifies 'count' for the line_item_id column, 'sum' for the price column, and 'first' for the 'product_name'.  Print out the first 5 lines of the resulting DataFrame.  Run the program to see if it is correct so far.
+5. Add groupby() code to group by the product_id.  Use an agg() method that specifies 'count' for the line_item_id column, 'sum' for the total column, and 'first' for the 'product_name'.  Print out the first 5 lines of the resulting DataFrame.  Run the program to see if it is correct so far.
 6. Sort the DataFrame by the product_name column.
 7. Add code to write this DataFrame to a file `order_summary.csv`, which should be written in the assignment7 directory.  Verify that this file is correct.
 
