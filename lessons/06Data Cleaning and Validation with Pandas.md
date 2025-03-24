@@ -101,7 +101,7 @@ print(df)
 
 #### History
 - Invented as a theoretical framework in 1951 by Stephen Cole Kleene
-- First used in 1668 for the QED text editor (Ken Thompson)
+- First used in 1968 for the QED text editor (Ken Thompson)
 - Used in a variety of Unix tools in the 1970's (ed, lex, vi, grep, awk, emacs)
 - Now the most popular string pattern matching language, available in almost all programming languages
 - Most standardized on the perl version which is more powerful and less verbose than other standards
@@ -109,6 +109,7 @@ print(df)
 #### Regular expression syntax and matching
 - Python provide regular expressions through the standard library [re module](https://docs.python.org/3/library/re.html)
 - The [regex HOWTO](https://docs.python.org/3/howto/regex.html#regex-howto) provides a tutorial on usage
+- For more practive with regexes [regex101](https://regex101.com/) is a useful site.
 - Raw strings (`r''`) are preferred for regexes in python to avoid excessive `'\'` characters
 - All regular characters match themselves
 - Meta characters extend patterns for more complex matches
