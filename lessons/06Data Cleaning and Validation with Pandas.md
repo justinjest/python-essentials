@@ -109,7 +109,7 @@ print(df)
 #### Regular expression syntax and matching
 - Python provide regular expressions through the standard library [re module](https://docs.python.org/3/library/re.html)
 - The [regex HOWTO](https://docs.python.org/3/howto/regex.html#regex-howto) provides a tutorial on usage
-- For more practive with regexes [regex101](https://regex101.com/) is a useful site.
+- For more practice with regexes [regex101](https://regex101.com/) is a useful site.
 - Raw strings (`r''`) are preferred for regexes in python to avoid excessive `'\'` characters
 - All regular characters match themselves
 - Meta characters extend patterns for more complex matches
