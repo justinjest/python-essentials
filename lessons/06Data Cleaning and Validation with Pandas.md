@@ -121,12 +121,20 @@ print(df)
   - `<pattern>$` : match only at the end
   - Character sets: `[a-z0-9]` – match any of the characters in the set
   - Excluding characters: `[^A-Z]` `^` means match characters not in the set (e.g. anything but capital letters)
-  - `\d` : match digits, `\D` not a digit
-  - `\w` : match any alphanumeric (word), `\W` not a word character
-  - `\s` : match spaces, `\S` not a space character
-  - `.` : match any character except newline
-  - Use `|` to specify alternates: `([0-9]+|[a-z]+)`:  e.g. match digits or lowercase letters
+    - `^` has a different meaning in this context, specifying a character exclusion rather than the start of the string
+  - `\d` : match digits (short for `[0-9]`), `\D` not a digit
+  - `\w` : match any alphanumeric (word - short for `[a-zA-Z0-9_]`), `\W` not a word character
+  - `\s` : match whitespace, `\S` not a whitespace character
+  - `.` : match any character except newline. Use `\.` to match a period.  I general `\` escapes special characters.
+  - Use `|` to specify alternates: `[0-9]+|[a-z]+`:  e.g. match digits or lowercase letters
+    - Surrounding the alternative by `()` limits the scope of the alternatives e.g. `r'start ([0-9]+|[a-z]+) end'`.  This also introduces a match group which is not necessarily used.
   - Group using `()` to capture substrings
+
+#### Examples
+- `^[a-zA-Z]\w+`   # Must start at the beginning of the string with a letter followed by any word character
+- `[0-9]+|[a-z]+`  # Match either one or more digits or one or more lowercase letters (but not both)
+- `[a-z]|[0-9]+`   # Match one lowercase letter or one or more digits (but not both)
+- `^\s*(\w+)\s*$`  # Capture a word which may have whitespace before or after
 
 #### Debugging regular expressions
 
@@ -144,6 +152,9 @@ In the python standard library [re module](https://docs.python.org/3/library/re.
 ```python
 import re
 # compile the regular expression
+# This regex captures the username from a gmail address as a subgroup
+# It requires one or more word chacaters at the beginning, then any number of words, digits, periods and '-''s
+# The first `()` will be available a group(1) if there is a match
 gmail = re.compile(r'(\w+[\w\d\.\-]*)@gmail.com')
 search_target = 'Boa-Dreamcode.public@gmail.com'
 # match the entire string
@@ -160,7 +171,7 @@ print(match.group(1)) # => Boa-Dreamcode.public
 
 ### Using regular expressions with Pandas
   
- Pandas [Series.str](https://pandas.pydata.org/pandas-docs/stable/reference/series.html#string-handling) provides a variety of methods which access or manipulate the values of a Series as strings.  Many of these methods support regular expressions.  All of the examples below assume you have imported `pandas as pd`.  The [Series.filter](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.filter.html#pandas.Series.filter) method also supports regular expressions.
+ Pandas [Series.str](https://pandas.pydata.org/pandas-docs/stable/reference/series.html#string-handling) provides a variety of methods which access or manipulate the values of a Series as strings.  Many of these methods support regular expressions.  All of the examples below assume you have imported `pandas as pd`.  The [Series.filter](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.filter.html#pandas.Series.filter) method also supports regular expressions.  The methods available with `Series.str` are different from those provided by the builtin `str` type.
 
  #### Using `replace`
 
