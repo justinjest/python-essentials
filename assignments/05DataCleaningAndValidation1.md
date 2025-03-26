@@ -55,20 +55,20 @@ df = pd.DataFrame(data)
 ```
 
 2. **Perform the following operations on new DataFrames:**
-   - Create df2 by using `dropna()` on the df DataFrame created above.  Print the `info()` for df and df2 to see how many lines have missing values.
-   - **Replace missing values** using the `fillna()` method:
+     - Create df1 by using `dropna()` on the df DataFrame created above.  Print the `info()` for df and df1 to see how many lines have missing values.
+     - **Replace missing values** in df using the `fillna()` method:
      - Replace missing 'Name' values with `'Unknown'`.
      - Replace missing 'Age' values with the **mean** of the 'Age' column.
      - Replace missing 'Salary' values with the **median** of the 'Salary' column.
      - Replace missing 'Join Date' values with `'2020-01-01'`.
-     - **Remove rows with missing values** using the `dropna()` method and save the result in df2.  Only the 'City' column should have missing values at this point.
-     - Convert the 'Age' column to **integer** type using `astype(int)`.
+     - **Remove rows with missing values** using the `dropna()` method and save the result in df2.  Only the 'City' column should have missing values at this point.  Reset the index.
+     - Convert the 'Age' column in df2 to **integer** type using `astype(int)`.
      - Print the updated df2 DataFrame.
 
 ### **Task 4: Data Transformation**
 1. **Convert Data Types:**
    - Add another input.  This time search for "Code The Dream Eclipses".  This is a list of eclipses that were or will be observed in Arkansas.
-   - Load the CSV file into a DataFrame called df3.
+   - Load the CSV file into a DataFrame called df3.  **Note:** The separator is "|" for this CSV file.
    - Print df3.info() and the first 5 rows of df3.
    - Attempt to convert the 'Date' column to **datetime** format using `pd.to_datetime()`.  You will see that an error is thrown for an invalid date.
    - Add `errors='coerce` to your `pd.to_datetime()` statement and try the conversion again.
@@ -109,7 +109,8 @@ Outliers can also be identified using statistical methods like the Interquartile
 
 ### **Task 8: Validating Data Ranges**
 1. **Ensure the 'Age' column contains values within the valid range (18 to 65):**
-   - Replace invalid ages (less than 18 or greater than 65) with a NaN value.  (NaN is actually part of numpy.  So you need `import numpy as np` and that gives you access to `np.nan`, the value you should use.  Don't use the string 'NaN'!)
+   - Replace invalid ages (less than 18 or greater than 65) with a NaN value.  (NaN is actually part of numpy: `np.nan` is the value you should use.  Don't use the string 'NaN'!)
+   - Print the updated Dataframe.
    - Fill the NaN values with the **median** of the 'Age' column.
    - Print the updated DataFrame.
 
