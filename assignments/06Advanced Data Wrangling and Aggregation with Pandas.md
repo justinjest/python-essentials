@@ -185,7 +185,7 @@ order_data = [
 orders = pd.Series(order_data)
 ```
 
-4. Using the same `orders` `Series`, create a `DataFrame` with columns for `order number`, `date`, and `shipped`.  `shipped` is a `boolean` value.  Convert the dates to `datetime` which can convert mixed formats.  Note that the modifier `{n}` can be used to specify an exact number of matched characters.  Don't include lines which don't contain a date.  Save the `DataFrame` in a variable called `order_table` and print it.
+5. Using the same `orders` `Series`, create a `DataFrame` with columns for `order number`, `date`, and `shipped`.  `shipped` is a `boolean` value.  Convert the dates to `datetime` which can convert mixed formats.  Note that the modifier `{n}` can be used to specify an exact number of matched characters.  Don't include lines which don't contain a date.  Save the `DataFrame` in a variable called `order_table` and print it.
 
 
 ```
