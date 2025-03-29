@@ -238,7 +238,7 @@ valid_emails = df[df['email'].str.contains(r'^\w+[\w\.-]+@\w+[\w\.-]+\.\w+$')]
 print(valid_emails)
 ```
 #### Combining filters using bitwise operators
-The `contains` method returns a `Series` of boolean values also known as a filter.  Bitwise operators (&, |, ~) can be used to combine or invert filters.  Don't confuse these with the boolean operators (`and`, `or`, and `not`). Also, note that the raw strings used to define regular expressions can be enetered on multiple lines.  Regexs can be long, and listing them on multiple lines improves readability.  Here a series of alternatives are listed one per line with a trailing `'|'`.  Note that they aren't separated by commas.
+The `contains` method returns a `Series` of boolean values also known as a filter.  Bitwise operators (&, |, ~) can be used to combine or invert filters.  Don't confuse these with the boolean operators (`and`, `or`, and `not`). Also, note that the raw strings used to define regular expressions can be entered on multiple lines.  Regexs can be long, and listing them on multiple lines improves readability.  Here a series of alternatives are listed one per line with a trailing `'|'`.  Note that they aren't separated by commas.
 
 ```python
 orders = [
