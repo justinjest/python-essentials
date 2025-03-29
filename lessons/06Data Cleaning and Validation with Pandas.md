@@ -243,11 +243,11 @@ The `contains` method returns a `Series` of boolean values also known as a filte
 ```python
 orders = [
     "Order 1: 2x Cheddar, 1x Gouda",
-    "Order 2: 3x Stilton",
+    "Order 2: 3x Stilton, 2x Rye Crackers",
     "Order 3: 2x Saltines",
-    "Order 4: 1x Camembert, 2x Jarlsberg",
-    "Order 5: 2x Gouda",
-    "Order 6: 1x Ritz",
+    "Order 4: 1x Camembert, 2x Jahrlsberg",
+    "Order 5: 2x Gouda, 2x Rye Crackers",
+    "Order 6: 1x Ritz, 1x Jahrlsberg",
     "Order 7: 1x Parmesan, 1x Brie",
     "Order 8: 3x Saltine Crackers",
     "Order 9: 2x Rye Crackers",
@@ -274,6 +274,7 @@ favored_crackers = orders.str.contains(r'Ritz|'
                                        r'Multigrain Crackers|'
                                        r'Water Crackers', case=False, regex=True)
 print(orders[favored_cheeses | favored_crackers])
+print(orders[favored_cheeses & favored_crackers])
 print(orders[~favored_cheeses])
 ```
 
