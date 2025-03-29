@@ -219,9 +219,9 @@ print(df)
 Match groups can be given names.  When named groups are used with the `dataFrame.extract` method the group names are used as column names in the resulting `DataFrame`.
 
 ```python
-df = pd.Series(['Tom-25-USA', 'Anna-30-UK', 'John-22-Canada'])
+series = pd.Series(['Tom-25-USA', 'Anna-30-UK', 'John-22-Canada'])
 pattern = r'(?P<Name>\w+)-(?P<Age>\d+)-(?P<Country>\w+)'
-result = df.str.extract(pattern)
+result = series.str.extract(pattern)
 print(result)
 
 ```
