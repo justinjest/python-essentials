@@ -237,6 +237,45 @@ df = pd.DataFrame({
 valid_emails = df[df['email'].str.contains(r'^\w+[\w\.-]+@\w+[\w\.-]+\.\w+$')]
 print(valid_emails)
 ```
+#### Combining filters using bitwise operators
+The `contains` method returns a `Series` of boolean values also known as a filter.  Bitwise operators (&, |, ~) can be used to combine or invert filters.  Don't confuse these with the boolean operators (`and`, `or`, and `not`). Also, note that the raw strings used to define regular expressions can be enetered on multiple lines.  Regexs can be long, and listing them on multiple lines improves readability.  Here a series of alternatives are listed one per line with a trailing `'|'`.  Note that they aren't separated by commas.
+
+```python
+orders = [
+    "Order 1: 2x Cheddar, 1x Gouda",
+    "Order 2: 3x Stilton",
+    "Order 3: 2x Saltines",
+    "Order 4: 1x Camembert, 2x Jarlsberg",
+    "Order 5: 2x Gouda",
+    "Order 6: 1x Ritz",
+    "Order 7: 1x Parmesan, 1x Brie",
+    "Order 8: 3x Saltine Crackers",
+    "Order 9: 2x Rye Crackers",
+    "Order 10: 2x Mozzarella, 1x Cheddar",
+    "Order 11: 1X Water Crackers"
+    "Order 12: 3x Blue Cheese",
+    "Order 13: 1x Triscuits",
+    "Order 14: 1x Butter Crackers, 2x Multigrain Crackers",
+    "Order 15: 1x Feta",
+    "Order 16: 1x Havarti",
+    "Order 17: 2x Wheat Crackers",
+    "Order 18: 1x Ricotta",
+    "Order 19: 1x Garlic Herb Crackers"
+]
+orders = pd.Series(orders)
+favored_cheeses = orders.str.contains(r'Cheddar|'
+                                       r'Stilton|'
+                                       r'Camembert|'
+                                       r'Jahrlsberg|'
+                                       r'Gouda', case=False, regex=True)
+favored_crackers = orders.str.contains(r'Ritz|'
+                                       r'Triscuit|'
+                                       r'Rye Crackers|'
+                                       r'Multigrain Crackers|'
+                                       r'Water Crackers', case=False, regex=True)
+print(orders[favored_cheeses | favored_crackers])
+print(orders[~favored_cheeses])
+```
 
 #### Using `filter`
 
