@@ -116,6 +116,7 @@ print(df)
   - Meta-characters can be included in patterns by escaping with `‘\’`
   - `<pattern>*` : match 0 or more copies of pattern
   - `<pattern>+` : match 1 or more copies of pattern
+  - `<pattern>{n}` : match exactly `n` copies of the pattern
   - `<pattern>?` : match 0 or 1 times
   - `^<pattern>` : match only at the beginning
   - `<pattern>$` : match only at the end
@@ -215,6 +216,15 @@ df = pd.DataFrame({
 df['domain'] = df['email'].str.extract(r'@(\w+[\w\.-]+)')
 print(df)
 ```
+Match groups can be given names.  When named groups are used with the `dataFrame.extract` method the group names are used as column names in the resulting `DataFrame`.
+
+```python
+df = pd.Series(['Tom-25-USA', 'Anna-30-UK', 'John-22-Canada'])
+pattern = r'(?P<Name>\w+)-(?P<Age>\d+)-(?P<Country>\w+)'
+result = df.str.extract(pattern)
+print(result)
+
+```
 
 #### Using `contains`
 
@@ -242,12 +252,6 @@ df = pd.DataFrame({
 df_year = df.filter(regex=r'\d+$')  
 print(df_year)
 ```
-  
-  
-  
-  
-
-
 
 ## **6.4 Removing Duplicates**
 
