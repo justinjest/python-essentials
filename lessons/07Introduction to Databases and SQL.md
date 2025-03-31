@@ -24,7 +24,7 @@
 
 ## **7.1 What SQL Is, and Why it is Used**
 
-SQL is the language used to access relational databases.  In a relational database, the data is stored in tables, each of which looks like a spreadsheat.  The database has a schema, and for each table in the database, the schema describes the columns in each table, giving each a name and a datatype.  There aren't many datatypes in a relational database.  We'll use SQLite, and SQLite, at bottom, has really only TEXT, NUMERIC, INTEGER, REAL, or BLOB.  One can compare this with no-SQL databases like MongoDB, when you can store any JSON document you like.  The schema can seem like a straightjacket, but it is really more a set of rails, organizing data into a structured form.
+SQL is the language used to access relational databases.  In a relational database, the data is stored in tables, each of which looks like a spreadsheat.  The database has a schema, and for each table in the database, the schema describes the columns in each table, giving each a name and a datatype.  There aren't many datatypes in a relational database.  We'll use SQLite, and SQLite only supports TEXT, NUMERIC, INTEGER, REAL, or BLOB datatypes.  Other datatypes are supported in SQLite by mapping them to one of these four.  (Other SQL implementations support more.)  One can compare this to no-SQL databases like MongoDB, when you can store any JSON document you like.  The schema can seem like a straitjacket, but it is really more a set of rails, organizing data into a structured form.
 
 Read the following introduction: <https://www.theodinproject.com/lessons/databases-databases-and-sql>.  Or, if you know this stuff, jump to the bottom of that page and do the Knowledge Check.  Be sure that you understand the concepts of Primary Key and Foreign Key.
 
@@ -34,10 +34,10 @@ There are two important words left out of that introduction: Association and Tra
 
 An association exists between tables if one table has a foreign key that points to the other.  Consider the following cases:
 
-1. An application has a users table and a user_profiles table.  Each user_profiles record has a foreign key, which is the primary key of a record in the users table.  This is a one-to-one association.
-2. An application has blogs.  Each blog has a series of posts.  The application might have a blogs table and a posts table.  Each entry in the posts table would have a foreign key for a blog, indicating the blog to which it belongs.  This is a one-to-many association, as one blog has many posts.
+1. An application has a `users` table and a `user_profiles` table.  Each record in the `user_profiles` table has a foreign key, which is the primary key of a record in the `users` table.  This is a one-to-one association.
+2. An application has blogs.  Each blog has a series of posts.  The application might have a `blogs` table and a `posts` table.  Each record in the `posts` table would have a foreign key for a `blogs` table record, indicating the blog to which it belongs.  This is a one-to-many association, as one blog has many posts.
 3. A magazine publisher has magazines and subscribers.  Each subscriber may subscribe to several magazines, and each magazine may have many subscribers.  Now we have a problem.  
-We can't put a list of subscribers into a magazine record. Relational database records can't contain lists.  For a given magazine, we could create one record for each subscriber, but we'd be duplicating all the information that describes the magazine many times over.  Similarly, there is no way for the subscribers table to contain records for each magazine for each subscriber.  So, you need a table in the middle, sometimes called a join table.  In this case, the join table might be subscriptions.  Each subscription record has two foreign keys, one for the magazine and one for the subscriber.  This is a many-to many association.
+We can't put a list of subscribers into a magazine record. Relational database records can't contain lists.  For a given magazine, we could create one record for each subscriber, but we'd be duplicating all the information that describes the magazine many times over.  Similarly, there is no way for the `subscribers` table to contain records for each magazine for each subscriber.  So, you need a table in the middle, sometimes called a **join table**.  In this case, the join table might be `subscriptions`.  Each subscription record has two foreign keys, one for the magazine and one for the subscriber.  This is a many-to many association.
 
 ### **Transactions**
 
@@ -49,15 +49,15 @@ A transaction is a write operation on an SQL database that guarantees consistenc
 - Update that record to increase the balance by the desired amount.
 - Commit the transaction
 
-The transaction maintains consistency.  When the read occurs, that entry is locked. (This depends on the isolation level and other stuff we won't get into now.)  That lock is important, as otherwise there could be another withdrawal from the account that happens after the read but before the update, and the user would go overdrawn.  Also, you do not want the update that decreases the balance to complete while the update that increases the balance in the other account fails.  That would anger the user, and justifiably so.  Either each succeeds or neither.
+The transaction maintains consistency.  When the read occurs, that entry is locked. (This depends on the isolation level and other stuff we won't get into now.)  That lock is important, as otherwise there could be another withdrawal from the account that happens after the read but before the update, and the account would go overdrawn.  Neither do you want the update that decreases the balance to complete while the update that increases the balance in the other account fails.  That would anger the user, and justifiably so.  With transactions, either both write operations succeed or neither succeeds.
 
-Relational databases's strength, by comparision with no-SQL databases, is the efficient handing of structured and interrelated data and transactional operations on that data.
+Relational databases' strength, by comparision with no-SQL databases, is the efficient handing of structured and interrelated data and transactional operations on that data.
 
 ### **Constraints**
 
-When a table is defined in the schema, **constraints** on the values may also be specified.
+When a table is defined in the schema, one or several **constraints** on the values may also be specified.
 
-- Datatype constraints: One constraint comes from the datatype of the column: you can't put a string in an integer column, etc.  
+- Datatype constraints: One constraint comes from the datatype of the column: you can't put a TEXT value in an INTEGER column, etc.  
 - NOT NULL constraint:  When present, it means that whenever a record is created or updated, that column in the record must have a value.  
 - UNIQUE constraint: You wouldn't want several users to have the same ID for example.  
 - FOREIGN KEY constraint.  In the blog example above, each post must belong to a blog, meaning that the post record has the blog's primary key as a foreign key.  Otherwise you'd have a post that belonged to no blog, a worthless situation.
@@ -203,7 +203,7 @@ with sqlite3.connect("./db/school.db") as conn:
     # If you don't commit the transaction, it is rolled back at the end of the with statement, and the data is discarded.
     print("Sample data inserted successfully.")
 ```
-Note that you do not have to specify the primary keys (student_id and course_id), although you can.  These are chosen for you, and the primary key column will never be null and will always have unique values.  If you do specify the primary keys, they have to be unique -- there can be no record in that table with the same primary key, or you get an exception.  You notice that there is no 'begin' statement for the commit.  By default, SQLite begins a transaction for you automatically.
+Note that you do not have to specify the primary keys (student_id and course_id), although you can.  If you don't specify the primary keys, these are chosen for you, and the primary key column will never be null and will always have unique values.  If you do specify the primary keys, they have to be unique -- there can be no record in that table with the same primary key, or you get an exception.  You notice that there is no 'begin' statement for the commit.  By default, SQLite begins a transaction for you automatically.
 
 At this point, you should install the SQLite Viewer plugin for your VSCode.  Once you've done that, open the db/school.db file in VSCode, and the tables you have created are displayed, along with any data you have added.
 
@@ -268,6 +268,8 @@ The code above uses a **parameterized statement**.  You have `?` markers in the 
 SQL queries allow you to interact with and analyze data. You will learn how to use SQL commands to retrieve and manipulate data.
 
 **Queries:**
+
+The SQL statements in this lesson, unless included in Python code, are just examples -- you do not need to add these to your code.
 
 - Retrieve all student information:
 
@@ -379,7 +381,8 @@ Answer:
 
 ## **7.7 More Complicated Queries**
 
-In the WHERE clause, you can use various comparison operators such as `< > <= >= <>`.  The `<>` means not equals.  You can also do math, such as `quantity * price`.  And, you can use the LIKE operator to find strings with the `%` sign used as a wildcard.  Fir example, to find all the math courses, you could do this:
+In the WHERE clause, you can use various comparison operators such as `< > <= >= <>`.  The `<>` means not equals.  You can also do math, such as `quantity * price`.  And, you can use the LIKE operator to find strings with the `%` sign used as a wildcard.  For example, to find all the math courses, you could do this:
+
 ```sql
 SELECT * FROM Courses WHERE course_name LIKE "math%";
 ```
@@ -464,7 +467,7 @@ Change the directory to the python_homework folder and run the `load_db.py` prog
 
 How does a data analyst use SQL?
 
-You have learned how to load a Pandas DataFrame from a CSV file.  A limitation of CSV files is that they are static.  Each reflects the data as of some time in the past.  Suppose you want to use Pandas to analyse the baseball standings.  These change from day to day -- but one could have a relational database with this information that is updated continuously.  You'd want to load that information into Pandas.  Fortunately, this is very easy. 
+You have learned how to load a Pandas DataFrame from a CSV file.  A limitation of CSV files is that they are static.  Each reflects data as it was some time in the past, when the file was written.  Suppose you want to use Pandas to analyse the baseball standings.  These change from day to day -- but instead of a CSV file, one can have a relational database with this information that is updated continuously.  You'd want to load that information into Pandas.  Fortunately, this is very easy. 
 
 ```python
 import pandas as pd

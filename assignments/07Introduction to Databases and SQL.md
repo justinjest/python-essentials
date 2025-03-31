@@ -7,7 +7,7 @@ For this assignment, you create code in your python_homework/assignment7 folder.
 1. Within your python_homework/assignment7 folder, create an `assignment7` branch.
 2. Make that folder the active directory.  Within that folder, create a file `sql_intro.py`.
 2. Write code to connect to a new SQLite database, `../db/magazines.db` and to close the connection.
-3. Execute the script and confirm the database file is created.  Note: All SQL statements should be executed within a try block, because they can raise exceptions.
+3. Execute the script and confirm the database file is created.  Note: All SQL statements should be executed within a `try` block, followed by a corresponing `except` block, because any SQL statement can cause an exception to be raised.
 
 ---
 
