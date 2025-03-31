@@ -175,7 +175,7 @@ df = pd.DataFrame({
 
 ```python
 order_data = [
-    "Order #123 has been shipped on 2021-01-05",
+    "Order #123 has been shipped on 2021-01-05 (Tuesday)",
     "Order #124 has been cancelled",
     "shipment confirmation #125 on 02/06/2021",
     "Order #126 delivered on 01 07 2021",
