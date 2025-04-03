@@ -27,7 +27,7 @@ We have publishers that publish magazines.  Each publisher has a unique name, an
 
 ---
 
-## **Task 4: Populate Tables with Data**
+## **Task 3: Populate Tables with Data**
 1. Add the following line to sql_intro.py, right after the statement that connects to the database:
    ```
    conn.execute("PRAGMA foreign_keys = 1")
@@ -39,22 +39,22 @@ We have publishers that publish magazines.  Each publisher has a unique name, an
 
 ---
 
-## **Task 5: Write SQL Queries**
+## **Task 4: Write SQL Queries**
 1. Write a query to retrieve all information from the subscribers table.
 2. Write a query to retrieve all magazines sorted by name.
-3. Wite a query to find magazines for a particular publisher, one of the publishers you created.  This requires a `JOIN`. 
+3. Write a query to find magazines for a particular publisher, one of the publishers you created.  This requires a `JOIN`. 
 4. Add these queries to your script.  For each, print out all the rows returned by the query.
 
 ---
 
 ## **Task 6: Read Data into a DataFrame**
 
-You will now use Pandas to create summary data from the db/lesson.db database you populated as part of the lesson.  We want to find out how many times each product has been ordered, and what was the total price paid by product.
+You will now use Pandas to create summary data from the `../db/lesson.db` database you populated as part of the lesson.  We want to find out how many times each product has been ordered, and what was the total price paid by product.
 
 1. While still within the python_homework/lesson7 directory, create a program, `sql_intro_2.py`.
 2. Read data into a DataFrame, as described in the lesson.  The SQL statement should retrieve the line_item_id, quantity, product_id, product_name, and price from a JOIN of the line_items table and the product table. Hint: Your `ON` statement would be `ON line_items.product_id = products.product_id`.
 3. Print the first 5 lines of the resulting DataFrame.  Run the program to make sure this much works.
-4. Add a column to the DataFrame called "total".  This is the quantity times the price.  (This is easy: df[total] = df[quantity] * df[price]).  Print out the first 5 lines of the DataFrame to make sure this works.
+4. Add a column to the DataFrame called "total".  This is the quantity times the price.  (This is easy: `df['total'] = df['quantity'] * df['price']`.)  Print out the first 5 lines of the DataFrame to make sure this works.
 5. Add groupby() code to group by the product_id.  Use an agg() method that specifies 'count' for the line_item_id column, 'sum' for the total column, and 'first' for the 'product_name'.  Print out the first 5 lines of the resulting DataFrame.  Run the program to see if it is correct so far.
 6. Sort the DataFrame by the product_name column.
 7. Add code to write this DataFrame to a file `order_summary.csv`, which should be written in the `assignment7` directory.  Verify that this file is correct.
