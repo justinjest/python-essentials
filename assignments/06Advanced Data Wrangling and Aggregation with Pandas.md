@@ -135,7 +135,7 @@ Validation of the final result, and failure analysis for whatever isn't working 
 
 3. What could be done to make the data valid?  Put your ideas into the markdown cell.  Hint: The solution is often not more code.
 
-4. The assumption that a name is not correct unless it is spelled the same way 3 or more times has introduced problems.  "Mrs. Gail Perez" was misspelled twice, so all 4 instances were replaced by "Mrs. Taylor Johnson DDS".  That's dead wrong.  How could we avoid errors like this?  Since this assignment was created, someone thought of a check you can perform to find nearly all errors, but it must be done before you remove duplicates.  What is that check?
+4. The assumption that a name is not correct unless it is spelled the same way 3 or more times has introduced problems.  "Mrs. Gail Perez" was misspelled twice, so all 4 instances were replaced by "Mrs. Taylor Johnson DDS".  That's dead wrong. The name and address fixing algorithm is really not very good. How could we avoid errors like this?  Also, since this assignment was created, someone thought of a check you can perform to find nearly all errors, but it must be done before you remove duplicates.  What is that check?
 
 You see that data cleaning often involves assumptions.  Those require careful thought. Such assumptions are necessary, but they might be wrong.
 
