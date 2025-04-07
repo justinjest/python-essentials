@@ -2,10 +2,10 @@
 # **Lesson 10 — Data Storage and Retrieval**
 
 ## **Lesson Overview**
-**Learning objective:** In this lesson, students will learn how to efficiently store and retrieve data using various formats like JSON, CSV, and databases. The lesson will also cover how to manipulate and analyze the stored data using Python libraries such as Pandas and SQL. Additionally, students will gain insight into choosing the best storage solution based on different project scales and complexities.
+**Learning objective:** In this lesson, students will learn how to efficiently store and retrieve data using databases. The lesson will also cover how to manipulate and analyze the stored data using Python libraries such as Pandas and SQL. Additionally, students will gain insight into choosing the best storage solution based on different project scales and complexities.
 
 ### **Topics:**
-1. Storing Scraped Data: JSON, CSV, and Databases
+1. Storing Scraped Data in Databases
 2. Retrieving and Analyzing Data: SQL and Pandas
 3. Optimizing Data Storage: Relational vs. Non-relational Databases
 4. Exploring Data Retrieval Techniques: SQL Queries and DataFrame Operations
@@ -20,56 +20,12 @@ After scraping data from the web, it’s essential to store it in a format that 
 - **CSV:** A tabular format that is compatible with spreadsheets and easy to manipulate.
 - **Databases:** Best suited for large, structured data that needs to be queried efficiently.
 
-### **Storing Data in JSON**
-1. Use Python's `json` module to serialize Python objects into a JSON file.
-2. Store scraped elements such as page titles, headers, and links.
+In the previous lesson you have stored data as JSON and CSV file, now we're going to take that data and input it into a sqlite database.
 
-#### **Example Code: Storing Data in JSON**
-```python
-import json
-
-# Sample scraped data
-data = {
-    "title": "Web scraping",
-    "headers": ["Introduction", "Techniques", "Legal issues"],
-    "links": ["https://example.com/intro", "https://example.com/techniques"]
-}
-
-# Save data to a JSON file
-with open("scraped_data.json", "w") as json_file:
-    json.dump(data, json_file, indent=4)
-
-print("Data saved to scraped_data.json.")
-```
-
----
-
-### **Storing Data in CSV**
-1. Use Python's `csv` module to write tabular data in a CSV format.
-2. Store data in rows and columns, which is convenient for spreadsheet manipulation and analysis.
-
-#### **Example Code: Storing Data in CSV**
-```python
-import csv
-
-# Sample scraped data
-data = [
-    ["Header", "Link", "Image"],
-    ["Introduction", "https://example.com/intro", "https://example.com/image1.png"],
-    ["Techniques", "https://example.com/techniques", "https://example.com/image2.png"]
-]
-
-# Save data to a CSV file
-with open("scraped_data.csv", "w", newline="") as csv_file:
-    writer = csv.writer(csv_file)
-    writer.writerows(data)
-
-print("Data saved to scraped_data.csv.")
-```
-
----
 
 ### **Storing Data in Databases**
+It is common to use data frames when you are processing data from the internet, and then to save it as a database so that you are able to reference it in the future. This is because data frames are stored in memory, and data bases are saved on disk. Using this you are also able to process more data at once, without running into limits of your computers memory. 
+
 1. Use SQLite to create a database table that can hold structured data.
 2. Insert scraped data using SQL commands for easy retrieval and analysis.
 
@@ -196,7 +152,7 @@ print(department_stats)
 ## **Summary**
 
 In this lesson, you learned:
-1. How to store scraped data using JSON, CSV, and databases.
+1. How to store scraped data using databases.
 2. How to retrieve and analyze stored data using SQL and Pandas.
 3. The differences between relational and non-relational databases and when to use each type.
 4. Techniques for efficiently retrieving and analyzing data stored in databases.
