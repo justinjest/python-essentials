@@ -9,7 +9,7 @@
 2. Retrieving and Analyzing Data: SQL and Pandas
 3. Optimizing Data Storage: Relational vs. Non-relational Databases
 4. Exploring Data Retrieval Techniques: SQL Queries and DataFrame Operations
-
+5. Using decorators in Python
 ---
 
 ## **10.1 Storing Scraped Data**
@@ -148,7 +148,60 @@ print(department_stats)
 ```
 
 ---
+## **10.4 Exploring Data Retrieval Techniques: SQL Queries and DataFrame Operations**
 
+### **Overview**
+Python classifies functions as first class citizens, which means that you are able to apply one function to another function. Decorators allow this to be clearer and easier to read.
+### **Key techniques**
+Decorators are functions that can be called in a unique way, and accept a function as an input.
+
+```Python3
+
+def decorator(func):
+    def wrapper():
+        print ("Hello!")
+        func()
+        print ("World")
+@decorator
+def name():
+    print("John")
+```
+
+Note in this example the output:
+```
+Hello!
+John
+World!
+```
+
+Why did we get this result? The answer is because @decorator called the function using the decorator function. It is effectively equivelent to calling
+```python3
+decorator(name())
+```
+but is much clearer and easier to understand.
+
+In this example the function is fairly trivial, however in the next section we can dig into a more useful way to use this.
+### **Example code**
+
+We will be writting a decorator that allows us to benchmark different sections of code. We need to allow all functions to go into this decorator, and it will print out the time it took for a function to complete.
+```python3
+import time
+
+def timer(func):
+    ## Output the time the inner function takes
+    def wrapper_timer(*args, **kwargs):
+        start_time = time.perf_counter()
+        value = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        run_time = end_time - start_time
+        print ("Finished in {run_time:.4f} secs")
+        return value
+    return wrapper_timer
+```
+
+
+
+---
 ## **Summary**
 
 In this lesson, you learned:
